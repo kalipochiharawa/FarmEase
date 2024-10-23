@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 function App() {
   return (
-    <div className="min-h-screen bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url('/Algricuture-background.jpg')" }}>
+    <div className="min-h-screen bg-cover font-poppins bg-center flex items-center justify-center" style={{ backgroundImage: "url('/Algricuture-background.jpg')" }}>
      
       <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-screen-xl">
 
