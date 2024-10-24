@@ -12,24 +12,14 @@ function NavbarAndHead() {
       <nav className="bg-white font-medium text-black px-6 mt-6 mb-6 font-poppins hidden lg:block"> 
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <ul className="flex space-x-8 text-sm font-medium">
+          <li>
+              <Link to="/home" className="hover:text-gray-700">
+                Home
+              </Link>
+            </li>
             <li>
               <Link to="/about" className="hover:text-gray-700">
                 About us
-              </Link>
-            </li>
-            <li>
-              <Link to="/news" className="hover:text-gray-700">
-                News
-              </Link>
-            </li>
-            <li>
-              <Link to="/plans" className="hover:text-gray-700">
-                Plans
-              </Link>
-            </li>
-            <li>
-              <Link to="/industry" className="hover:text-gray-700">
-                Industry
               </Link>
             </li>
             <li>
@@ -45,11 +35,6 @@ function NavbarAndHead() {
             <li>
               <Link to="/contact" className="hover:text-gray-700">
                 Contact us
-              </Link>
-            </li>
-            <li>
-              <Link to="/faqs" className="hover:text-gray-700">
-                FAQs
               </Link>
             </li>
           </ul>
