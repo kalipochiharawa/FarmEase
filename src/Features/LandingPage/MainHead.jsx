@@ -114,8 +114,25 @@ function NavbarAndHead() {
             </button>
           </div>
 
-          {/* Merge both navbar links in mobile */}
-          <ul className="space-y-4 text-sm px-4">
+          {/* User Section (Moved to the top of the mobile menu) */}
+          <div className="flex items-center space-x-2 px-4 pb-4 border-b">
+            <FaUser className="w-6 h-6 text-gray-600" />
+            <div className="text-gray-600">
+              <span className="text-sm text-gray-700">Welcome User</span>
+              <div className="flex space-x-2">
+                <a href="/login" className="underline-animation text-sm font-bold">
+                  Login
+                </a>
+                <span>or</span>
+                <a href="/register" className="underline-animation text-sm font-bold">
+                  Register
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Navigation Links (Below User Section) */}
+          <ul className="space-y-4 text-sm px-4 mt-4">
             <li>
               <Link to="/about" className="block hover:text-gray-700">
                 About us
@@ -156,23 +173,6 @@ function NavbarAndHead() {
                 FAQs
               </Link>
             </li>
-
-            {/* User Section (Mobile) */}
-            <div className="flex items-center space-x-2">
-              <FaUser className="w-6 h-6 text-gray-600" />
-              <div className="text-gray-600">
-                <span className="text-sm text-gray-700">Welcome User</span>
-                <div className="flex space-x-2">
-                  <a href="/login" className="underline-animation text-sm font-bold">
-                    Login
-                  </a>
-                  <span>or</span>
-                  <a href="/register" className="underline-animation text-sm font-bold">
-                    Register
-                  </a>
-                </div>
-              </div>
-            </div>
           </ul>
         </div>
       </nav>
