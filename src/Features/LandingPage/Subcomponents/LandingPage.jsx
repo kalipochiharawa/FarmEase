@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown, Search, MapPin, ShoppingCart } from 'lucide-react';
+import LandImage from './image01.jpg'
 
 const LandingPage = () => {
   const [categoryOpen, setCategoryOpen] = useState(false);
@@ -30,22 +31,22 @@ const LandingPage = () => {
       <div 
         className="bg-cover bg-center min-h-screen flex flex-col justify-end pb-8 md:pb-12 lg:pb-16"
         style={{
-          backgroundImage: `url('/api/placeholder/1600/900')`,
+          backgroundImage: `url(${LandImage})`,
         }}
       >
         <div className="absolute inset-0 bg-black/20"></div>
 
         {/* Title Section - Always on top */}
         <div className="relative z-20 text-center mb-8 md:mb-12 lg:mb-16">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight px-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal shadow-md text-white tracking-tight px-4">
             From Farm to Market,{' '}
             <br />
-            <span className="text-[#22c55e]">Seamlessly.</span>
+            <span className="text-[#22c55e] shadow-xl font-semibold">Seamlessly.</span>
           </h1>
         </div>
 
         {/* Search Container */}
-        <div className="relative z-10 mx-auto w-11/12 md:w-10/12 lg:w-8/12">
+        <div className="relative z-10 mx-auto font-medium shadow-sm w-11/12 md:w-10/12 lg:w-8/12"> 
           <div className="bg-white shadow-xl rounded-2xl p-4 md:p-6 lg:p-8">
             <div className="flex flex-col md:flex-row items-stretch space-y-4 md:space-y-0 md:space-x-4">
               {/* Category Dropdown */}
