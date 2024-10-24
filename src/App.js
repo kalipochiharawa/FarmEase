@@ -7,7 +7,6 @@ import Navbar from "./Features/LandingPage/MainHead.jsx";
 function App() {
   return (
     <div>
-      <Head/>
       <Navbar/>
       <Login />
       <Register />
