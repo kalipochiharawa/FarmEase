@@ -1,9 +1,11 @@
-
+import React from "react";
+import MyProfile from "./MyProfile"
 import Sidebar from "./SideBar";
-function App() {
+
+const App = () => {
   return (
-    <div>
-   <Sidebar/>
+    <div className='container`'>
+      <Sidebar/>
     </div>
   );
 }
