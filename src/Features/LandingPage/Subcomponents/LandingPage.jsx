@@ -10,15 +10,10 @@ const LandingPage = () => {
     "Fruits & Vegetables",
     "Legumes & Edible Seeds",
     "Grains",
-    "Seafood",
     "Eggs & Milk",
     "Coffee & Tea",
     "Herbs & Spices",
-    "Floral",
-    "Honey",
-    "Fibre",
-    "Fodder",
-    "Textile"
+    "Fibre"
   ];
 
   const handleCategorySelect = (category) => {
@@ -36,12 +31,11 @@ const LandingPage = () => {
       >
         <div className="absolute inset-0 bg-black/20"></div>
 
-        {/* Title Section - Always on top */}
         <div className="relative z-20 text-center mb-8 md:mb-12 lg:mb-16">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal shadow-md text-white tracking-tight px-4">
             From Farm to Market,{' '}
             <br />
-            <span className="text-[#22c55e] shadow-xl font-semibold">Seamlessly.</span>
+            <span className="text-[#22c55e] drop-shadow-2xl font-semibold">Seamlessly.</span>
           </h1>
         </div>
 
