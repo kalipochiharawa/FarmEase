@@ -62,7 +62,7 @@ const CategorySlider = () => {
 
   return (
     <div className="w-full max-w-6xl font-poppins mx-auto px-4">
-      <h2 className="text-3xl font-bold text-gray-800 mb-8 mt-4">Categories</h2>
+      <h2 className="text-3xl font-bold text-gray-800 mb-8 mt-16 text-center">Categories</h2>
       
       <div className="relative">
         {showLeftArrow && (
@@ -86,7 +86,7 @@ const CategorySlider = () => {
             <div
               key={category.id}
               onClick={() => handleCategoryClick(category.path)}
-              className="flex flex-col items-center justify-center min-w-[140px] bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
+              className="flex flex-col items-center h-32 justify-center min-w-[140px] bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
             >
               <category.Icon className="w-10 h-10 text-gray-700 mb-3" />
               <span className="text-sm font-medium text-gray-700">{category.name}</span>
