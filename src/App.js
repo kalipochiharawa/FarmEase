@@ -1,11 +1,13 @@
 import React from "react";
-import MyProfile from "./MyProfile"
-import Sidebar from "./SideBar";
+import MyProfile from "./MyProfile/MyProfile"
+import Sidebar from "./MyProfile/SideBar";
+import Card from "./MyProfile/Card"
 
 const App = () => {
   return (
     <div className='container`'>
-      <Sidebar/>
+       <MyProfile/>
+       <Card/>
     </div>
   );
 }
