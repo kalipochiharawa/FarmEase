@@ -1,9 +1,50 @@
-// src/MyProfile.js
+
 import React from "react";
 import SideBar from "./SideBar";
 import Card from "./Card";
+import  { useState } from 'react';
 
-export default function MyProfile() {
+
+const MyProfile = () => { 
+    const [isEditing, setIsEditing] = useState(false);
+    const [profile, setProfile] = useState({
+        name: "Kidloc Chikapa",
+        farm: "Garden Farms",
+        location: "Lilongwe",
+        email: "kidlocchikapa@gmail.co",
+        phone: "0990155300 / 0888777332"
+    });
+
+    const districtsInMalawi = [
+        "Lilongwe", "Blantyre", "Mzuzu", "Zomba", 
+        "Kasungu", "Mangochi", "Balaka", "Ntcheu", 
+        "Mchinji", "Nkhotakota"
+    ];
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setProfile({
+            ...profile,
+            [name]: value
+        });
+    };
+
+    const handleSelectChange = (e) => {
+        setProfile({
+            ...profile,
+            location: e.target.value
+        });
+    };
+
+    const toggleEdit = () => {
+        setIsEditing(!isEditing);
+    };
+
+    const saveChanges = () => {
+        // Add logic to save changes
+        setIsEditing(false);
+    };
+    
     return (
         <div className="flex">
             {/* Sidebar */}
@@ -17,38 +58,94 @@ export default function MyProfile() {
                     <button className="text-gray-500">My Account</button>
                 </div>
 
-                {/* Profile Card */}
-                <Card title="" editable>
-                    <div className="flex space-x-4 items-center">
-                        <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center">
-                            <span className="text-2xl">&#128100;</span>
-                        </div>
-                        <div>
-                            <p>Kidloc Chikapa</p>
-                            <p>Garden Farms</p>
-                            <p>Lilongwe</p>
-                        </div>
+               
+                <div>
+            {/* Profile Card */}
+            <Card title="Profile" editable>
+                <div className="flex space-x-4 items-center">
+                    <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center">
+                        <span className="text-2xl">&#128100;</span>
                     </div>
-                </Card>
-
-                {/* Additional Information Card */}
-                <Card title="Profile Information" editable>
-                    <div className="grid grid-cols-2 gap-4">
-                        <div>
-                            <p>Kidloc Chikapa</p>
-                            <p>Garden Farms</p>
-                            <p>Lilongwe</p>
-                        </div>
-                        <div>
-                            <p>kidlocchikapa@gmail.co</p>
-                            <p>0990155300 / 0888777332</p>
-                        </div>
+                    <div>
+                        {isEditing ? (
+                            <>
+                                <input
+                                    name="name"
+                                    value={profile.name}
+                                    onChange={handleInputChange}
+                                    placeholder="Name"
+                                />
+                                <input
+                                    name="farm"
+                                    value={profile.farm}
+                                    onChange={handleInputChange}
+                                    placeholder="Farm"
+                                />
+                                <select
+                                    value={profile.location}
+                                    onChange={handleSelectChange}
+                                >
+                                    {districtsInMalawi.map((district) => (
+                                        <option key={district} value={district}>
+                                            {district}
+                                        </option>
+                                    ))}
+                                </select>
+                            </>
+                        ) : (
+                            <>
+                                <p>{profile.name}</p>
+                                <p>{profile.farm}</p>
+                                <p>{profile.location}</p>
+                            </>
+                        )}
                     </div>
-                </Card>
+                </div>
+            </Card>
 
-                {/* Placeholder for additional content */}
-                <div className="w-full max-w-md p-4 bg-white border rounded-lg shadow-sm"></div>
+            {/* Additional Information Card */}
+            <Card title="Profile Information" editable>
+                <div className="grid grid-cols-2 gap-4">
+                    <div>
+                        {isEditing ? (
+                            <>
+                                <input
+                                    name="email"
+                                    value={profile.email}
+                                    onChange={handleInputChange}
+                                    placeholder="Email"
+                                />
+                                <input
+                                    name="phone"
+                                    value={profile.phone}
+                                    onChange={handleInputChange}
+                                    placeholder="Phone Number"
+                                />
+                            </>
+                        ) : (
+                            <>
+                                <p>{profile.email}</p>
+                                <p>{profile.phone}</p>
+                            </>
+                        )}
+                    </div>
+                </div>
+            </Card>
+
+            {/* Action Buttons */}
+            <div className="flex space-x-4 mt-4">
+                <button onClick={toggleEdit}>
+                    {isEditing ? "Cancel" : "Edit"}
+                </button>
+                {isEditing && (
+                    <button onClick={saveChanges}>
+                        Save
+                    </button>
+                )}
             </div>
         </div>
+        </div>
+        </div>
     );
-}
+};
+export default MyProfile;

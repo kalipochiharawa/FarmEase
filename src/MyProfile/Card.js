@@ -1,4 +1,4 @@
-// src/Card.js
+
 import React from "react";
 
 export default function Card({ title, children, editable }) {
