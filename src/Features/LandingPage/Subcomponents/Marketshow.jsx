@@ -85,7 +85,7 @@ const ProductCard = ({
   );
 };
 
-const ProductGrid = () => {
+const ProductMarket = () => {
   const navigate = useNavigate();  
 
   const products = [
@@ -143,7 +143,7 @@ const ProductGrid = () => {
     <div className="max-w-[1440px] font-poppins mx-auto p-4 sm:p-6">
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center gap-3">
-          <h2 className="text-3xl text-center mt-2 font-bold text-gray-800">Top Products</h2>
+          <h2 className="text-3xl mt-2 font-bold text-gray-800">Buy Us</h2>
         </div>
         <button 
           onClick={handleViewAll}
@@ -163,4 +163,4 @@ const ProductGrid = () => {
   );
 };
 
-export default ProductGrid;
+export default ProductMarket;

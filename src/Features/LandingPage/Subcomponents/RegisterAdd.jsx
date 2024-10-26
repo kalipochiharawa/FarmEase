@@ -4,10 +4,10 @@ import { FaArrowRight } from 'react-icons/fa';
 
 const RegisterSection = () => {
   return (
-    <div className="flex justify-center font-poppins items-center bg-gray-100 p-6 rounded-lg shadow-md">
+    <div className="flex justify-center font-poppins items-center bg-gray-100 p-6 rounded-lg ">
       <div className="flex flex-col lg:flex-row h-80 gap-4 items-center max-w-6xl">
         <div className="flex-1 flex flex-col justify-center">
-          <h2 className="text-lg md:text-2xl font-bold text-gray-900 mb-3">Looking for where to sell?</h2>
+          <h2 className="text-lg md:text-3xl font-bold text-gray-900 mb-3">Looking for where to sell?</h2>
           <p className="text-gray-700 mb-4 text-sm md:text-base">
             Every new member strengthens our marketplace, broadening our community of buyers and expanding opportunities for everyone involved. Registering with us means more than just signing up, it marks the beginning of a journey toward shared success. By joining, you enable us to better support you. Your partnership today is our collective strength tomorrow.
           </p>
