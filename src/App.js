@@ -1,20 +1,13 @@
-import React from "react";
-import Login from './Features/UserRegistration/Login.jsx'
-import Register from './Features/UserRegistration/Register.jsx'
-import {Route, Routes } from "react-router-dom";
-function App() {
+import React from 'react';
+import Sidebar from './Features/AddProducts/SideBar';
+import AddProductForm from './Features/AddProducts/Addproduct'
+const Layout = () => {
   return (
-    <div>
-    
-      <Routes>
-      <Route index element={<Login />} />  {/* Default to login page */}
-        <Route path="/Login" element={<Login />} />
-        <Route path="/Register" element={<Register />} />
-       
-      </Routes>
-    
+    <div className="flex min-h-screen">
+      <Sidebar />
+      <AddProductForm />
     </div>
   );
-}
+};
 
-export default App;
+export default Layout;
