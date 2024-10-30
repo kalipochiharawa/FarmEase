@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import img01 from './FarmerCarry.jpg';
+import img01 from './Farmer.jpg';
+import Image002 from './famMale.jpg';
+import Image003 from './Image003.jpg'
 
 const TestimonialSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -11,20 +13,20 @@ const TestimonialSlider = () => {
       id: 1,
       text: "Our customers were satisfied with the way they purchased our tomatoes.",
       image: img01,
-      name: "John Doe",
+      name: "Hassan Makono",
       company: "Fresh Farms Co."
     },
     {
       id: 2,
       text: "The quality of produce has exceeded our expectations.",
-      image: "/api/placeholder/400/400",
+      image: Image002,
       name: "Jane Smith",
-      company: "Green Acres Ltd."
+      company: "Green Acres cooperative"
     },
     {
       id: 3,
       text: "We've seen significant improvements in our supply chain.",
-      image: "/api/placeholder/400/400",
+      image: Image003,
       name: "Carlos Rodriguez",
       company: "Farm Direct Inc."
     }
@@ -53,12 +55,10 @@ const TestimonialSlider = () => {
   return (
     <div className="font-poppins bg-white min-h-screen">
       <div className="max-w-4xl mx-auto px-4 py-12">
-        {/* Header */}
+
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Testimonials
         </h2>
-
-        {/* Slider Container */}
         <div className="relative">
           <div className="overflow-hidden">
             <div
@@ -73,7 +73,6 @@ const TestimonialSlider = () => {
                       alt="Testimonial"
                       className="w-full h-auto max-h-96 object-cover rounded-2xl"
                     />
-                    {/* Text Overlay */}
                     <div className="absolute bottom-8 left-8 right-8 bg-white/80 backdrop-blur-sm rounded-xl p-6">
                       <p className="text-lg md:text-xl font-medium text-gray-900">
                         "{testimonial.text}"
@@ -92,8 +91,6 @@ const TestimonialSlider = () => {
               ))}
             </div>
           </div>
-
-          {/* Navigation Buttons */}
           <button
             onClick={handlePrevious}
             className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-all"
@@ -109,8 +106,6 @@ const TestimonialSlider = () => {
             <ChevronRight className="w-6 h-6" />
           </button>
         </div>
-
-        {/* Dots Navigation */}
         <div className="flex justify-center gap-2 mt-6">
           {testimonials.map((_, idx) => (
             <button

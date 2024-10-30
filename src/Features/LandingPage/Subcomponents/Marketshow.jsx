@@ -1,7 +1,7 @@
 import React from 'react';
 import { User, Scale, Package, Sprout, CheckCircle, ChevronRight } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';  
-import Img1 from './tomato.jpg';
+import Img1 from './chicken.jpg';
 import Img4 from './corn.jpg';
 import Img3 from './beans.jpg';
 import Img2 from './Potato.jpg';
@@ -90,7 +90,7 @@ const ProductMarket = () => {
 
   const products = [
     {
-      productName: "Premium Red Tomatoes",
+      productName: "Local Chicken",
       description: "Fresh, organically grown tomatoes perfect for salads and cooking. Harvested at peak ripeness for maximum flavor and nutrition.",
       farmerName: "John Smith",
       location: "Blantyre, Namiyango",

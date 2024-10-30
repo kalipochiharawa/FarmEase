@@ -1,10 +1,9 @@
 import React from 'react';
-import siloImage from './beans.jpg';
+import siloImage from './silo.jpg';
 
 const MarketplaceSection = () => {
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-between bg-white p-6 lg:p-8 rounded-lg shadow-md w-full mx-auto font-poppins">
-      {/* Text Section */}
+    <div className="flex flex-col lg:flex-row items-center justify-between bg-white p-6 lg:p-8  w-full mx-auto font-poppins">
       <div className="w-full lg:w-1/2 mb-4 lg:mb-0 px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 text-center lg:text-left">
           Farmease
@@ -24,13 +23,11 @@ const MarketplaceSection = () => {
           </button>
         </div>
       </div>
-
-      {/* Image Section */}
-      <div className="w-full lg:w-1/2 flex justify-center lg:justify-end px-4">
+      <div className="w-full lg:w-1/2 justify-items-end justify-center lg:justify-end px-4">
         <img
           src={siloImage}
           alt="Agricultural silos"
-          className="h-64 md:h-72 lg:h-80 w-auto rounded-lg"
+          className="h-64 md:h-72 lg:h-80 w-auto rounded-lg "
         />
       </div>
     </div>
