@@ -2,8 +2,8 @@ import React from 'react';
 import { User, Scale, Package, Sprout, CheckCircle, ChevronRight } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';  
 import Img1 from './chicken.jpg';
-import Img4 from './corn.jpg';
-import Img3 from './beans.jpg';
+import Img4 from './goat.jpg';
+import Img3 from './groundnuts.jpg';
 import Img2 from './Potato.jpg';
 
 const ProductCard = ({ 
@@ -101,7 +101,7 @@ const ProductMarket = () => {
       inStock: true
     },
     {
-      productName: "Organic Potatoes",
+      productName: "Irish Potatoes",
       description: "Locally grown organic potatoes, perfect for roasting, mashing, or frying. Rich in nutrients and great taste.",
       farmerName: "Mary Johnson",
       location: "Lilongwe, Area 25",
@@ -112,7 +112,7 @@ const ProductMarket = () => {
       inStock: true
     },
     {
-      productName: "Fresh Green Beans",
+      productName: "Dried groundnuts",
       description: "Crisp and tender green beans, hand-picked daily. Perfect for stir-fries and side dishes.",
       farmerName: "David Williams",
       location: "Zomba, Matawale",
@@ -123,7 +123,7 @@ const ProductMarket = () => {
       inStock: false
     },
     {
-      productName: "Sweet Corn",
+      productName: "Goat",
       description: "Golden sweet corn, naturally grown without pesticides. Perfect for grilling or boiling.",
       farmerName: "Sarah Brown",
       location: "Mzuzu, Luwinga",
