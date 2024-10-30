@@ -38,12 +38,9 @@ const LandingPage = () => {
             <span className="text-[#22c55e] drop-shadow-2xl font-semibold">Seamlessly.</span>
           </h1>
         </div>
-
-        {/* Search Container */}
         <div className="relative z-10 mx-auto font-medium shadow-sm w-11/12 md:w-10/12 lg:w-8/12"> 
           <div className="bg-white shadow-xl rounded-2xl p-4 md:p-6 lg:p-8">
             <div className="flex flex-col md:flex-row items-stretch space-y-4 md:space-y-0 md:space-x-4">
-              {/* Category Dropdown */}
               <div className="flex-1 relative">
                 <button
                   onClick={() => setCategoryOpen(!categoryOpen)}
@@ -87,8 +84,6 @@ const LandingPage = () => {
                   </div>
                 </div>
               </div>
-
-              {/* Product Search */}
               <div className="flex-[2]">
                 <div className="flex items-center border border-gray-200 rounded-lg px-4 py-3 hover:border-gray-300 transition-colors">
                   <Search className="w-5 h-5 text-gray-400 mr-2" />
@@ -99,20 +94,16 @@ const LandingPage = () => {
                   />
                 </div>
               </div>
-
-              {/* Location Search */}
               <div className="flex-1">
                 <div className="flex items-center border border-gray-200 rounded-lg px-4 py-3 hover:border-gray-300 transition-colors">
                   <MapPin className="w-5 h-5 text-gray-400 mr-2" />
                   <input
                     type="text"
                     placeholder="Search Location"
-                    className="w-full focus:outline-none text-gray-700"
+                    className=" focus:outline-none text-gray-700"
                   />
                 </div>
               </div>
-
-              {/* Search Button */}
               <button
                 type="submit"
                 className="bg-[#22c55e] hover:bg-[#16a34a] text-white font-semibold py-3 px-8 rounded-lg transition-colors flex items-center justify-center space-x-2"
