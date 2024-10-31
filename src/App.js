@@ -1,20 +1,15 @@
-import React from "react";
-import Login from './Features/UserRegistration/Login.jsx'
-import Register from './Features/UserRegistration/Register.jsx'
-import {Route, Routes } from "react-router-dom";
-function App() {
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import ProductListing from './Features/ProductListing/ShoppingCatalog';
+import PaymentGateway from './Features/PayementGateway/PayementPage';
+
+const App = () => {
   return (
-    <div>
-    
-      <Routes>
-      <Route index element={<Login />} />  {/* Default to login page */}
-        <Route path="/Login" element={<Login />} />
-        <Route path="/Register" element={<Register />} />
-       
-      </Routes>
-    
-    </div>
+    <Routes>
+      <Route path="/" element={<ProductListing />} />
+      <Route path="/payment" element={<PaymentGateway />} />
+    </Routes>
   );
-}
+};
 
 export default App;
