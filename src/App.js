@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import ProductListing from './Features/ProductListing/ShoppingCatalog';
-import PaymentGateway from './Features/PayementGateway/PayementPage';
+import PaymentGateway from './Features/PayementPage';
 
 const App = () => {
   return (
