@@ -1,12 +1,10 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import ProductListing from './Features/ProductListing/ShoppingCatalog';
-import PaymentGateway from './Features/PayementPage';
+import PaymentGateway from './Features/PaymentGateway/PaymentPage';
 
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<ProductListing />} />
       <Route path="/payment" element={<PaymentGateway />} />
     </Routes>
   );
