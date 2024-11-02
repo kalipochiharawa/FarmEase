@@ -3,6 +3,8 @@ import React from "react";
 import SideBar from "./SideBar";
 import Card from "./Card";
 import  { useState } from 'react';
+import { BsBellFill } from "react-icons/bs";
+import { IoPersonOutline } from "react-icons/io5";
 
 
 const MyProfile = () => { 
@@ -16,9 +18,15 @@ const MyProfile = () => {
     });
 
     const districtsInMalawi = [
-        "Lilongwe", "Blantyre", "Mzuzu", "Zomba", 
-        "Kasungu", "Mangochi", "Balaka", "Ntcheu", 
-        "Mchinji", "Nkhotakota"
+        "Lilongwe", "Blantyre", "Zomba", "Kasungu", 
+        "Mangochi", "Balaka", "Ntcheu",  "Mchinji", 
+        "Nkhotakota", "Dedza", "Dowa", "Neno",
+        "Ntchisi", "Salima", "Chitipa","Karonga", 
+        "Likoma", "Mzimba", "Nkhata Bay", "Rumphi",  
+        "Chikwawa", "Chiradzulu", "Machinga", "Mulanje", 
+        "Mwanza", "Nsanje", "Thyolo", "Phalombe"
+        
+        
     ];
 
     const handleInputChange = (e) => {
@@ -55,7 +63,11 @@ const MyProfile = () => {
                 {/* Header */}
                 <div className="flex justify-between items-center mb-4">
                     <h1 className="text-2xl font-bold">My Profile</h1>
-                    <button className="text-gray-500">My Account</button>
+                    <button className="text-gray-500 flex items-center space-x-2">
+                    <BsBellFill className="text-gray-500" /> {/* Contact Icon */}
+                    <IoPersonOutline className="text-gray-500" />      {/* Notification Icon */}
+                    <span>My Account</span>
+                    </button>
                 </div>
 
                
@@ -107,7 +119,12 @@ const MyProfile = () => {
             <Card title="Profile Information" editable>
                 <div className="grid grid-cols-2 gap-4">
                     <div>
+                    <button onClick={toggleEdit}>
+                    {isEditing ? "Cancel" : "Edit"}
+                </button>
                         {isEditing ? (
+                            
+                            
                             <>
                                 <input
                                     name="email"
