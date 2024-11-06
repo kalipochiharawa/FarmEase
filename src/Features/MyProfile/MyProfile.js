@@ -1,168 +1,47 @@
+import React, { useState } from 'react';
+import SideBar from './SideBar';
+import Header from './Header';
+import Profile from './Profile';
+import ProfileInformation from './ProfileInformation';
+import EmptyCard from './EmptyCard';
 
-import React from "react";
-import SideBar from "./SideBar";
-import Card from "./Card";
-import  { useState } from 'react';
-import { BsBellFill } from "react-icons/bs";
-import { IoPersonOutline } from "react-icons/io5";
+function MyProfile() {
+  const [profile, setProfile] = useState({
+    firstName: 'Kidloc',
+    lastName: 'Chikapa',
+    location: 'Lilongwe',
+    userType: 'Seller',
+  });
 
+  const [profileInfo, setProfileInfo] = useState({
+    name: 'Kidloc Chikapa',
+    location: 'Lilongwe',
+    email: 'Kidlocchikapa@gmail.com',
+    contact: '0990155300 / 0888777332',
+    userType: 'Seller',
+  });
 
-const MyProfile = () => { 
-    const [isEditing, setIsEditing] = useState(false);
-    const [profile, setProfile] = useState({
-        name: "Kidloc Chikapa",
-        farm: "Garden Farms",
-        location: "Lilongwe",
-        email: "kidlocchikapa@gmail.co",
-        phone: "0990155300 / 0888777332"
-    });
+  const handleProfileSave = (newProfile) => setProfile(newProfile);
+  const handleProfileInfoSave = (newProfileInfo) => setProfileInfo(newProfileInfo);
 
-    const districtsInMalawi = [
-        "Lilongwe", "Blantyre", "Zomba", "Kasungu", 
-        "Mangochi", "Balaka", "Ntcheu",  "Mchinji", 
-        "Nkhotakota", "Dedza", "Dowa", "Neno",
-        "Ntchisi", "Salima", "Chitipa","Karonga", 
-        "Likoma", "Mzimba", "Nkhata Bay", "Rumphi",  
-        "Chikwawa", "Chiradzulu", "Machinga", "Mulanje", 
-        "Mwanza", "Nsanje", "Thyolo", "Phalombe"
-        
-        
-    ];
+  return (
+    <div className="flex">
+      {/* Sidebar */}
+      <SideBar />
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setProfile({
-            ...profile,
-            [name]: value
-        });
-    };
+      {/* Main Content */}
+      <div className="flex-1">
+        <Header />
 
-    const handleSelectChange = (e) => {
-        setProfile({
-            ...profile,
-            location: e.target.value
-        });
-    };
+        <div className="p-6">
+          <h1 className="text-2xl font-bold mb-6">My Profile</h1>
 
-    const toggleEdit = () => {
-        setIsEditing(!isEditing);
-    };
-
-    const saveChanges = () => {
-        // Add logic to save changes
-        setIsEditing(false);
-    };
-    
-    return (
-        <div className="flex">
-            {/* Sidebar */}
-            <SideBar />
-
-            {/* Main Content */}
-            <div className="flex flex-col w-3/4 p-6">
-                {/* Header */}
-                <div className="flex justify-between items-center mb-4">
-                    <h1 className="text-2xl font-bold">My Profile</h1>
-                    <button className="text-gray-500 flex items-center space-x-2">
-                    <BsBellFill className="text-gray-500" /> {/* Contact Icon */}
-                    <IoPersonOutline className="text-gray-500" />      {/* Notification Icon */}
-                    <span>My Account</span>
-                    </button>
-                </div>
-
-               
-                <div>
-            {/* Profile Card */}
-            <Card title="Profile" editable>
-                <div className="flex space-x-4 items-center">
-                    <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center">
-                        <span className="text-2xl">&#128100;</span>
-                    </div>
-                    <div>
-                        {isEditing ? (
-                            <>
-                                <input
-                                    name="name"
-                                    value={profile.name}
-                                    onChange={handleInputChange}
-                                    placeholder="Name"
-                                />
-                                <input
-                                    name="farm"
-                                    value={profile.farm}
-                                    onChange={handleInputChange}
-                                    placeholder="Farm"
-                                />
-                                <select
-                                    value={profile.location}
-                                    onChange={handleSelectChange}
-                                >
-                                    {districtsInMalawi.map((district) => (
-                                        <option key={district} value={district}>
-                                            {district}
-                                        </option>
-                                    ))}
-                                </select>
-                            </>
-                        ) : (
-                            <>
-                                <p>{profile.name}</p>
-                                <p>{profile.farm}</p>
-                                <p>{profile.location}</p>
-                            </>
-                        )}
-                    </div>
-                </div>
-            </Card>
-
-            {/* Additional Information Card */}
-            <Card title="Profile Information" editable>
-                <div className="grid grid-cols-2 gap-4">
-                    <div>
-                    <button onClick={toggleEdit}>
-                    {isEditing ? "Cancel" : "Edit"}
-                </button>
-                        {isEditing ? (
-                            
-                            
-                            <>
-                                <input
-                                    name="email"
-                                    value={profile.email}
-                                    onChange={handleInputChange}
-                                    placeholder="Email"
-                                />
-                                <input
-                                    name="phone"
-                                    value={profile.phone}
-                                    onChange={handleInputChange}
-                                    placeholder="Phone Number"
-                                />
-                            </>
-                        ) : (
-                            <>
-                                <p>{profile.email}</p>
-                                <p>{profile.phone}</p>
-                            </>
-                        )}
-                    </div>
-                </div>
-            </Card>
-
-            {/* Action Buttons */}
-            <div className="flex space-x-4 mt-4">
-                <button onClick={toggleEdit}>
-                    {isEditing ? "Cancel" : "Edit"}
-                </button>
-                {isEditing && (
-                    <button onClick={saveChanges}>
-                        Save
-                    </button>
-                )}
-            </div>
+          <Profile profile={profile} onSave={handleProfileSave} />
+          <ProfileInformation profileInfo={profileInfo} onSave={handleProfileInfoSave} />
         </div>
-        </div>
-        </div>
-    );
-};
+      </div>
+    </div>
+  );
+}
+
 export default MyProfile;

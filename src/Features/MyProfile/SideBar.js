@@ -1,61 +1,52 @@
-// src/SideBar.js
-import React from "react";
-import { MdHome } from 'react-icons/md';
-import { LuPlusCircle } from "react-icons/lu";
+// components/SideBar.js
+import React from 'react';
+import { FaHouse } from "react-icons/fa6";
+import { CiCirclePlus } from "react-icons/ci";
 import { IoWalletOutline } from "react-icons/io5";
-import { MdPersonOutline } from "react-icons/md";
-import { BiLogOutCircle } from "react-icons/bi";
-import { HiOutlineTrash } from "react-icons/hi2";
-import { FaInfo } from "react-icons/fa6";
+import { IoPersonOutline } from "react-icons/io5";
+import { IoIosInformation } from "react-icons/io";
+import { RiLogoutCircleRLine } from "react-icons/ri";
+import { PiTrashLight } from "react-icons/pi";
 
-export default function SideBar() {
-    return (
-        <div className="w-1/4 bg-white p-4 h-screen">
-            <h3 className="text-xl font-bold text-green-500 mb-4">FarmEase</h3>
-            <ul className="space-y-4">
-                <li>
-                    <a href="#" className="flex items-center space-x-2">
-                        < MdHome className="text-lg" />
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" className="flex items-center space-x-2">
-                        <LuPlusCircle className="text-lg" />
-                        <span>Add Product</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" className="flex items-center space-x-2">
-                        <IoWalletOutline className="text-lg" />
-                        <span>Analytics</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" className="flex items-center space-x-2">
-                        <MdPersonOutline className="text-lg" />
-                        <span>My Profile</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" className="flex items-center space-x-2">
-                        <FaInfo className="text-lg" />
-                        <span>Profile Info</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" className="flex items-center space-x-2">
-                        <BiLogOutCircle className="text-lg" />
-                        <span>Logout</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" className="flex items-center space-x-2">
-                        <HiOutlineTrash className="text-lg" />
-                        <span>Delete Account</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    );
+function SideBar() {
+  return (
+    <div className="w-64 bg-white h-screen border-r p-6 space-y-6">
+      {/* Logo */}
+      <h1 className="text-green-600 text-2xl font-bold mb-8">Farmease.</h1>
+
+      {/* Navigation Links */}
+      <nav className="flex flex-col space-y-4">
+        <a href="#" className="flex items-center text-gray-700 hover:text-green-600">
+          <FaHouse  className="h-6 w-6 mr-3" />
+          Home
+        </a>
+        <a href="#" className="flex items-center text-gray-700 hover:text-green-600">
+          <CiCirclePlus className="h-6 w-6 mr-3" />
+          Add Product
+        </a>
+        <a href="#" className="flex items-center text-gray-700 hover:text-green-600">
+          <IoWalletOutline className="h-6 w-6 mr-3" />
+          Analytics
+        </a>
+        <a href="#" className="flex items-center text-gray-700 hover:text-green-600">
+          <IoPersonOutline  className="h-6 w-6 mr-3" />
+          My Profile
+        </a>
+        <a href="#" className="flex items-center text-gray-700 hover:text-green-600">
+          <IoIosInformation className="h-6 w-6 mr-3" />
+          Profile Info
+        </a>
+        <a href="#" className="flex items-center text-gray-700 hover:text-green-600">
+          <RiLogoutCircleRLine className="h-6 w-6 mr-3" />
+          Logout
+        </a>
+        <a href="#" className="flex items-center text-gray-700 hover:text-green-600">
+          <PiTrashLight className="h-6 w-6 mr-3" />
+          Delete Account
+        </a>
+      </nav>
+    </div>
+  );
 }
+
+export default SideBar;
