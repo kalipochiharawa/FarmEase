@@ -41,7 +41,7 @@ const BenefitsProcess = () => {
       setActiveStep((prev) => (prev < steps.length - 1 ? prev + 1 : 0));
     }, 3000);
     return () => clearInterval(timer);
-  }, );
+  }, []);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 lg:py-12 font-poppins">
@@ -55,10 +55,6 @@ const BenefitsProcess = () => {
           @keyframes slideIn {
             from { transform: translateY(10px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
-          }
-
-          .progress-line {
-            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
           }
           
           .circle-fill {
@@ -81,22 +77,6 @@ const BenefitsProcess = () => {
       </div>
       
       <div className="relative">
-        <div className="absolute top-1/2 left-0 right-0 -translate-y-1/2 h-0.5 hidden lg:block">
-          <div className="w-full max-w-3xl mx-auto h-full flex items-center justify-center">
-            <div className="w-1/3 h-0.5 bg-gray-200">
-              <div 
-                className="h-full bg-green-500 progress-line"
-                style={{ width: activeStep >= 1 ? '100%' : '0%' }}
-              />
-            </div>
-            <div className="w-1/3 h-0.5 bg-gray-200">
-              <div 
-                className="h-full bg-green-500 progress-line"
-                style={{ width: activeStep >= 2 ? '100%' : '0%' }}
-              />
-            </div>
-          </div>
-        </div>
         <div className="flex flex-col lg:flex-row justify-between items-start gap-6 max-w-3xl mx-auto">
           {steps.map((step, index) => (
             <div 
