@@ -274,7 +274,7 @@ const ProductListing = () => {
                     </span>
                     <button
                       onClick={() => handleBuyNow(product)}
-                      className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition"
+                      className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
                     >
                       Buy Now
                     </button>
