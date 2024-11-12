@@ -1,11 +1,10 @@
 import React from 'react';
-import LandingPageLayout from './Features/LandingPage/LandingpageLayut.jsx';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LandingPageLayout from './Features/LandingPage/LandingpageLayout';
 
 function App() {
   return (
-    <div>
-      <LandingPageLayout />
-    </div>
+    <LandingPageLayout/>
   );
 }
 

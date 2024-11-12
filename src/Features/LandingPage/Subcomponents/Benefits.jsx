@@ -41,7 +41,7 @@ const BenefitsProcess = () => {
       setActiveStep((prev) => (prev < steps.length - 1 ? prev + 1 : 0));
     }, 3000);
     return () => clearInterval(timer);
-  }, []);
+  }, );
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 lg:py-12 font-poppins">
