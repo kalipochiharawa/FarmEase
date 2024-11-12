@@ -35,6 +35,7 @@ const PaymentGateway = () => {
     setPaymentStatus(null);
 
     try {
+      // Initialize the payment by sending payment details to the backend
       const initResponse = await axios.post('http://localhost:5000/payments/initialize', paymentData);
       const { charge_id } = initResponse.data.data;
 
