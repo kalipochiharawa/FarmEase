@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 function Register() {
   return (
-    <div className="min-h-screen bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url('/Algriculture-background2.jpg')" }}>
+    <div className="min-h-screen bg-cover font-poppins bg-center flex items-center justify-center" style={{ backgroundImage: "url('/Algriculture-background2.jpg')" }}>
       {/* Container to keep both sections aligned */}
       <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-screen-xl">
         

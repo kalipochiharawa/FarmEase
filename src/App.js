@@ -1,13 +1,10 @@
-import React from "react";
-import MyProfile from './Features/MyProfile/MyProfile';
-import Card from './Features/MyProfile/Card';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LandingPageLayout from './Features/LandingPage/LandingpageLayout';
 
-const App = () => {
+function App() {
   return (
-    <div className='container`'>
-       <MyProfile/>
-      
-    </div>
+    <LandingPageLayout/>
   );
 }
 
