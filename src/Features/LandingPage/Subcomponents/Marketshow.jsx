@@ -18,7 +18,7 @@ const ProductCard = ({
   inStock = true
 }) => {
   return (
-    <Link to={`/products/${productName.replace(/\s+/g, '-').toLowerCase()}`} className="block">
+    <Link to={`/ShoppingCatalog/${productName.replace(/\s+/g, '-').toLowerCase()}`} className="block">
       <div className="relative bg-white rounded-xl overflow-hidden font-poppins shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
         <div className="absolute top-4 right-4 z-10">
           <div className={`flex items-center gap-1 ${inStock ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'} px-2 py-1 rounded-full text-xs font-medium`}>
@@ -136,7 +136,7 @@ const ProductMarket = () => {
   ];
 
   const handleViewAll = () => {
-    navigate('/products');  
+    navigate('/');  
   };
 
   return (
@@ -145,6 +145,7 @@ const ProductMarket = () => {
         <div className="flex items-center gap-3">
           <h2 className="text-3xl mt-2 font-bold text-gray-800">Buy Us</h2>
         </div>
+        <Link to= "/ShoppingCatalog">
         <button 
           onClick={handleViewAll}
           className="flex items-center gap-1 text-green-600 hover:text-green-700 font-medium"
@@ -152,6 +153,7 @@ const ProductMarket = () => {
           View All
           <ChevronRight className="w-5 h-5" />
         </button>
+        </Link>
       </div>
       
       <div className="grid grid-cols-1 font-poppins sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">

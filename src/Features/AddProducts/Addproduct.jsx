@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Bell, User } from 'lucide-react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const AddProductForm = () => {
   const [image, setImage] = useState(null);
@@ -29,10 +30,13 @@ const AddProductForm = () => {
           <button className="flex items-center text-xs sm:text-sm hover:text-gray-600">
             <Bell className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
+
+          <Link to= "/MyProfile">
           <button className="flex items-center text-xs sm:text-sm hover:text-gray-600 space-x-2">
             <User className="w-4 h-4 sm:w-5 sm:h-5" />
             <span>My Account</span>
           </button>
+          </Link>
         </div>
       </div>
 
