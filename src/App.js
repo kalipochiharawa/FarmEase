@@ -1,13 +1,10 @@
-// File: App.js
 import React from 'react';
-import { createBrowserRouter } from "react-router-dom";
-import HomePage from "./Features/LandingPage/LandingSite"; 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LandingPageLayout from './Features/LandingPage/LandingpageLayout';
 
 function App() {
   return (
-    <div>
-      <HomePage />
-    </div>
+    <LandingPageLayout/>
   );
 }
 
