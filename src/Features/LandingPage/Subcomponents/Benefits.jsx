@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const BenefitsProcess = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -41,7 +42,7 @@ const BenefitsProcess = () => {
       setActiveStep((prev) => (prev < steps.length - 1 ? prev + 1 : 0));
     }, 3000);
     return () => clearInterval(timer);
-  }, []);
+  }, );
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 lg:py-12 font-poppins">
@@ -114,10 +115,12 @@ const BenefitsProcess = () => {
         </div>
       </div>
       <div className="text-center mt-8 lg:mt-12">
+        <Link to= "/Register">
         <button className="bg-green-500 hover:bg-green-600 text-white text-base font-medium px-8 py-3 rounded-md 
           transition-all duration-300 hover:scale-105 hover:shadow-lg">
           Register Now
         </button>
+        </Link>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import Profile from './Profile';
 import ProfileInformation from './ProfileInformation';
 import EmptyCard from './EmptyCard';
 
-function MyProfile() {
+function ProfileManagement() {
   const [profile, setProfile] = useState({
     firstName: 'Kidloc',
     lastName: 'Chikapa',
@@ -25,7 +25,7 @@ function MyProfile() {
   const handleProfileInfoSave = (newProfileInfo) => setProfileInfo(newProfileInfo);
 
   return (
-    <div className="flex">
+    <div className="flex font-poppins">
       {/* Sidebar */}
       <SideBar />
 
@@ -44,4 +44,4 @@ function MyProfile() {
   );
 }
 
-export default MyProfile;
+export default ProfileManagement;

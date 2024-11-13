@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function Register() {
+function Registering() {
   return (
     <div className="min-h-screen bg-cover font-poppins bg-center flex items-center justify-center" style={{ backgroundImage: "url('/Algriculture-background2.jpg')" }}>
       {/* Container to keep both sections aligned */}
@@ -127,5 +127,5 @@ function Register() {
   );
 }
 
-export default Register;
+export default Registering;
 

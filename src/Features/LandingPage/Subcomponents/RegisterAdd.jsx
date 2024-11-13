@@ -1,6 +1,7 @@
 import React from 'react';
 import Farmer from './FarmerCarry.jpg';
 import { FaArrowRight } from 'react-icons/fa'; 
+import { Link } from 'react-router-dom';
 
 const RegisterSection = () => {
   return (
@@ -11,9 +12,11 @@ const RegisterSection = () => {
           <p className="text-gray-700 mb-4 text-sm md:text-base">
             Every new member strengthens our marketplace, broadening our community of buyers and expanding opportunities for everyone involved. Registering with us means more than just signing up, it marks the beginning of a journey toward shared success. By joining, you enable us to better support you. Your partnership today is our collective strength tomorrow.
           </p>
+          <Link to= "/Register">
           <button className="bg-green-600 text-white px-3 py-2 rounded-md flex items-center justify-center hover:bg-green-700 transition lg:w-32">
             Register <FaArrowRight className="ml-2" />
           </button>
+          </Link>
         </div>
         <div className="hidden lg:flex justify-center items-center">
           <img 

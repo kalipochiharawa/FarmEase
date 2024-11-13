@@ -1,32 +1,26 @@
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import LandingPageLayout from './Features/LandingPage/LandingpageLayout';
+import Registering from './Features/UserRegistration/Register';
+import SignUp from './Features/UserRegistration/Login';
+import ProductListing from './Features/ProductListing/ShoppingCatalog';
+import AddProductForm from './Features/AddProducts/Addproduct';
+import ProfileManagement from './Features/MyProfile/MyProfile';
 
-import Navbar from "./Features/LandingPage/MainHead.jsx";
-import CategorySlider from "./Features/LandingPage/Subcomponents/CategoriesCards.jsx";
-import LandingPage from "./Features/LandingPage/Subcomponents/LandingPage.jsx";
-import ProductGrid from "./Features/LandingPage/Subcomponents/ProductsCard.jsx";
-import RegisterSection from "./Features/LandingPage/Subcomponents/RegisterAdd.jsx";
-import ProductMarket from "./Features/LandingPage/Subcomponents/Marketshow.jsx";
-import TestimonialSlider from "./Features/LandingPage/Subcomponents/Testimonial.jsx";j
-import MarketplaceSection from "./Features/LandingPage/Subcomponents/MarketPlace.jsx";
-import BenefitsProcess from "./Features/LandingPage/Subcomponents/Benefits.jsx";
-import Footer from './Features/LandingPage/Subcomponents/Footer.jsx';
 function App() {
   return (
-    <div >
-      <Navbar/>
-      <LandingPage/>
-      <CategorySlider/>
-      <ProductGrid/>
-      <RegisterSection/>
-      <ProductMarket/>
-      <MarketplaceSection/>
-      <TestimonialSlider/>
-      <BenefitsProcess/>
-      <Footer/>
-     
-   
-
+    <div className="App">
+      {/* Only one Router at the root level */}
+      <Routes>
+        <Route path="/" element={<LandingPageLayout />} />
+        <Route path="/Register" element={<Registering />} />
+        <Route path="/Login" element={<SignUp />} />
+        <Route path="/ShoppingCatalog" element={<ProductListing />} />
+        <Route path="/AddProduct" element={<AddProductForm />} />
+        <Route path= "/MyProfile" element={<ProfileManagement/>}/>
+      </Routes>
     </div>
   );
-};
+}
 
-export default Layout;
+export default App;
