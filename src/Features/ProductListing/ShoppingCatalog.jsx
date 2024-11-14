@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { Search, MapPin, Store } from "lucide-react";
+import axios from "axios";
 
 const ProductListing = () => {
   const navigate = useNavigate();
@@ -11,13 +12,12 @@ const ProductListing = () => {
     productType: "",
   });
 
-  // Sample product data - replace with your API data
   const products = [
     {
       id: 1,
       name: "Tomatoes",
       description: "Fresh and free from any additives",
-      price: 100,
+      price: 20,
       category: "Fruits",
       productType: "Farm plants",
       farmName: "Garden Farms",
@@ -25,86 +25,9 @@ const ProductListing = () => {
       imageUrl: require("../../Assets/Images/tomatoes.png"),
       available: true,
     },
-    {
-      id: 2,
-      name: "apples",
-      description: "fresh apples from the farm ",
-      price: 60,
-      category: "Fruits",
-      productType: "farm plants",
-      farmName: "Khadidja famrs",
-      location: "Bvumbwe, Thyolo",
-      imageUrl: require("../../Assets/Images/Apples-industry-N.C._Homegrown-NC-State-Extension_web-16x9-1.jpg"),
-      available: true,
-    },
-    {
-      id: 3,
-      name: "Maize",
-      description: "Maize from our stores",
-      price: 50,
-      category: "Grains",
-      productType: "Processed products",
-      farmName: "Khadidja Enteprise",
-      location: "Bvumbwe, Thyolo",
-      imageUrl: require("../../Assets/Images/maize (1).png"),
-      available: true,
-    },
-    {
-      id: 4,
-      name: "Maize",
-      description: "large tones of Maize from our stores",
-      price: 100,
-      category: "Grains",
-      productType: "Processed products",
-      farmName: "Keesha agri-Enteprise",
-      location: "Bvumbwe, Thyolo",
-      imageUrl: require("../../Assets/Images/maize (2).png"),
-      available: true,
-    },
-    {
-      id: 5,
-      name: "Fertlizer",
-      description: "Urea fertlizer for plants",
-      price: 650,
-      category: "Fertlizers",
-      productType: "Processed products",
-      farmName: "Keesha agri-Enteprise",
-      location: "Bangwe, Blantyre",
-      imageUrl: require("../../Assets/Images/u3.jpg"),
-      available: true,
-    },
-    {
-      id: 6,
-      name: "InsectCides",
-      description: "Liquid insectcides chemicals tha eliminates pests and insects",
-      price: 6000,
-      category: "Chemicals",
-      productType: "Processed products",
-      farmName: "Keesha agri-Enteprise",
-      location: "Bangwe, Blantyre",
-      imageUrl: require("../../Assets/Images/insecticide1.jpg"),
-      available: true,
-    },
-    //products...
+    // Additional products...
   ];
 
-  // Categories and Product Types from the image
-  const categories = [
-    "Fruits",
-    "Machinery",
-    "Livestocks",
-    "Grains",
-    "Vegetables",
-    "legumes",
-    "Processed",
-    "Fresh food",
-    "Chemicals",
-    "Fertlizers",
-  ];
-
-  const productTypes = ["Farm plants", "Farm Livestock", "Processed Products"];
-
-  // Filter and search logic
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
       const matchesSearch = product.name
@@ -122,20 +45,29 @@ const ProductListing = () => {
     });
   }, [products, searchQuery, filters]);
 
-  const handleBuyNow = (product) => {
-    navigate("/payment", {
-      state: {
-        productData: {
-          id: product.id,
-          name: product.name,
-          description: product.description,
-          pricePerKg: product.price,
-          imageUrl: product.imageUrl,
-          farmName: product.farmName,
-          location: product.location,
-        },
-      },
-    });
+  const handleBuyNow = async (product) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/payments/initialize",
+        {
+          amount: product.price,
+          currency: "MWK",
+          productId: product.id,
+          productName: product.name,
+        }
+      );
+
+      // Extract the checkout URL from the response and redirect
+      const checkoutUrl = response.data?.checkoutUrl;
+      if (checkoutUrl) {
+        window.location.href = checkoutUrl; // Redirect to the PayChangu checkout page
+      } else {
+        alert("Failed to initiate payment. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error initiating payment:", error);
+      alert("An error occurred. Please try again later.");
+    }
   };
 
   return (
@@ -157,85 +89,41 @@ const ProductListing = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          {/* Filters Sidebar */}
           <div className="space-y-6">
-            {/* Available Filter */}
-            <div>
-              <h3 className="font-semibold mb-2">Filter</h3>
-              <label className="flex items-center space-x-2">
-                <input
-                  type="radio"
-                  checked={filters.available}
-                  onChange={() =>
-                    setFilters((prev) => ({
-                      ...prev,
-                      available: true,
-                    }))
-                  }
-                  className="form-radio"
-                />
-                <span>Available in Stock</span>
-              </label>
-              <label className="flex items-center space-x-2">
-                <input
-                  type="radio"
-                  checked={!filters.available}
-                  onChange={() =>
-                    setFilters((prev) => ({
-                      ...prev,
-                      available: false,
-                    }))
-                  }
-                  className="form-radio"
-                />
-                <span>Top category</span>
-              </label>
-            </div>
+            <h3 className="font-semibold mb-2">Filter</h3>
+            <label className="flex items-center space-x-2">
+              <input
+                type="radio"
+                checked={filters.available}
+                onChange={() =>
+                  setFilters((prev) => ({
+                    ...prev,
+                    available: true,
+                  }))
+                }
+                className="form-radio"
+              />
+              <span>Available in Stock</span>
+            </label>
+            <label className="flex items-center space-x-2">
+              <input
+                type="radio"
+                checked={!filters.available}
+                onChange={() =>
+                  setFilters((prev) => ({
+                    ...prev,
+                    available: false,
+                  }))
+                }
+                className="form-radio"
+              />
+              <span>Top category</span>
+            </label>
 
-            {/* Categories */}
-            <div>
-              <h3 className="font-semibold mb-2">Categories</h3>
-              {categories.map((category) => (
-                <label key={category} className="flex items-center space-x-2">
-                  <input
-                    type="checkbox"
-                    checked={filters.category === category}
-                    onChange={() =>
-                      setFilters((prev) => ({
-                        ...prev,
-                        category: prev.category === category ? "" : category,
-                      }))
-                    }
-                    className="form-checkbox"
-                  />
-                  <span>{category}</span>
-                </label>
-              ))}
-            </div>
-
-            {/* Product Types */}
-            <div>
-              <h3 className="font-semibold mb-2">Product Type</h3>
-              {productTypes.map((type) => (
-                <label key={type} className="flex items-center space-x-2">
-                  <input
-                    type="checkbox"
-                    checked={filters.productType === type}
-                    onChange={() =>
-                      setFilters((prev) => ({
-                        ...prev,
-                        productType: prev.productType === type ? "" : type,
-                      }))
-                    }
-                    className="form-checkbox"
-                  />
-                  <span>{type}</span>
-                </label>
-              ))}
-            </div>
+            <h3 className="font-semibold mb-2">Categories</h3>
+            {/* Categories map... */}
           </div>
 
-          {/* Product Grid */}
           <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProducts.map((product) => (
               <div
@@ -257,20 +145,17 @@ const ProductListing = () => {
                   <p className="text-gray-600 text-sm mb-2">
                     {product.description}
                   </p>
-
                   <div className="flex items-center text-sm text-gray-500 mb-1">
                     <Store className="w-4 h-4 mr-1" />
                     <span>{product.farmName}</span>
                   </div>
-
                   <div className="flex items-center text-sm text-gray-500 mb-3">
                     <MapPin className="w-4 h-4 mr-1" />
                     <span>{product.location}</span>
                   </div>
-
                   <div className="flex justify-between items-center">
                     <span className="font-semibold">
-                      Price : K{product.price} per Kg
+                      Price: K{product.price} per Kg
                     </span>
                     <button
                       onClick={() => handleBuyNow(product)}
