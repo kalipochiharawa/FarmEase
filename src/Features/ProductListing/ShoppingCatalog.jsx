@@ -17,7 +17,7 @@ const ProductListing = () => {
       id: 1,
       name: "Tomatoes",
       description: "Fresh and free from any additives",
-      price: 20,
+      price: 400,
       category: "Fruits",
       productType: "Farm plants",
       farmName: "Garden Farms",
