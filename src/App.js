@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       {/* Only one Router at the root level */}
       <Routes>
-        <Route path="/" element={<ProductListing />} />
+        <Route path="/" element={<ProductListing/>} />
       </Routes>
     </div>
   );
