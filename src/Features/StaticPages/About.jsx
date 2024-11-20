@@ -2,9 +2,11 @@ import React from "react";
 import { Wallet } from "lucide-react";
 import mpambaLogo from "../../Assets/Images/TNM-Mpamba-Logo.png";
 import airtelMoneyLogo from "../../Assets/Images/airtel-money.png";
+import Footer from "../LandingPage/Subcomponents/Footer";
 
 const AboutUs = () => {
   return (
+    <>
     <div className="min-h-screen bg-gray-50 py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -106,6 +108,8 @@ const AboutUs = () => {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 
