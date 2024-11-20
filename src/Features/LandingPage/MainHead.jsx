@@ -74,7 +74,7 @@ function NavbarAndHead() {
                 <span className="text-sm">Welcome User</span>
                 <div className="flex space-x-2">
                   <Link to="/Login" className="text-sm font-bold underline-animation">
-                    SignUp
+                    Login
                   </Link>
                   <span>or</span>
                   <Link to="/Register" className="text-sm font-bold underline-animation">
@@ -109,7 +109,7 @@ function NavbarAndHead() {
 
 
                 <Link to="/Login" className="underline-animation text-sm font-bold">
-                  SignUp
+                  Login
                 </Link>
                 <span>or</span>
                 <a href="/Register" className="underline-animation text-sm font-bold">

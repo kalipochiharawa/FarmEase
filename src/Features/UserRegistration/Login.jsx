@@ -55,9 +55,9 @@ function SignUp() {
               Remember Me
             </label>
 
-            <a href="#" className="text-sm text-blue-600 hover:underline">
+            <Link to="/passwordrecovery" className="text-sm text-blue-600 hover:underline">
               Forgot Password?
-            </a>
+           </Link>
             
           </div>
 
@@ -78,13 +78,13 @@ function SignUp() {
 
         <p className="mt-8 text-center">
           Don't have an account?{" "}
-          <a href="#" className="text-blue-500 hover:underline">
+          <Link to="/#" className="text-blue-500 hover:underline">
 
           <Link to="/register" className="text-blue-500 hover:underline">
               Register Now
             </Link>
             
-          </a>
+            </Link>
          </p>
         </div>
       </div>

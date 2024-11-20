@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import LandingPageLayout from './Features/LandingPage/LandingpageLayout';
+import LandingPageLayout from './LandingpageLayout';
 import Registering from './Features/UserRegistration/Register';
 import SignUp from './Features/UserRegistration/Login';
 import ProductListing from './Features/ProductListing/ShoppingCatalog';

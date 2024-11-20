@@ -89,6 +89,7 @@ const ProductGrid = () => {
   const navigate = useNavigate();  
 
   const products = [
+    
     {
       productName: "Premium Red Tomatoes",
       description: "Fresh, organically grown tomatoes perfect for salads and cooking. Harvested at peak ripeness for maximum flavor and nutrition.",

@@ -17,7 +17,7 @@ const PaymentGateway = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 p-4 md:p-6 lg:p-8">
+        <div className="min-h-screen bg-gray-50 p-4 font-poppins md:p-6 lg:p-8">
           <Card className="max-w-4xl mx-auto">
             <CardContent className="p-0">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
