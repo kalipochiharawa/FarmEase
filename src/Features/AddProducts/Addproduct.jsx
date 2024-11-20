@@ -139,6 +139,8 @@ const AddProductForm = () => {
                 <option value="">Legumes</option>
                 <option value="">Vegetables</option>
                 <option value="">Machinery</option>
+                <option value="">Fruits</option>
+                <option value="">Chemicals</option>
               </select>
               <button className="bg-green-500 text-white px-3 sm:px-4 py-2 rounded-md text-xs sm:text-sm whitespace-nowrap hover:bg-green-600 transition-colors">
                 Add category
