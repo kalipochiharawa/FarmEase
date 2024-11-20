@@ -2,6 +2,8 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { Search, MapPin, Store } from "lucide-react";
 import axios from "axios";
+import Footer from "../LandingPage/Subcomponents/Footer";
+
 
 const ProductListing = () => {
   const navigate = useNavigate();
@@ -82,6 +84,7 @@ const ProductListing = () => {
   };
 
   return (
+    <>
     <div className="min-h-screen bg-gray-50 p-4 md:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header and Search */}
@@ -182,6 +185,8 @@ const ProductListing = () => {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 

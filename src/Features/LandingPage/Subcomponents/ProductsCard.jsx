@@ -11,14 +11,12 @@ const ProductListing = () => {
     category: "",
     productType: "",
   });
-  const [products, setProducts] = useState([]); // Store products fetched from the backend
+  const [products, setProducts] = useState([]);
 
-  // Fetch products from the backend when the component mounts
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/products"); // Replace with your backend endpoint
-        // Sort products by creation date or ID (descending order)
+        const response = await axios.get("http://localhost:5000/products");
         const sortedProducts = response.data.sort(
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
         );
@@ -29,9 +27,8 @@ const ProductListing = () => {
     };
 
     fetchProducts();
-  }, []); // Empty dependency array means this runs once when the component mounts
+  }, []);
 
-  // Filter products based on search query and filters
   const filteredProducts = useMemo(() => {
     return products
       .filter((product) => {
@@ -48,10 +45,9 @@ const ProductListing = () => {
           matchesSearch && matchesAvailable && matchesCategory && matchesType
         );
       })
-      .slice(0, 8); // Limit to a maximum of 8 products
+      .slice(0, 8);
   }, [products, searchQuery, filters]);
 
-  // Handle product purchase (existing functionality)
   const handleBuyNow = async (product) => {
     try {
       const response = await axios.post(
@@ -64,10 +60,9 @@ const ProductListing = () => {
         }
       );
 
-      // Extract the checkout URL from the response and redirect
       const checkoutUrl = response.data?.checkoutUrl;
       if (checkoutUrl) {
-        window.location.href = checkoutUrl; // Redirect to the PayChangu checkout page
+        window.location.href = checkoutUrl;
       } else {
         alert("Failed to initiate payment. Please try again.");
       }
@@ -80,22 +75,23 @@ const ProductListing = () => {
   const handleViewAll = () => {
     navigate('/');  
   };
+
   return (
     <div className="min-h-screen bg-gray-50 p-4 md:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto">
-        {/* Header and Search */}
-        <div className="mb-8">
-          <h1 className="text-2xl font-bold mb-4">Recent Products</h1>
+        {/* Header with View All button aligned to the right */}
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-2xl font-bold">Recent Products</h1>
+          <Link to="/ShoppingCatalog">
+            <button 
+              onClick={handleViewAll}
+              className="flex items-center gap-1 text-green-600 hover:text-green-700 font-medium"
+            >
+              View All
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </Link>
         </div>
-        <Link to= "/ShoppingCatalog">
-        <button 
-          onClick={handleViewAll}
-          className="flex items-end gap-1 text-green-600 hover:text-green-700 font-medium"
-        >
-          View All
-          <ChevronRight className="w-5 h-5" />
-        </button>
-        </Link>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {filteredProducts.map((product) => (
