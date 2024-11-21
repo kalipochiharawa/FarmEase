@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaUser, FaBars } from "react-icons/fa";
+import { FaUser, FaBars, FaUserCircle } from "react-icons/fa";
 import { X } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -73,18 +73,17 @@ function NavbarAndHead() {
             <div className="hidden lg:flex items-center space-x-2">
               <FaUser className="w-6 h-6 text-gray-600" />
               {user ? (
-                // If the user is logged in, show My Account details
-                <div className="flex flex-col text-gray-600">
+                <div className="flex items-center space-x-4 text-gray-600">
                   <span className="text-sm">Welcome, {user.name}</span>
                   <Link
                     to="/MyProfile"
-                    className="text-sm font-bold underline-animation"
+                    className="flex items-center text-sm font-bold hover:underline"
                   >
-                    My Account
+                    <FaUserCircle className="w-5 h-5 mr-1" />
+                    My Profile
                   </Link>
                 </div>
               ) : (
-                // If the user is not logged in, show Login and Register
                 <div className="flex flex-col text-gray-600">
                   <span className="text-sm">Welcome, Guest</span>
                   <div className="flex space-x-2">
@@ -111,8 +110,7 @@ function NavbarAndHead() {
             />
           </div>
         </div>
-
-        {/* Mobile Menu */}
+        {/* Mobile Sliding Menu */}
         <div
           className={`lg:hidden fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${
             isMenuOpen ? "translate-x-0" : "translate-x-full"

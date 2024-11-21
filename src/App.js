@@ -9,12 +9,14 @@ import ProfileManagement from './Features/MyProfile/MyProfile';
 import PaymentGateway from './Features/PayementGateway/PayementPage';
 import AboutUs from './Features/StaticPages/About';
 import MarketplaceSection from './Features/LandingPage/Subcomponents/MarketPlace';
+import FirstPage from './Features/LandingPage/FirstPageCOM';
 
 function App() {
   return (
     <div className="App">
       {/* Only one Router at the root level */}
-      <Routes>
+      <FirstPage></FirstPage>
+      {/*<Routes>
         <Route path="/" element={<LandingPageLayout />} />
         <Route path="/Register" element={<Registering />} />
         <Route path="/Login" element={<SignUp />} />
@@ -25,7 +27,7 @@ function App() {
         <Route path= "/About" element={<AboutUs/>} />
         <Route path= "/about" element={<MarketplaceSection/>} />
         <Route path= "/signup" element={<Registering/>} />
-      </Routes>
+      </Routes>*/}
     </div>
   );
 }
