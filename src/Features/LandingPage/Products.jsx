@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Search, MapPin, Store, ChevronRight } from "lucide-react";
-import axios from "axios";
 
-const ProductListing = () => {
+const ProductsStatic = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [filters, setFilters] = useState({
@@ -11,23 +10,106 @@ const ProductListing = () => {
     category: "",
     productType: "",
   });
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get("http://localhost:5000/products");
-        const sortedProducts = response.data.sort(
-          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-        );
-        setProducts(sortedProducts);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
-
-    fetchProducts();
-  }, []);
+  const [products, setProducts] = useState([
+    // Example static product data
+    {
+      id: 1,
+      name: "Product 1",
+      description: "This is a product description",
+      price: 100,
+      farmName: "Farm 1",
+      location: "Location 1",
+      imageUrl: "https://via.placeholder.com/150",
+      available: true,
+      category: "Category 1",
+      productType: "Type 1",
+    },
+    {
+      id: 2,
+      name: "Product 2",
+      description: "This is another product description",
+      price: 200,
+      farmName: "Farm 2",
+      location: "Location 2",
+      imageUrl: "https://via.placeholder.com/150",
+      available: true,
+      category: "Category 2",
+      productType: "Type 2",
+    },
+    {
+      id: 2,
+      name: "Product 2",
+      description: "This is another product description",
+      price: 200,
+      farmName: "Farm 2",
+      location: "Location 2",
+      imageUrl: "https://via.placeholder.com/150",
+      available: true,
+      category: "Category 2",
+      productType: "Type 2",
+    },
+    {
+      id: 2,
+      name: "Product 2",
+      description: "This is another product description",
+      price: 200,
+      farmName: "Farm 2",
+      location: "Location 2",
+      imageUrl: "https://via.placeholder.com/150",
+      available: true,
+      category: "Category 2",
+      productType: "Type 2",
+    },
+    {
+      id: 2,
+      name: "Product 2",
+      description: "This is another product description",
+      price: 200,
+      farmName: "Farm 2",
+      location: "Location 2",
+      imageUrl: "https://via.placeholder.com/150",
+      available: true,
+      category: "Category 2",
+      productType: "Type 2",
+    },
+    {
+      id: 2,
+      name: "Product 2",
+      description: "This is another product description",
+      price: 200,
+      farmName: "Farm 2",
+      location: "Location 2",
+      imageUrl: "https://via.placeholder.com/150",
+      available: true,
+      category: "Category 2",
+      productType: "Type 2",
+    },
+    {
+      id: 2,
+      name: "Product 2",
+      description: "This is another product description",
+      price: 200,
+      farmName: "Farm 2",
+      location: "Location 2",
+      imageUrl: "https://via.placeholder.com/150",
+      available: true,
+      category: "Category 2",
+      productType: "Type 2",
+    },
+    {
+      id: 2,
+      name: "Product 2",
+      description: "This is another product description",
+      price: 200,
+      farmName: "Farm 2",
+      location: "Location 2",
+      imageUrl: "https://via.placeholder.com/150",
+      available: true,
+      category: "Category 2",
+      productType: "Type 2",
+    },
+    // Add more static products here...
+  ]);
 
   const filteredProducts = useMemo(() => {
     return products
@@ -45,35 +127,11 @@ const ProductListing = () => {
           matchesSearch && matchesAvailable && matchesCategory && matchesType
         );
       })
-      .slice(0, 8);
+      .slice(0, 8); // Limiting to the first 8 products for display
   }, [products, searchQuery, filters]);
 
-  const handleBuyNow = async (product) => {
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/payments/initialize",
-        {
-          amount: product.price,
-          currency: "MWK",
-          productId: product.id,
-          productName: product.name,
-        }
-      );
-
-      const checkoutUrl = response.data?.checkoutUrl;
-      if (checkoutUrl) {
-        window.location.href = checkoutUrl;
-      } else {
-        alert("Failed to initiate payment. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error initiating payment:", error);
-      alert("An error occurred. Please try again later.");
-    }
-  };
-  
   const handleViewAll = () => {
-    navigate('/');  
+    navigate('/ShoppingCatalog');
   };
 
   return (
@@ -83,7 +141,7 @@ const ProductListing = () => {
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-2xl font-bold">Recent Products</h1>
           <Link to="/ShoppingCatalog">
-            <button 
+            <button
               onClick={handleViewAll}
               className="flex items-center gap-1 text-green-600 hover:text-green-700 font-medium"
             >
@@ -126,12 +184,7 @@ const ProductListing = () => {
                   <span className="font-semibold">
                     Price: K{product.price} per Kg
                   </span>
-                  <button
-                    onClick={() => handleBuyNow(product)}
-                    className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
-                  >
-                    Buy Now
-                  </button>
+                  {/* Removed the 'Buy Now' button related to payment */}
                 </div>
               </div>
             </div>
@@ -142,4 +195,4 @@ const ProductListing = () => {
   );
 };
 
-export default ProductListing;
+export default ProductsStatic;
