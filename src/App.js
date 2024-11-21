@@ -1,14 +1,11 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import LandingPageLayout from './LandingpageLayout';
+import LandingPageLayout from './Features/LandingPage/LandingpageLayout';
 import Registering from './Features/UserRegistration/Register';
 import SignUp from './Features/UserRegistration/Login';
 import ProductListing from './Features/ProductListing/ShoppingCatalog';
 import AddProductForm from './Features/AddProducts/Addproduct';
 import ProfileManagement from './Features/MyProfile/MyProfile';
-import PaymentGateway from './Features/PayementGateway/PayementPage';
-import AboutUs from './Features/StaticPages/About';
-import ContactUs from './Features/StaticPages/Contact';
 
 function App() {
   return (
@@ -20,11 +17,7 @@ function App() {
         <Route path="/Login" element={<SignUp />} />
         <Route path="/ShoppingCatalog" element={<ProductListing />} />
         <Route path="/AddProduct" element={<AddProductForm />} />
-        <Route path= "/MyProfile" element={<ProfileManagement/>} />
-        <Route path= "/PayementPage" element={<PaymentGateway/>} />
-        <Route path= "/About" element={<AboutUs/>} />
-        <Route path= "/signup" element={<Registering/>} />
-      
+        <Route path= "/MyProfile" element={<ProfileManagement/>}/>
       </Routes>
     </div>
   );

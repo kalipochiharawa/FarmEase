@@ -3,7 +3,7 @@ import { FaUser, FaBars, FaUserCircle } from "react-icons/fa";
 import { X } from "lucide-react";
 import { Link } from "react-router-dom";
 
-function NavbarAndHead() {
+function FirstPageNavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [user, setUser] = useState(null); // Simulating auth state (null = not logged in)
 
@@ -65,7 +65,7 @@ function NavbarAndHead() {
             Farmease
           </a>
           <div className="flex items-center space-x-6">
-            <Link to="/AddProduct">
+            <Link to="/Login">
               <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-2 sm:px-4 rounded text-sm sm:text-base">
                 + Post a Product
               </button>
@@ -202,4 +202,4 @@ function NavbarAndHead() {
   );
 }
 
-export default NavbarAndHead;
+export default FirstPageNavBar;

@@ -80,7 +80,7 @@ const ImageUpload = ({ image, setImage }) => {
 };
 
 // Main Form Component
-const AddProductForm = () => {
+const AddProduct = () => {
   const [productData, setProductData] = useState({
     name: "",
     description: "",
@@ -215,4 +215,4 @@ const AddProductForm = () => {
   );
 };
 
-export default AddProductForm;
+export default AddProduct;
