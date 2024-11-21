@@ -2,10 +2,11 @@ import React from "react";
 import { Wallet } from "lucide-react";
 import mpambaLogo from "../../Assets/Images/TNM-Mpamba-Logo.png";
 import airtelMoneyLogo from "../../Assets/Images/airtel-money.png";
+import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   return (
-    <div className="min-h-screen bg-gray-50 py-10">
+    <div className="min-h-screen bg-gray-50 py-10 font-poppins">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
@@ -100,9 +101,11 @@ const AboutUs = () => {
           <p className="text-gray-600 mb-6">
             Discover the future of agriculture commerce with FarmEase.
           </p>
+          <Link to="/signup">
           <button className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition">
             Get Started
           </button>
+          </Link>
         </div>
       </div>
     </div>

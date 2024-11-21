@@ -7,6 +7,8 @@ import ProductListing from './Features/ProductListing/ShoppingCatalog';
 import AddProductForm from './Features/AddProducts/Addproduct';
 import ProfileManagement from './Features/MyProfile/MyProfile';
 import PaymentGateway from './Features/PayementGateway/PayementPage';
+import AboutUs from './Features/StaticPages/About';
+import ContactUs from './Features/StaticPages/Contact';
 
 function App() {
   return (
@@ -20,6 +22,9 @@ function App() {
         <Route path="/AddProduct" element={<AddProductForm />} />
         <Route path= "/MyProfile" element={<ProfileManagement/>} />
         <Route path= "/PayementPage" element={<PaymentGateway/>} />
+        <Route path= "/About" element={<AboutUs/>} />
+        <Route path= "/signup" element={<Registering/>} />
+      
       </Routes>
     </div>
   );
