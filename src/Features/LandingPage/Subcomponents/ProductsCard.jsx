@@ -60,69 +60,6 @@ const ProductListing = () => {
         }
       );
 
-<<<<<<< HEAD
-          <button 
-            className={`w-full ${inStock ? 'bg-green-600 hover:bg-green-700' : 'bg-gray-300 cursor-not-allowed'} text-white py-2.5 px-4 rounded-lg font-medium transition-colors duration-300 flex items-center justify-center gap-2`}
-            disabled={!inStock}
-          >
-            <Sprout className="w-4 h-4" />
-            {inStock ? 'Buy Now' : 'Out of Stock'}
-          </button>
-        </div>
-      </div>
-    </Link>
-  );
-};
-
-const ProductGrid = () => {
-  const navigate = useNavigate();  
-
-  const products = [
-    
-    {
-      productName: "Premium Red Tomatoes",
-      description: "Fresh, organically grown tomatoes perfect for salads and cooking. Harvested at peak ripeness for maximum flavor and nutrition.",
-      farmerName: "John Smith",
-      location: "Blantyre, Namiyango",
-      price: "K5000",
-      minOrder: "10",
-      maxOrder: "100",
-      image: Img1,
-      inStock: true
-    },
-    {
-      productName: "Organic Potatoes",
-      description: "Locally grown organic potatoes, perfect for roasting, mashing, or frying. Rich in nutrients and great taste.",
-      farmerName: "Mary Johnson",
-      location: "Lilongwe, Area 25",
-      price: "K3500",
-      minOrder: "20",
-      maxOrder: "150",
-      image: Img2,
-      inStock: true
-    },
-    {
-      productName: "Fresh Green Beans",
-      description: "Crisp and tender green beans, hand-picked daily. Perfect for stir-fries and side dishes.",
-      farmerName: "David Williams",
-      location: "Zomba, Matawale",
-      price: "K4200",
-      minOrder: "5",
-      maxOrder: "50",
-      image: Img3,
-      inStock: false
-    },
-    {
-      productName: "Sweet Corn",
-      description: "Golden sweet corn, naturally grown without pesticides. Perfect for grilling or boiling.",
-      farmerName: "Sarah Brown",
-      location: "Mzuzu, Luwinga",
-      price: "K2800",
-      minOrder: "15",
-      maxOrder: "120",
-      image: Img4,
-      inStock: true
-=======
       const checkoutUrl = response.data?.checkoutUrl;
       if (checkoutUrl) {
         window.location.href = checkoutUrl;
@@ -132,7 +69,6 @@ const ProductGrid = () => {
     } catch (error) {
       console.error("Error initiating payment:", error);
       alert("An error occurred. Please try again later.");
->>>>>>> 9141bb97cd93895588d7dce73af75febc75361db
     }
   };
   
