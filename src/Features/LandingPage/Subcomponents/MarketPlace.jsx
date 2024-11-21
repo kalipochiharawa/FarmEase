@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import siloImage from './silo.jpg';
 
 const MarketplaceSection = () => {
@@ -15,12 +16,14 @@ const MarketplaceSection = () => {
           Whether you're a grower looking to showcase your products or a buyer in search of reliable produce, our platform simplifies the process. Our user-friendly interface ensures a seamless experience, making it easy for all parties to find what they need. Join Farmease, where every connection supports a transparent and efficient agricultural community.
         </p>
         <div className="flex justify-center lg:justify-start">
+          <Link to="/about">
           <button className="mt-4 bg-green-600 text-white px-4 py-2 text-sm font-medium rounded-md hover:bg-green-700 transition flex items-center">
             Discover More
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 ml-2">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5l6 6-6 6M3 12h15" />
             </svg>
           </button>
+          </Link>
         </div>
       </div>
       <div className="w-full lg:w-1/2 justify-items-end justify-center lg:justify-end px-4">

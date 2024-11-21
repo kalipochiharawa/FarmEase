@@ -1,77 +1,66 @@
-import React from 'react';
-import { User, Scale, Package, Sprout, CheckCircle, ChevronRight } from 'lucide-react';
-import { useNavigate, Link } from 'react-router-dom';  
-import Img1 from './tomato.jpg';
-import Img4 from './corn.jpg';
-import Img3 from './beans.jpg';
-import Img2 from './Potato.jpg';
+import React, { useState, useEffect, useMemo } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { Search, MapPin, Store, ChevronRight } from "lucide-react";
+import axios from "axios";
 
-const ProductCard = ({ 
-  productName, 
-  description, 
-  farmerName, 
-  location,
-  price, 
-  minOrder, 
-  maxOrder, 
-  image,
-  inStock = true
-}) => {
-  return (
-    <Link to={`/ShoppingCatalog/${productName.replace(/\s+/g, '-').toLowerCase()}`} className="block">
-      <div className="relative bg-white rounded-xl overflow-hidden font-poppins shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
-        <div className="absolute top-4 right-4 z-10">
-          <div className={`flex items-center gap-1 ${inStock ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'} px-2 py-1 rounded-full text-xs font-medium`}>
-            <CheckCircle className="w-3 h-3" />
-            {inStock ? 'In Stock' : 'Out of Stock'}
-          </div>
-        </div>
+const ProductListing = () => {
+  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filters, setFilters] = useState({
+    available: true,
+    category: "",
+    productType: "",
+  });
+  const [products, setProducts] = useState([]);
 
-        <div className="relative h-48 overflow-hidden">
-          <img 
-            src={image} 
-            alt={productName} 
-            className="w-full h-full object-cover"
-          />
-        </div>
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/products");
+        const sortedProducts = response.data.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
+        setProducts(sortedProducts);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
 
-        <div className="p-5 space-y-4">
-          <div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">{productName}</h3>
-            <p className="text-sm text-gray-600 line-clamp-2">{description}</p>
-          </div>
+    fetchProducts();
+  }, []);
 
-          <div className="bg-gray-50 rounded-lg p-3">
-            <div className="flex items-center gap-2 mb-1">
-              <User className="w-4 h-4 text-gray-500" />
-              <span className="text-sm font-medium text-gray-800">{farmerName}</span>
-            </div>
-            <div className="text-xs text-gray-600 ml-6">{location}</div>
-          </div>
+  const filteredProducts = useMemo(() => {
+    return products
+      .filter((product) => {
+        const matchesSearch = product.name
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase());
+        const matchesAvailable = !filters.available || product.available;
+        const matchesCategory =
+          !filters.category || product.category === filters.category;
+        const matchesType =
+          !filters.productType || product.productType === filters.productType;
 
-          <div className="grid grid-cols-3 gap-4">
-            <div className="flex items-center gap-2">
-              <Scale className="w-4 h-4 text-gray-500" />
-              <div className="text-sm">
-                <div className="text-gray-800 font-semibold">{price}/kg</div>
-              </div>
-            </div>
-            
-            <div className="flex items-center gap-2">
-              <Package className="w-4 h-4 text-gray-500" />
-              <div className="text-sm">
-                <div className="text-gray-800">Min: {minOrder}kg</div>
-              </div>
-            </div>
+        return (
+          matchesSearch && matchesAvailable && matchesCategory && matchesType
+        );
+      })
+      .slice(0, 8);
+  }, [products, searchQuery, filters]);
 
-            <div className="flex items-center gap-2">
-              <Package className="w-4 h-4 text-gray-500" />
-              <div className="text-sm">
-                <div className="text-gray-800">Max: {maxOrder}kg</div>
-              </div>
-            </div>
-          </div>
+  const handleBuyNow = async (product) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/payments/initialize",
+        {
+          amount: product.price,
+          currency: "MWK",
+          productId: product.id,
+          productName: product.name,
+        }
+      );
 
+<<<<<<< HEAD
           <button 
             className={`w-full ${inStock ? 'bg-green-600 hover:bg-green-700' : 'bg-gray-300 cursor-not-allowed'} text-white py-2.5 px-4 rounded-lg font-medium transition-colors duration-300 flex items-center justify-center gap-2`}
             disabled={!inStock}
@@ -133,37 +122,88 @@ const ProductGrid = () => {
       maxOrder: "120",
       image: Img4,
       inStock: true
+=======
+      const checkoutUrl = response.data?.checkoutUrl;
+      if (checkoutUrl) {
+        window.location.href = checkoutUrl;
+      } else {
+        alert("Failed to initiate payment. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error initiating payment:", error);
+      alert("An error occurred. Please try again later.");
+>>>>>>> 9141bb97cd93895588d7dce73af75febc75361db
     }
-  ];
-
+  };
+  
   const handleViewAll = () => {
     navigate('/');  
   };
 
   return (
-    <div className="max-w-[1440px] font-poppins mx-auto p-4 sm:p-6">
-      <div className="flex items-center justify-between mb-8">
-        <div className="flex items-center gap-3">
-          <h2 className="text-3xl text-center mt-2 font-bold text-gray-800">Top Products</h2>
+    <div className="min-h-screen bg-gray-50 p-4 md:p-6 lg:p-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Header with View All button aligned to the right */}
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-2xl font-bold">Recent Products</h1>
+          <Link to="/ShoppingCatalog">
+            <button 
+              onClick={handleViewAll}
+              className="flex items-center gap-1 text-green-600 hover:text-green-700 font-medium"
+            >
+              View All
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </Link>
         </div>
-        <Link to= "/ShoppingCatalog">
-        <button 
-          onClick={handleViewAll}
-          className="flex items-center gap-1 text-green-600 hover:text-green-700 font-medium"
-        >
-          View All
-          <ChevronRight className="w-5 h-5" />
-        </button>
-        </Link>
-      </div>
-      
-      <div className="grid grid-cols-1 font-poppins sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {products.map((product, index) => (
-          <ProductCard key={index} {...product} />
-        ))}
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          {filteredProducts.map((product) => (
+            <div
+              key={product.id}
+              className="bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <img
+                src={product.imageUrl}
+                alt={product.name}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="text-lg font-semibold">{product.name}</h3>
+                  <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">
+                    Available Now
+                  </span>
+                </div>
+                <p className="text-gray-600 text-sm mb-2">
+                  {product.description}
+                </p>
+                <div className="flex items-center text-sm text-gray-500 mb-1">
+                  <Store className="w-4 h-4 mr-1" />
+                  <span>{product.farmName}</span>
+                </div>
+                <div className="flex items-center text-sm text-gray-500 mb-3">
+                  <MapPin className="w-4 h-4 mr-1" />
+                  <span>{product.location}</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="font-semibold">
+                    Price: K{product.price} per Kg
+                  </span>
+                  <button
+                    onClick={() => handleBuyNow(product)}
+                    className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
+                  >
+                    Buy Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
 };
 
-export default ProductGrid;
+export default ProductListing;
