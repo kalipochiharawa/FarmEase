@@ -22,7 +22,7 @@ const AddProductForm = () => {
   };
 
   return (
-    <div className="p-3 sm:p-6 w-full max-w-4xl mx-auto bg-white">
+    <div className="p-3 sm:p-6 w-full max-w-4xl mx-auto bg-white font-poppins">
       {/* Header */}
       <div className="flex justify-between items-center mb-4 sm:mb-6">
         <h1 className="text-lg sm:text-xl font-bold">Add New Product</h1>
