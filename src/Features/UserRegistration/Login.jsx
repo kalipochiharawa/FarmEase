@@ -43,7 +43,7 @@ const Login = () => {
       localStorage.setItem("authToken", data.token);
 
       // Redirect to dashboard or authenticated route
-      navigate("/dashboard"); // Redirect using React Router
+      navigate("/dashboard"); // Redirecting using React Router
     } catch (err) {
       setError(err.message);
     } finally {
