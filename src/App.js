@@ -6,8 +6,11 @@ import SignUp from './Features/UserRegistration/Login';
 import ProductListing from './Features/ProductListing/ShoppingCatalog';
 import AddProductForm from './Features/AddProducts/Addproduct';
 import ProfileManagement from './Features/MyProfile/MyProfile';
-import ContactPage from './Features/StaticPages/Contact';
-import ProductPostingGuide from './Features/StaticPages/Howtopost';
+import PaymentGateway from './Features/PayementGateway/PayementPage';
+import AboutUs from './Features/StaticPages/About';
+import MarketplaceSection from './Features/LandingPage/Subcomponents/MarketPlace';
+import FirstPage from './Features/LandingPage/FirstPageCOM';
+import UserProfileContainer from './Features/MyProfile/UserProfileContainer';
 
 function App() {
   return (
@@ -19,10 +22,11 @@ function App() {
         <Route path="/Login" element={<SignUp />} />
         <Route path="/ShoppingCatalog" element={<ProductListing />} />
         <Route path="/AddProduct" element={<AddProductForm />} />
-        <Route path= "/MyProfile" element={<ProfileManagement/>}/>
-        <Route path= "/contact" element={<ContactPage/>}/>
-        <Route path= "/marketplace" element={<ProductListing/>}/>
-        <Route path= "/how-to-post" element={<ProductPostingGuide/>}/>
+        <Route path= "/MyProfile" element={<UserProfileContainer/>} />
+        <Route path= "/PayementPage" element={<PaymentGateway/>} />
+        <Route path= "/About" element={<AboutUs/>} />
+        <Route path= "/about" element={<MarketplaceSection/>} />
+        <Route path= "/signup" element={<Registering/>} />
       </Routes>
     </div>
   );

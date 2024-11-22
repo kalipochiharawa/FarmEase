@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import Tomato from "../../Assets/Images/Tomato.png";
+import { useNavigate } from "react-router-dom";
 
-const SignUp = () => {
+const Login = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    company: "",
     email: "",
     password: "",
   });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate(); // React Router to navigate to other pages
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,11 +39,11 @@ const SignUp = () => {
         throw new Error(data.message || "Failed to authenticate");
       }
 
-      // Save token to localStorage or context (if needed)
+      // Save token to localStorage
       localStorage.setItem("authToken", data.token);
 
       // Redirect to dashboard or authenticated route
-      window.location.href = "/dashboard";
+      navigate("/dashboard"); // Redirecting using React Router
     } catch (err) {
       setError(err.message);
     } finally {
@@ -72,22 +72,6 @@ const SignUp = () => {
 
         <form onSubmit={handleSubmit}>
           <div className="space-y-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full p-4 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none"
-            />
-            <input
-              type="text"
-              name="company"
-              placeholder="Your Company/Farm name"
-              value={formData.company}
-              onChange={handleChange}
-              className="w-full p-4 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none"
-            />
             <input
               type="email"
               name="email"
@@ -138,4 +122,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Login;
