@@ -2,7 +2,6 @@ import React from 'react';
 import { MapPin, Phone, Mail, Clock, Tractor, Wheat } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-// Custom Card Components
 const Card = ({ children, className = "" }) => (
   <div className={`bg-white rounded-lg ${className}`}>
     {children}
@@ -18,7 +17,6 @@ const CardContent = ({ children, className = "" }) => (
 const ContactPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 font-poppins">
-      {/* Hero Section */}
       <div className="relative h-48 sm:h-64 bg-green-600 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-green-600/90 to-green-500/70" />
         <div className="relative max-w-7xl mx-auto px-4 h-full flex items-center">
@@ -84,8 +82,6 @@ const ContactPage = () => {
             </CardContent>
           </Card>
         </div>
-
-        {/* Contact Information Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           <div className="space-y-6 sm:space-y-8">
             <div>
