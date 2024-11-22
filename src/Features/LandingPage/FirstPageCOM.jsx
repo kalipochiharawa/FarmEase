@@ -1,6 +1,6 @@
 import React from 'react';
 import { Search, User, MessageCircle, Instagram, Facebook, Twitter, Mail } from 'lucide-react';
-import heroImage from 'E:/PROGRAMMING/GROUP-PROJECTS/Frontend/FarmEase/src/Features/LandingPage/Subcomponents/image01.jpg';
+
 import MarketplaceSection from './Subcomponents/MarketPlace';
 import CategorySlider from './Subcomponents/CategoriesCards';
 import NavbarAndHead from './MainHead';
