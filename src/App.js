@@ -10,6 +10,7 @@ import PaymentGateway from './Features/PayementGateway/PayementPage';
 import AboutUs from './Features/StaticPages/About';
 import MarketplaceSection from './Features/LandingPage/Subcomponents/MarketPlace';
 import FirstPage from './Features/LandingPage/FirstPageCOM';
+import UserProfileContainer from './Features/MyProfile/UserProfileContainer';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
         <Route path="/Login" element={<SignUp />} />
         <Route path="/ShoppingCatalog" element={<ProductListing />} />
         <Route path="/AddProduct" element={<AddProductForm />} />
-        <Route path= "/MyProfile" element={<ProfileManagement/>} />
+        <Route path= "/MyProfile" element={<UserProfileContainer/>} />
         <Route path= "/PayementPage" element={<PaymentGateway/>} />
         <Route path= "/About" element={<AboutUs/>} />
         <Route path= "/about" element={<MarketplaceSection/>} />
