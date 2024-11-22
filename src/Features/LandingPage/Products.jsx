@@ -37,7 +37,7 @@ const ProductsStatic = () => {
       productType: "Type 2",
     },
     {
-      id: 2,
+      id: 3,
       name: "Product 2",
       description: "This is another product description",
       price: 200,
@@ -49,7 +49,7 @@ const ProductsStatic = () => {
       productType: "Type 2",
     },
     {
-      id: 2,
+      id: 4,
       name: "Product 2",
       description: "This is another product description",
       price: 200,
@@ -61,7 +61,7 @@ const ProductsStatic = () => {
       productType: "Type 2",
     },
     {
-      id: 2,
+      id: 5,
       name: "Product 2",
       description: "This is another product description",
       price: 200,
@@ -73,7 +73,7 @@ const ProductsStatic = () => {
       productType: "Type 2",
     },
     {
-      id: 2,
+      id: 6,
       name: "Product 2",
       description: "This is another product description",
       price: 200,
@@ -85,7 +85,7 @@ const ProductsStatic = () => {
       productType: "Type 2",
     },
     {
-      id: 2,
+      id: 7,
       name: "Product 2",
       description: "This is another product description",
       price: 200,
@@ -97,7 +97,7 @@ const ProductsStatic = () => {
       productType: "Type 2",
     },
     {
-      id: 2,
+      id: 8,
       name: "Product 2",
       description: "This is another product description",
       price: 200,
