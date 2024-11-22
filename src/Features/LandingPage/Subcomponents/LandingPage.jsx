@@ -1,5 +1,5 @@
 import SearchComponent from './SearchComponent';
-import LandImage from "/image01.jpg"
+
 
 const LandingPage = () => {
   return (
