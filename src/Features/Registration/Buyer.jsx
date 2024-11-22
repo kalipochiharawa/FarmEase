@@ -1,8 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Buyer = () => {
   const navigate = useNavigate();
+
+  // Background images
+  const images = [
+    "/Login-background.jpg",
+    "/Algriculture-background2.jpg",
+    "/Login-background.jpg",
+  ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Automatically change the image every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval); // Cleanup interval
+  }, [images.length]);
+
+  // Handle dot click
+  const handleDotClick = (index) => {
+    setCurrentImageIndex(index);
+  };
+
+  // Track form field states
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    productTypes: "",
+    location: "",
+    password: "",
+    confirmPassword: "",
+  });
+
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
 
@@ -10,198 +43,114 @@ const Buyer = () => {
   const toggleConfirmPasswordVisibility = () =>
     setConfirmPasswordVisible(!confirmPasswordVisible);
 
+  const handleInputChange = (field, value) => {
+    setForm((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const progress =
+    (Object.values(form).filter((value) => value.trim() !== "").length /
+      Object.keys(form).length) *
+    100;
+
   return (
     <div className="flex h-screen bg-gray-100">
-      {/* Left section (Image Background with centered text) */}
+      {/* Left section */}
       <div
         className="hidden md:block w-1/2 bg-cover bg-center relative"
-        style={{ backgroundImage: "url('/Login-background.jpg')" }}
+        style={{
+          backgroundImage: `url('${images[currentImageIndex]}')`,
+        }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0 flex flex-col justify-center items-center text-white px-12">
-          <h1 className="text-4xl font-bold mb-4 text-center">Buy Fresh Products</h1>
+          <h1 className="text-4xl font-bold mb-4 text-center">
+            Buy Fresh Products
+          </h1>
           <p className="text-lg mb-6 text-center">at the best market prices</p>
-          <h1 className=" text-white py-2 px-6 rounded-lg text-lg font-semibold">
+          <h1 className="text-white py-2 px-6 rounded-lg text-lg font-semibold">
             Register Now !!
           </h1>
           <div className="flex justify-center items-center mt-6 space-x-2">
-            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-            <div className="w-3 h-3 rounded-full bg-gray-400"></div>
-            <div className="w-3 h-3 rounded-full bg-gray-400"></div>
+            {images.map((_, index) => (
+              <div
+                key={index}
+                onClick={() => handleDotClick(index)}
+                className={`w-3 h-3 rounded-full cursor-pointer ${
+                  currentImageIndex === index ? "bg-yellow-500" : "bg-gray-400"
+                }`}
+              ></div>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Right section (Form) */}
+      {/* Right section */}
       <div className="w-full md:w-1/2 flex flex-col justify-center px-8 bg-white">
-        {/* Progress bar */}
         <div className="w-full h-2 bg-gray-200 rounded-full mb-6">
           <div
             className="h-2 bg-yellow-500 rounded-full"
-            style={{ width: "33%" }}
+            style={{ width: `${progress}%` }}
           ></div>
         </div>
-
         <h2 className="text-3xl font-bold mb-6 text-center">Create Account</h2>
         <div className="flex justify-center mb-4 space-x-8">
           <button
             className="bg-white border-2 border-green-500 text-green-500 py-3 px-8 rounded-lg text-lg font-semibold flex items-center space-x-2"
             onClick={() => navigate("/Seller")}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 1c-2.67 0-8 1.34-8 4v1h16v-1c0-2.66-5.33-4-8-4z"
-              />
-            </svg>
-            <span>Seller</span>
+            Seller
           </button>
           <button
             className="bg-yellow-500 hover:bg-yellow-600 text-white py-3 px-8 rounded-lg text-lg font-semibold flex items-center space-x-2"
             onClick={() => navigate("/Buyer")}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 1c-2.67 0-8 1.34-8 4v1h16v-1c0-2.66-5.33-4-8-4z"
-              />
-            </svg>
-            <span>Buyer</span>
+            Buyer
           </button>
         </div>
         <form className="space-y-4">
-          <input
-            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-yellow-500"
-            type="text"
-            placeholder="Your Name"
-          />
-          <input
-            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-yellow-500"
-            type="email"
-            placeholder="Your Email"
-          />
-          <input
-            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-yellow-500"
-            type="text"
-            placeholder="Preferred Product Types"
-          />
-          <input
-            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-yellow-500"
-            type="text"
-            placeholder="Your Location"
-          />
-          {/* Password Field */}
+          {["name", "email", "productTypes", "location"].map((field) => (
+            <input
+              key={field}
+              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-yellow-500"
+              type="text"
+              placeholder={`Your ${field.charAt(0).toUpperCase() + field.slice(1)}`}
+              value={form[field]}
+              onChange={(e) => handleInputChange(field, e.target.value)}
+            />
+          ))}
           <div className="relative">
             <input
               className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-yellow-500"
               type={passwordVisible ? "text" : "password"}
               placeholder="Enter Password"
+              value={form.password}
+              onChange={(e) => handleInputChange("password", e.target.value)}
             />
             <button
               type="button"
               onClick={togglePasswordVisibility}
               className="absolute right-3 top-2.5 text-gray-500 hover:text-gray-700"
             >
-              {passwordVisible ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-5 h-5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3.98 8.038a8.38 8.38 0 00-.98.962M21 12s-2.214 4.243-6.975 7.788M1.014 15.12C4.96 19.96 12 20 12 20s7.04 0 10.986-4.88M12 4a8.38 8.38 0 00-.982.961M2.032 10.803C3.193 9.072 5.566 7 12 7s8.807 2.072 9.968 3.803M8 12a4 4 0 118 0 4 4 0 01-8 0z"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-5 h-5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                     d="M15.232 15.232a6 6 0 01-8.464-8.464m1.207 12.02C3.214 16.243 1 12 1 12s2.214-4.243 6.975-7.788M22.212 4.788C18.354 2.015 12 2 12 2s-6.354 0-10.212 2.788m10.955 14.31C20.786 16.243 23 12 23 12s-2.214-4.243-6.975-7.788M8.768 8.768a6 6 0 018.464 8.464m-1.207-12.02C20.786 7.757 23 12 23 12s-2.214-4.243-6.975-7.788"
-                  />
-                </svg>
-              )}
+              {passwordVisible ? "Hide" : "👁️"}
             </button>
           </div>
-          {/* Confirm Password Field */}
           <div className="relative">
             <input
               className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-yellow-500"
               type={confirmPasswordVisible ? "text" : "password"}
               placeholder="Confirm Password"
+              value={form.confirmPassword}
+              onChange={(e) =>
+                handleInputChange("confirmPassword", e.target.value)
+              }
             />
             <button
               type="button"
               onClick={toggleConfirmPasswordVisibility}
               className="absolute right-3 top-2.5 text-gray-500 hover:text-gray-700"
             >
-              {confirmPasswordVisible ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-5 h-5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                     d="M15.232 15.232a6 6 0 01-8.464-8.464m1.207 12.02C3.214 16.243 1 12 1 12s2.214-4.243 6.975-7.788M22.212 4.788C18.354 2.015 12 2 12 2s-6.354 0-10.212 2.788m10.955 14.31C20.786 16.243 23 12 23 12s-2.214-4.243-6.975-7.788M8.768 8.768a6 6 0 018.464 8.464m-1.207-12.02C20.786 7.757 23 12 23 12s-2.214-4.243-6.975-7.788"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-5 h-5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.232 15.232a6 6 0 01-8.464-8.464m1.207 12.02C3.214 16.243 1 12 1 12s2.214-4.243 6.975-7.788M22.212 4.788C18.354 2.015 12 2 12 2s-6.354 0-10.212 2.788m10.955 14.31C20.786 16.243 23 12 23 12s-2.214-4.243-6.975-7.788M8.768 8.768a6 6 0 018.464 8.464m-1.207-12.02C20.786 7.757 23 12 23 12s-2.214-4.243-6.975-7.788"
-                  />
-                </svg>
-              )}
+              {confirmPasswordVisible ? "Hide" : "👁️"}
             </button>
-          </div>
-          <div className="flex items-center">
-            <input
-              type="checkbox"
-              className="h-5 w-5 text-yellow-500 border-gray-300 rounded focus:ring-yellow-500"
-            />
-            <label className="ml-2 text-gray-700">Remember me</label>
           </div>
           <button
             type="submit"

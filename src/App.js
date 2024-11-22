@@ -1,8 +1,8 @@
 import React from "react";
-import Login from './Features/UserRegistration/Login.jsx'
-import Buyer from './Features/UserRegistration/Buyer.jsx'
+import Login from './Features/Registration/Login.jsx'
+import Buyer from './Features/Registration/Buyer.jsx'
 import {Route, Routes } from "react-router-dom";
-import Seller from "./Features/UserRegistration/Seller.jsx";
+import Seller from "./Features/Registration/Seller.jsx";
 function App() {
   return (
     <div>

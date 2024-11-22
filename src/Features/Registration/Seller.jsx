@@ -1,15 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Seller = () => {
   const navigate = useNavigate();
+
+  // Array of background images
+  const images = [
+    "/Login-background.jpg",
+    "/Algriculture-background2.jpg",
+    "/Login-background.jpg",
+  ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Automatically change the image every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval); // Cleanup interval
+  }, [images.length]);
+
+  // Handle dot click
+  const handleDotClick = (index) => {
+    setCurrentImageIndex(index);
+  };
+
+  // State to toggle password visibility
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
 
-  // State to track form field completion
+  // State to track progress and form data
   const [progress, setProgress] = useState(0);
-
-  // Form fields (for simplicity, we'll track these as a single state object)
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -19,12 +41,7 @@ const Seller = () => {
     confirmPassword: "",
   });
 
-  // Function to toggle password visibility
-  const togglePasswordVisibility = () => setPasswordVisible(!passwordVisible);
-  const toggleConfirmPasswordVisibility = () =>
-    setConfirmPasswordVisible(!confirmPasswordVisible);
-
-  // Handle form input changes
+  // Handle form input changes and calculate progress
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
@@ -32,7 +49,9 @@ const Seller = () => {
       const updatedFormData = { ...prev, [name]: value };
 
       // Calculate progress based on filled fields
-      const filledFields = Object.values(updatedFormData).filter((val) => val.trim() !== "").length;
+      const filledFields = Object.values(updatedFormData).filter(
+        (val) => val.trim() !== ""
+      ).length;
       const totalFields = Object.keys(updatedFormData).length;
       const newProgress = (filledFields / totalFields) * 100;
 
@@ -46,15 +65,28 @@ const Seller = () => {
       {/* Left section (Image Background with centered text) */}
       <div
         className="hidden md:block w-1/2 bg-cover bg-center relative"
-        style={{ backgroundImage: "url('/Login-background.jpg')" }}
+        style={{ backgroundImage: `url('${images[currentImageIndex]}')` }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0 flex flex-col justify-center items-center text-white px-12">
           <h1 className="text-4xl font-bold mb-4 text-center">Sell your Products</h1>
           <p className="text-lg mb-6 text-center">at your desired cost</p>
-          <h1 className=" text-white py-2 px-6 rounded-lg text-lg font-semibold">
-            Register Now !
+          <h1 className="text-white py-2 px-6 rounded-lg text-lg font-semibold">
+            Register Now!
           </h1>
+
+          {/* Dots for navigation */}
+          <div className="flex justify-center items-center mt-6 space-x-2">
+            {images.map((_, index) => (
+              <div
+                key={index}
+                onClick={() => handleDotClick(index)}
+                className={`w-3 h-3 rounded-full cursor-pointer ${
+                  currentImageIndex === index ? "bg-green-500" : "bg-gray-400"
+                }`}
+              ></div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -85,38 +117,25 @@ const Seller = () => {
         </div>
 
         <form className="space-y-4">
-          <input
-            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-green-500"
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleInputChange}
-          />
-          <input
-            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-green-500"
-            type="text"
-            name="company"
-            placeholder="Your Company/Farm Name"
-            value={formData.company}
-            onChange={handleInputChange}
-          />
-          <input
-            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-green-500"
-            type="text"
-            name="product"
-            placeholder="Type of Product"
-            value={formData.product}
-            onChange={handleInputChange}
-          />
-          <input
-            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-green-500"
-            type="text"
-            name="location"
-            placeholder="Where are you located"
-            value={formData.location}
-            onChange={handleInputChange}
-          />
+          {/* Form fields */}
+          {[
+            { name: "name", placeholder: "Your Name" },
+            { name: "company", placeholder: "Your Company/Farm Name" },
+            { name: "product", placeholder: "Type of Product" },
+            { name: "location", placeholder: "Where are you located" },
+          ].map((field) => (
+            <input
+              key={field.name}
+              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-green-500"
+              type="text"
+              name={field.name}
+              placeholder={field.placeholder}
+              value={formData[field.name]}
+              onChange={handleInputChange}
+            />
+          ))}
+
+          {/* Password field */}
           <div className="relative">
             <input
               className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-green-500"
@@ -128,12 +147,14 @@ const Seller = () => {
             />
             <button
               type="button"
-              onClick={togglePasswordVisibility}
+              onClick={() => setPasswordVisible(!passwordVisible)}
               className="absolute right-3 top-2.5 text-gray-500 hover:text-gray-700"
             >
-              {passwordVisible ? "Hide" : "Show"}
+              {passwordVisible ? "Hide" : "👁️"}
             </button>
           </div>
+
+          {/* Confirm Password field */}
           <div className="relative">
             <input
               className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-green-500"
@@ -145,12 +166,16 @@ const Seller = () => {
             />
             <button
               type="button"
-              onClick={toggleConfirmPasswordVisibility}
+              onClick={() =>
+                setConfirmPasswordVisible(!confirmPasswordVisible)
+              }
               className="absolute right-3 top-2.5 text-gray-500 hover:text-gray-700"
             >
-              {confirmPasswordVisible ? "Hide" : "Show"}
+              {confirmPasswordVisible ? "Hide" : "👁️"}
             </button>
           </div>
+
+          {/* Submit button */}
           <button
             type="submit"
             className="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600"
@@ -158,6 +183,8 @@ const Seller = () => {
             Create an Account
           </button>
         </form>
+
+        {/* Login link */}
         <p className="text-center mt-4">
           Already have an account?{" "}
           <Link to="/Login" className="text-blue-500 hover:underline">
