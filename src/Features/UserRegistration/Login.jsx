@@ -1,96 +1,117 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-function App() {
-  return (
-    <div className="min-h-screen bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url('/Algricuture-background.jpg')" }}>
-     
-      <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-screen-xl">
 
-      <div className="lg:w-1/2 w-full flex items-center justify-center lg:justify-start px-6 lg:px-16">
-          <div className="text-white p-6 lg:p-10">
-            <h1 className="text-4xl lg:text-5xl font-bold mb-4">Welcome Back</h1>
+const LoginForm = () => {
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
+
+  return (
+    <div className="flex h-screen bg-gray-100">
+      {/* Left section (Image Background) */}
+      <div
+        className="hidden md:block w-1/2 bg-cover bg-center"
+        style={{ backgroundImage: "url('/Login-background.jpg')" }}
+      >
+        <div className="text-white p-6 lg:p-10">
+            <h1 className="text-4xl lg:text-5xl font-bold mb-4">Welcome Back!</h1>
             <p className="text-lg lg:text-xl">
-            Access your account and continue your journey with Farm Ease! Whether you're buying or selling, we're here to support you. Simple. Transparent. Together, let's connect the agriculture industry and make a difference. Sign in now!
+            "Access your Farm Ease account to continue your journey. Whether you're buying or selling, we're here to support you. Simple, transparent, and impactful let's connect the agriculture industry together. Log in now and be part of the change!"   
             </p>
           </div>
-        </div>
+      </div>
 
-        <div className="lg:w-1/2 w-full flex items-center justify-center lg:justify-end px-6 lg:px-16">
-
-
-
-      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md" >
-        <h2 className="text-3xl font-bold mb-4 text-center"
-        >Login</h2>
-        <p className="text-gray-600 mb-8 text-center">Sign in to your Farm Ease account</p>
-
-        <form>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-              Email
-            </label>
+      {/* Right section (Form) */}
+      <div className="w-full md:w-1/2 flex items-center justify-center bg-white p-8">
+        <div className="max-w-md w-full">
+          <h2 className="text-3xl font-bold mb-6 text-center">Login</h2>
+          <form className="space-y-4">
             <input
-              id="email"
+              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-green-500"
+              type="text"
+              placeholder="Your Name"
+            />
+            <input
+              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-green-500"
+              type="text"
+              placeholder="Your Company/Farm Name"
+            />
+            <input
+              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-green-500"
               type="email"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              placeholder="Enter your email"
+              placeholder="Your Email"
             />
-          </div>
-
-          <div className="mb-6">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-              Password
-            </label>
-            <input
-              id="password"
-              type="password"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-              placeholder="Enter your password"
-            />
-          </div>
-
-          <div className="flex items-center justify-between mb-6">
-            <label className="block text-gray-700 text-sm">
-              <input type="checkbox" className="mr-2 leading-tight" />
-              Remember Me
-            </label>
-
-            <a href="#" className="text-sm text-blue-600 hover:underline">
-              Forgot Password?
-            </a>
             
-          </div>
+            {/* Password Field with Eye Icon */}
+            <div className="relative">
+              <input
+                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-green-500"
+                type={passwordVisible ? "text" : "password"}
+                placeholder="Enter Password"
+              />
+              <button
+                type="button"
+                onClick={togglePasswordVisibility}
+                className="absolute right-3 top-2.5 text-gray-500 hover:text-gray-700"
+              >
+                {passwordVisible ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-5 h-5"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3.98 8.038a8.38 8.38 0 00-.98.962M21 12s-2.214 4.243-6.975 7.788M1.014 15.12C4.96 19.96 12 20 12 20s7.04 0 10.986-4.88M12 4a8.38 8.38 0 00-.982.961M2.032 10.803C3.193 9.072 5.566 7 12 7s8.807 2.072 9.968 3.803M8 12a4 4 0 118 0 4 4 0 01-8 0z"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-5 h-5"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15.232 15.232a6 6 0 01-8.464-8.464m1.207 12.02C3.214 16.243 1 12 1 12s2.214-4.243 6.975-7.788M22.212 4.788C18.354 2.015 12 2 12 2s-6.354 0-10.212 2.788m10.955 14.31C20.786 16.243 23 12 23 12s-2.214-4.243-6.975-7.788M8.768 8.768a6 6 0 018.464 8.464m-1.207-12.02C20.786 7.757 23 12 23 12s-2.214-4.243-6.975-7.788"
+                    />
+                  </svg>
+                )}
+              </button>
+            </div>
 
-          <button
-            type="submit"
-            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
-          >
-            Login
-          </button>
-
-          <p className="mt-4 text-center">
-            <span className="text-gray-600">Or login with</span> <br />
-            <button className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">
-              Google
-            </button>
-          </p>
-        </form>
-
-        <p className="mt-8 text-center">
-          Don't have an account?{" "}
-          <a href="#" className="text-blue-500 hover:underline">
-
-          <Link to="/register" className="text-blue-500 hover:underline">
-              Register Now
+            <div className="flex items-center justify-between">
+              <button
+                type="submit"
+                className="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600"
+              >
+                Login
+              </button>
+              <a href="#" className="text-sm text-blue-500 hover:underline">
+                Forgot Password?
+              </a>
+            </div>
+          </form>
+          <p className="text-center mt-4">
+            Don't have an account?{" "}
+            <Link to="/Buyer" className="text-blue-500 hover:underline">
+              Register here
             </Link>
-            
-          </a>
-         </p>
+          </p>
         </div>
       </div>
     </div>
-   </div>
   );
-}
+};
 
-export default App;
+export default LoginForm;
