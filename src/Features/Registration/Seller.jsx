@@ -120,6 +120,7 @@ const Seller = () => {
           {/* Form fields */}
           {[
             { name: "name", placeholder: "Your Name" },
+            { name: "email", placeholder: "Your Email" },
             { name: "company", placeholder: "Your Company/Farm Name" },
             { name: "product", placeholder: "Type of Product" },
             { name: "location", placeholder: "Where are you located" },
