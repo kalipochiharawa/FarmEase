@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const Seller = () => {
+const Buyer = () => {
   const navigate = useNavigate();
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
@@ -19,14 +19,13 @@ const Seller = () => {
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0 flex flex-col justify-center items-center text-white px-12">
-          <h1 className="text-4xl font-bold mb-4 text-center">Sell your Products</h1>
-          <p className="text-lg mb-6 text-center">at your desired cost</p>
-          <button className="bg-green-500 hover:bg-green-600 text-white py-2 px-6 rounded-lg text-lg font-semibold">
+          <h1 className="text-4xl font-bold mb-4 text-center">Buy Fresh Products</h1>
+          <p className="text-lg mb-6 text-center">at the best market prices</p>
+          <h1 className=" text-white py-2 px-6 rounded-lg text-lg font-semibold">
             Register Now !!
-          </button>
-          {/* Dots for registration steps */}
+          </h1>
           <div className="flex justify-center items-center mt-6 space-x-2">
-            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
             <div className="w-3 h-3 rounded-full bg-gray-400"></div>
             <div className="w-3 h-3 rounded-full bg-gray-400"></div>
           </div>
@@ -38,7 +37,7 @@ const Seller = () => {
         {/* Progress bar */}
         <div className="w-full h-2 bg-gray-200 rounded-full mb-6">
           <div
-            className="h-2 bg-green-500 rounded-full"
+            className="h-2 bg-yellow-500 rounded-full"
             style={{ width: "33%" }}
           ></div>
         </div>
@@ -46,7 +45,7 @@ const Seller = () => {
         <h2 className="text-3xl font-bold mb-6 text-center">Create Account</h2>
         <div className="flex justify-center mb-4 space-x-8">
           <button
-            className="bg-green-500 hover:bg-green-600 text-white py-3 px-8 rounded-lg text-lg font-semibold flex items-center"
+            className="bg-white border-2 border-green-500 text-green-500 py-3 px-8 rounded-lg text-lg font-semibold flex items-center space-x-2"
             onClick={() => navigate("/Seller")}
           >
             <svg
@@ -55,7 +54,7 @@ const Seller = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-5 h-5 "
+              className="w-5 h-5"
             >
               <path
                 strokeLinecap="round"
@@ -63,10 +62,10 @@ const Seller = () => {
                 d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 1c-2.67 0-8 1.34-8 4v1h16v-1c0-2.66-5.33-4-8-4z"
               />
             </svg>
-            Seller
+            <span>Seller</span>
           </button>
           <button
-            className="bg-white border-2 border-yellow-500 text-yellow-500 py-3 px-8 rounded-lg text-lg font-semibold flex items-center"
+            className="bg-yellow-500 hover:bg-yellow-600 text-white py-3 px-8 rounded-lg text-lg font-semibold flex items-center space-x-2"
             onClick={() => navigate("/Buyer")}
           >
             <svg
@@ -75,7 +74,7 @@ const Seller = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-5 h-5 mr-2"
+              className="w-5 h-5"
             >
               <path
                 strokeLinecap="round"
@@ -83,34 +82,34 @@ const Seller = () => {
                 d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 1c-2.67 0-8 1.34-8 4v1h16v-1c0-2.66-5.33-4-8-4z"
               />
             </svg>
-            Buyer
+            <span>Buyer</span>
           </button>
         </div>
         <form className="space-y-4">
           <input
-            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-green-500"
+            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-yellow-500"
             type="text"
             placeholder="Your Name"
           />
           <input
-            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-green-500"
-            type="text"
-            placeholder="Your Company/Farm Name"
+            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-yellow-500"
+            type="email"
+            placeholder="Your Email"
           />
           <input
-            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-green-500"
+            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-yellow-500"
             type="text"
-            placeholder="Type of Product"
+            placeholder="Preferred Product Types"
           />
           <input
-            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-green-500"
+            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-yellow-500"
             type="text"
-            placeholder="Where are you located"
+            placeholder="Your Location"
           />
           {/* Password Field */}
           <div className="relative">
             <input
-              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-green-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-yellow-500"
               type={passwordVisible ? "text" : "password"}
               placeholder="Enter Password"
             />
@@ -120,51 +119,6 @@ const Seller = () => {
               className="absolute right-3 top-2.5 text-gray-500 hover:text-gray-700"
             >
               {passwordVisible ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-5 h-5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.232 15.232a6 6 0 01-8.464-8.464m1.207 12.02C3.214 16.243 1 12 1 12s2.214-4.243 6.975-7.788M22.212 4.788C18.354 2.015 12 2 12 2s-6.354 0-10.212 2.788m10.955 14.31C20.786 16.243 23 12 23 12s-2.214-4.243-6.975-7.788M8.768 8.768a6 6 0 018.464 8.464m-1.207-12.02C20.786 7.757 23 12 23 12s-2.214-4.243-6.975-7.788"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-5 h-5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                     d="M15.232 15.232a6 6 0 01-8.464-8.464m1.207 12.02C3.214 16.243 1 12 1 12s2.214-4.243 6.975-7.788M22.212 4.788C18.354 2.015 12 2 12 2s-6.354 0-10.212 2.788m10.955 14.31C20.786 16.243 23 12 23 12s-2.214-4.243-6.975-7.788M8.768 8.768a6 6 0 018.464 8.464m-1.207-12.02C20.786 7.757 23 12 23 12s-2.214-4.243-6.975-7.788"
-                  />
-                </svg>
-              )}
-            </button>
-          </div>
-          {/* Confirm Password Field */}
-          <div className="relative">
-            <input
-              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-green-500"
-              type={confirmPasswordVisible ? "text" : "password"}
-              placeholder="Confirm Password"
-            />
-            <button
-              type="button"
-              onClick={toggleConfirmPasswordVisibility}
-              className="absolute right-3 top-2.5 text-gray-500 hover:text-gray-700"
-            >
-              {confirmPasswordVisible ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -191,6 +145,51 @@ const Seller = () => {
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
+                     d="M15.232 15.232a6 6 0 01-8.464-8.464m1.207 12.02C3.214 16.243 1 12 1 12s2.214-4.243 6.975-7.788M22.212 4.788C18.354 2.015 12 2 12 2s-6.354 0-10.212 2.788m10.955 14.31C20.786 16.243 23 12 23 12s-2.214-4.243-6.975-7.788M8.768 8.768a6 6 0 018.464 8.464m-1.207-12.02C20.786 7.757 23 12 23 12s-2.214-4.243-6.975-7.788"
+                  />
+                </svg>
+              )}
+            </button>
+          </div>
+          {/* Confirm Password Field */}
+          <div className="relative">
+            <input
+              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-yellow-500"
+              type={confirmPasswordVisible ? "text" : "password"}
+              placeholder="Confirm Password"
+            />
+            <button
+              type="button"
+              onClick={toggleConfirmPasswordVisibility}
+              className="absolute right-3 top-2.5 text-gray-500 hover:text-gray-700"
+            >
+              {confirmPasswordVisible ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-5 h-5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                     d="M15.232 15.232a6 6 0 01-8.464-8.464m1.207 12.02C3.214 16.243 1 12 1 12s2.214-4.243 6.975-7.788M22.212 4.788C18.354 2.015 12 2 12 2s-6.354 0-10.212 2.788m10.955 14.31C20.786 16.243 23 12 23 12s-2.214-4.243-6.975-7.788M8.768 8.768a6 6 0 018.464 8.464m-1.207-12.02C20.786 7.757 23 12 23 12s-2.214-4.243-6.975-7.788"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-5 h-5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="M15.232 15.232a6 6 0 01-8.464-8.464m1.207 12.02C3.214 16.243 1 12 1 12s2.214-4.243 6.975-7.788M22.212 4.788C18.354 2.015 12 2 12 2s-6.354 0-10.212 2.788m10.955 14.31C20.786 16.243 23 12 23 12s-2.214-4.243-6.975-7.788M8.768 8.768a6 6 0 018.464 8.464m-1.207-12.02C20.786 7.757 23 12 23 12s-2.214-4.243-6.975-7.788"
                   />
                 </svg>
@@ -198,12 +197,15 @@ const Seller = () => {
             </button>
           </div>
           <div className="flex items-center">
-            <input type="checkbox" className="mr-2" />
-            <label>Remember me</label>
+            <input
+              type="checkbox"
+              className="h-5 w-5 text-yellow-500 border-gray-300 rounded focus:ring-yellow-500"
+            />
+            <label className="ml-2 text-gray-700">Remember me</label>
           </div>
           <button
             type="submit"
-            className="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600"
+            className="w-full bg-yellow-500 text-white py-2 rounded-lg hover:bg-yellow-600"
           >
             Create an Account
           </button>
@@ -219,4 +221,4 @@ const Seller = () => {
   );
 };
 
-export default Seller;
+export default Buyer;
