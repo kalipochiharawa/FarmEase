@@ -6,6 +6,7 @@ import SignUp from './Features/UserRegistration/Login';
 import ProductListing from './Features/ProductListing/ShoppingCatalog';
 import AddProductForm from './Features/AddProducts/Addproduct';
 import ProfileManagement from './Features/MyProfile/MyProfile';
+import ContactPage from './Features/StaticPages/Contact';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/ShoppingCatalog" element={<ProductListing />} />
         <Route path="/AddProduct" element={<AddProductForm />} />
         <Route path= "/MyProfile" element={<ProfileManagement/>}/>
+        <Route path= "/contact" element={<ContactPage/>}/>
       </Routes>
     </div>
   );
