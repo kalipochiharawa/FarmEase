@@ -14,7 +14,7 @@ import FirstPage from './Features/LandingPage/FirstPageCOM';
 import UserProfileContainer from './Features/MyProfile/UserProfileContainer';
 =======
 import ContactPage from './Features/StaticPages/Contact';
->>>>>>> 416144d (added a contact us page and a about us)
+import ProductPostingGuide from './Features/StaticPages/Howtopost';
 
 function App() {
   return (
@@ -36,7 +36,8 @@ function App() {
 =======
         <Route path= "/MyProfile" element={<ProfileManagement/>}/>
         <Route path= "/contact" element={<ContactPage/>}/>
->>>>>>> 416144d (added a contact us page and a about us)
+        <Route path= "/marketplace" element={<ProductListing/>}/>
+        <Route path= "/how-to-post" element={<ProductPostingGuide/>}/>
       </Routes>
     </div>
   );

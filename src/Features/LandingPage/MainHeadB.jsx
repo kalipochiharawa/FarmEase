@@ -20,18 +20,8 @@ function FirstPageNavBar() {
               </Link>
             </li>
             <li>
-              <Link to="/news" className="hover:text-gray-700">
-                News
-              </Link>
-            </li>
-            <li>
-              <Link to="/plans" className="hover:text-gray-700">
-                Plans
-              </Link>
-            </li>
-            <li>
-              <Link to="/industry" className="hover:text-gray-700">
-                Industry
+              <Link to="/marketplace" className="hover:text-gray-700">
+                MarketPlace
               </Link>
             </li>
             <li>
@@ -49,11 +39,7 @@ function FirstPageNavBar() {
                 Contact us
               </Link>
             </li>
-            <li>
-              <Link to="/faqs" className="hover:text-gray-700">
-                FAQs
-              </Link>
-            </li>
+
           </ul>
         </div>
       </nav>
