@@ -40,8 +40,6 @@ const Seller = () => {
     password: "",
     confirmPassword: "",
   });
-
-  // Handle form input changes and calculate progress
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
