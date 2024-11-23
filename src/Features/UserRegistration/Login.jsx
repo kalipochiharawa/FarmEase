@@ -1,141 +1,96 @@
-import React, { useState } from "react";
-import Tomato from "../../Assets/Images/Tomato.png";
-
-const SignUp = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    company: "",
-    email: "",
-    password: "",
-  });
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    setLoading(true);
-
-    try {
-      const response = await fetch("http://localhost:5000/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || "Failed to authenticate");
-      }
-
-      // Save token to localStorage or context (if needed)
-      localStorage.setItem("authToken", data.token);
-
-      // Redirect to dashboard or authenticated route
-      window.location.href = "/dashboard";
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
+import React from "react";
+import { Link } from "react-router-dom";
+function SignUp() {
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen bg-white">
-      {/* Left Section with Image */}
-      <div className="w-full lg:w-1/2 bg-cover bg-center relative">
-        <img
-          src={Tomato}
-          alt="Tomatoes"
-          className="w-full h-full object-cover"
-        />
-      </div>
+    <div className="min-h-screen bg-cover font-poppins bg-center flex items-center justify-center" style={{ backgroundImage: "url('/Algricuture-background.jpg')" }}>
+     
+      <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-screen-xl">
 
-      {/* Right Section with Form */}
-      <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 lg:px-16 py-12">
-        <h2 className="text-3xl font-bold mb-6 text-gray-800">Login</h2>
+      <div className="lg:w-1/2 w-full flex items-center justify-center lg:justify-start px-6 lg:px-16">
+          <div className="text-white p-6 lg:p-10">
+            <h1 className="text-4xl lg:text-5xl font-bold mb-4">Welcome Back</h1>
+            <p className="text-lg lg:text-xl">
+            Access your account and continue your journey with Farm Ease! Whether you're buying or selling, we're here to support you. Simple. Transparent. Together, let's connect the agriculture industry and make a difference. Sign in now!
+            </p>
+          </div>
+        </div>
 
-        {error && (
-          <p className="text-red-500 bg-red-100 p-3 rounded mb-4">{error}</p>
-        )}
+        <div className="lg:w-1/2 w-full flex items-center justify-center lg:justify-end px-6 lg:px-16">
 
-        <form onSubmit={handleSubmit}>
-          <div className="space-y-4">
+
+
+      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md" >
+        <h2 className="text-3xl font-bold mb-4 text-center"
+        >Login</h2>
+        <p className="text-gray-600 mb-8 text-center">Sign in to your Farm Ease account</p>
+
+        <form>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+              Email
+            </label>
             <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full p-4 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none"
-            />
-            <input
-              type="text"
-              name="company"
-              placeholder="Your Company/Farm name"
-              value={formData.company}
-              onChange={handleChange}
-              className="w-full p-4 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none"
-            />
-            <input
+              id="email"
               type="email"
-              name="email"
-              placeholder="Your Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full p-4 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              placeholder="Enter your email"
             />
-            <div className="relative">
-              <input
-                type="password"
-                name="password"
-                placeholder="Enter Password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-                className="w-full p-4 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none"
-              />
-            </div>
           </div>
 
-          <div className="flex items-center justify-between mt-4">
-            <button
-              type="submit"
-              disabled={loading}
-              className="py-3 px-6 bg-green-500 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-green-600 transition disabled:opacity-50"
-            >
-              {loading ? "Logging in..." : "Login"}
-            </button>
-            <a
-              href="/forgot-password"
-              className="text-green-500 hover:underline font-semibold"
-            >
-              Forget Password?
-            </a>
+          <div className="mb-6">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+              Password
+            </label>
+            <input
+              id="password"
+              type="password"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              placeholder="Enter your password"
+            />
           </div>
+
+          <div className="flex items-center justify-between mb-6">
+            <label className="block text-gray-700 text-sm">
+              <input type="checkbox" className="mr-2 leading-tight" />
+              Remember Me
+            </label>
+
+            <Link to="/passwordrecovery" className="text-sm text-blue-600 hover:underline">
+              Forgot Password?
+           </Link>
+            
+          </div>
+
+          <button
+            type="submit"
+            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+          >
+            Login
+          </button>
+
+          <p className="mt-4 text-center">
+            <span className="text-gray-600">Or login with</span> <br />
+            <button className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">
+              Google
+            </button>
+          </p>
         </form>
 
-        <p className="text-center mt-4 text-gray-600">
+        <p className="mt-8 text-center">
           Don't have an account?{" "}
-          <a href="/register" className="text-green-500 font-semibold">
-            Register here
-          </a>
-        </p>
+          <Link to="/#" className="text-blue-500 hover:underline">
+
+          <Link to="/register" className="text-blue-500 hover:underline">
+              Register Now
+            </Link>
+            
+            </Link>
+         </p>
+        </div>
       </div>
     </div>
+   </div>
   );
-};
+}
 
 export default SignUp;

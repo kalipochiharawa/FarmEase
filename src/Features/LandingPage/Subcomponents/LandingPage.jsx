@@ -1,5 +1,5 @@
 import SearchComponent from './SearchComponent';
-
+import LandImage from './image01.jpg';
 
 const LandingPage = () => {
   return (
@@ -7,7 +7,7 @@ const LandingPage = () => {
       <div 
         className="bg-cover bg-center min-h-screen flex flex-col justify-end pb-8 md:pb-12 lg:pb-16"
         style={{
-          backgroundImage: `url('./src/Features/LandingPage/image01.jpg')`,
+          backgroundImage: `url(${LandImage})`,
         }}
       >
         <div className="absolute inset-0 bg-black/20"></div>

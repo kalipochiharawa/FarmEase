@@ -1,9 +1,7 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { Search, MapPin, Store } from "lucide-react";
 import axios from "axios";
-import Footer from "../LandingPage/Subcomponents/Footer";
-
 
 const ProductListing = () => {
   const navigate = useNavigate();
@@ -13,23 +11,82 @@ const ProductListing = () => {
     category: "",
     productType: "",
   });
-  const [products, setProducts] = useState([]); // Store products fetched from the backend
 
-  // Fetch products from the backend when the component mounts
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get("http://localhost:5000/products"); // Replace with your backend endpoint
-        setProducts(response.data); // Assuming the API returns an array of products
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
+  const products = [
+    {
+      id: 1,
+      name: "Tomatoes",
+      description: "Fresh and free from any additives",
+      price: 400,
+      category: "Fruits",
+      productType: "Farm plants",
+      farmName: "Garden Farms",
+      location: "Blantyre, Namiyango",
+      imageUrl: require("../../Assets/Images/tomatoes.png"),
+      available: true,
+    },{
+      id: 2,
+      name: "apples",
+      description: "fresh apples from the farm ",
+      price: 6000,
+      category: "Fruits",
+      productType: "farm plants",
+      farmName: "Khadidja famrs",
+      location: "Bvumbwe, Thyolo",
+      imageUrl: require("../../Assets/Images/Apples-industry-N.C._Homegrown-NC-State-Extension_web-16x9-1.jpg"),
+      available: true,
+    },
+    {
+      id: 3,
+      name: "Maize",
+      description: "Maize from our stores",
+      price: 5000,
+      category: "Grains",
+      productType: "Processed products",
+      farmName: "Khadidja Enteprise",
+      location: "Bvumbwe, Thyolo",
+      imageUrl: require("../../Assets/Images/maize (1).png"),
+      available: true,
+    },
+    {
+      id: 4,
+      name: "Maize",
+      description: "large tones of Maize from our stores",
+      price: 5000,
+      category: "Grains",
+      productType: "Processed products",
+      farmName: "Keesha agri-Enteprise",
+      location: "Bvumbwe, Thyolo",
+      imageUrl: require("../../Assets/Images/maize (2).png"),
+      available: true,
+    },
+    {
+      id: 5,
+      name: "Fertlizer",
+      description: "Urea fertlizer for plants",
+      price: 100,
+      category: "Fertlizers",
+      productType: "Processed products",
+      farmName: "Keesha agri-Enteprise",
+      location: "Bangwe, Blantyre",
+      imageUrl: require("../../Assets/Images/u3.jpg"),
+      available: true,
+    },
+    {
+      id: 6,
+      name: "InsectCides",
+      description: "Liquid insectcides chemicals tha eliminates pests and insects",
+      price: 6000,
+      category: "Chemicals",
+      productType: "Processed products",
+      farmName: "Keesha agri-Enteprise",
+      location: "Bangwe, Blantyre",
+      imageUrl: require("../../Assets/Images/insecticide1.jpg"),
+      available: true,
+    },
+    // Additional products...
+  ];
 
-    fetchProducts();
-  }, []); // Empty dependency array means this runs once when the component mounts
-
-  // Filter products based on search query and filters
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
       const matchesSearch = product.name
@@ -47,7 +104,6 @@ const ProductListing = () => {
     });
   }, [products, searchQuery, filters]);
 
-  // Handle product purchase (existing functionality)
   const handleBuyNow = async (product) => {
     try {
       const response = await axios.post(
@@ -73,19 +129,8 @@ const ProductListing = () => {
     }
   };
 
-  // Refetch products after a product is added or when filters change (Optional)
-  const fetchUpdatedProducts = async () => {
-    try {
-      const response = await axios.get("http://localhost:5000/products");
-      setProducts(response.data);
-    } catch (error) {
-      console.error("Error fetching products:", error);
-    }
-  };
-
   return (
-    <>
-    <div className="min-h-screen bg-gray-50 p-4 md:p-6 lg:p-8">
+    <div className="min-h-screen bg-gray-50 p-4 md:p-6 lg:p-8 font-poppins">
       <div className="max-w-7xl mx-auto">
         {/* Header and Search */}
         <div className="mb-8">
@@ -185,8 +230,6 @@ const ProductListing = () => {
         </div>
       </div>
     </div>
-    <Footer/>
-    </>
   );
 };
 
