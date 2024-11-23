@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 const Seller = () => {
   const navigate = useNavigate();
 
-  // Array of background images
+  
   const images = [
     "/Login-background.jpg",
     "/Algriculture-background2.jpg",
