@@ -71,20 +71,14 @@ function NavbarAndHead() {
                 </div>
               ) : (
                 <div className="flex flex-col text-gray-600">
-                  <span className="text-sm">Welcome, Guest</span>
+                  <span className="text-sm">Welcome user</span>
                   <div className="flex space-x-2">
+                    
                     <Link
-                      to="/Login"
+                      to="/MyProfile"
                       className="text-sm font-bold underline-animation"
                     >
-                      Login
-                    </Link>
-                    <span>or</span>
-                    <Link
-                      to="/Register"
-                      className="text-sm font-bold underline-animation"
-                    >
-                      Register
+                      Account
                     </Link>
                   </div>
                 </div>

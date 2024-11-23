@@ -20,7 +20,7 @@ function FirstPageNavBar() {
               </Link>
             </li>
             <li>
-              <Link to="/marketplace" className="hover:text-gray-700">
+              <Link to="/Login" className="hover:text-gray-700">
                 MarketPlace
               </Link>
             </li>
