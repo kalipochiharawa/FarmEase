@@ -2,7 +2,7 @@ import React from "react";
 
 function UserProfile({ profile, onEdit }) {
   if (!profile) {
-    return <div>Loading profile...</div>; // Show a fallback until profile data is available
+    return <div>Loading profile...</div>;
   }
 
   return (
