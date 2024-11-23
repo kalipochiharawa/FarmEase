@@ -16,7 +16,7 @@ function Profile({ profile, onSave }) {
 
   const handleSave = async () => {
     try {
-      await onSave(editableProfile); // Save changes through the provided onSave function
+      await onSave(editableProfile);
       setIsEditing(false);
     } catch (error) {
       console.error("Error saving profile:", error);
