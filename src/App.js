@@ -32,6 +32,7 @@ function App() {
         <Route path= "/signup" element={<Registering/>} />
         <Route path= "/MyProfile" element={<ProfileManagement/>}/>
         <Route path= "/contact" element={<ContactPage/>}/>
+        <Route path= "/how-to-post" element={<ProductPostingGuide/>} />
       </Routes>
     </div>
   );
