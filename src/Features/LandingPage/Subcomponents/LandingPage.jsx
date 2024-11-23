@@ -1,5 +1,6 @@
+import React from 'react';
 import SearchComponent from './SearchComponent';
-
+import backgroundImage from '../../../Assets/Images/image01.jpg'; // Correct relative path
 
 const LandingPage = () => {
   return (
@@ -7,7 +8,7 @@ const LandingPage = () => {
       <div 
         className="bg-cover bg-center min-h-screen flex flex-col justify-end pb-8 md:pb-12 lg:pb-16"
         style={{
-          backgroundImage: `url('./src/Features/LandingPage/image01.jpg')`,
+          backgroundImage: `url(${backgroundImage})`, // Use imported image
         }}
       >
         <div className="absolute inset-0 bg-black/20"></div>
