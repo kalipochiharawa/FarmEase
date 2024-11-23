@@ -19,8 +19,9 @@ function App() {
     <div className="App">
       {/* Only one Router at the root level */}
       <Routes>
-        <Route path="/" element={<LandingPageLayout />} />
+        <Route path="/" element={<FirstPage />} />
         <Route path="/Register" element={<Registering />} />
+        <Route path="/dashboard" element={<LandingPageLayout />} />
         <Route path="/Login" element={<SignUp />} />
         <Route path="/ShoppingCatalog" element={<ProductListing />} />
         <Route path="/AddProduct" element={<AddProductForm />} />
@@ -31,7 +32,8 @@ function App() {
         <Route path= "/signup" element={<Registering/>} />
         <Route path= "/MyProfile" element={<ProfileManagement/>}/>
         <Route path= "/contact" element={<ContactPage/>}/>
-        <Route path= "/how-to-post" element={<ProductPostingGuide/>} />
+        <Route path= "/marketplace" element={<ProductListing/>}/>
+        <Route path= "/how-to-post" element={<ProductPostingGuide/>}/>
       </Routes>
     </div>
   );
