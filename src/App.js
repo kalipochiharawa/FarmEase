@@ -19,9 +19,8 @@ function App() {
     <div className="App">
       {/* Only one Router at the root level */}
       <Routes>
-        <Route path="/" element={<FirstPage />} />
+        <Route path="/" element={<LandingPageLayout />} />
         <Route path="/Register" element={<Registering />} />
-        <Route path="/dashboard" element={<LandingPageLayout />} />
         <Route path="/Login" element={<SignUp />} />
         <Route path="/ShoppingCatalog" element={<ProductListing />} />
         <Route path="/AddProduct" element={<AddProductForm />} />
