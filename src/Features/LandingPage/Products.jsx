@@ -14,21 +14,21 @@ const ProductsStatic = () => {
     // Example static product data
     {
       id: 1,
-      name: "Product 1",
+      name: "Grains",
       description: "This is a product description",
-      price: 100,
+      price: 10000,
       farmName: "Farm 1",
       location: "Location 1",
-      imageUrl: "https://via.placeholder.com/150",
+      image: "https://via.placeholder.com/150",
       available: true,
       category: "Category 1",
       productType: "Type 1",
     },
     {
       id: 2,
-      name: "Product 2",
+      name: "Maize",
       description: "This is another product description",
-      price: 200,
+      price: 20000,
       farmName: "Farm 2",
       location: "Location 2",
       imageUrl: "https://via.placeholder.com/150",
@@ -38,9 +38,9 @@ const ProductsStatic = () => {
     },
     {
       id: 3,
-      name: "Product 2",
+      name:"LOCAL Chickens",
       description: "This is another product description",
-      price: 200,
+      price: 7000,
       farmName: "Farm 2",
       location: "Location 2",
       imageUrl: "https://via.placeholder.com/150",
@@ -50,9 +50,9 @@ const ProductsStatic = () => {
     },
     {
       id: 4,
-      name: "Product 2",
+      name: "Machinery",
       description: "This is another product description",
-      price: 200,
+      price: 780000,
       farmName: "Farm 2",
       location: "Location 2",
       imageUrl: "https://via.placeholder.com/150",
@@ -62,9 +62,9 @@ const ProductsStatic = () => {
     },
     {
       id: 5,
-      name: "Product 2",
+      name: "Fertlizer",
       description: "This is another product description",
-      price: 200,
+      price: 56000,
       farmName: "Farm 2",
       location: "Location 2",
       imageUrl: "https://via.placeholder.com/150",
@@ -74,9 +74,9 @@ const ProductsStatic = () => {
     },
     {
       id: 6,
-      name: "Product 2",
+      name: "Tomatoes",
       description: "This is another product description",
-      price: 200,
+      price: 600,
       farmName: "Farm 2",
       location: "Location 2",
       imageUrl: "https://via.placeholder.com/150",
@@ -86,9 +86,9 @@ const ProductsStatic = () => {
     },
     {
       id: 7,
-      name: "Product 2",
+      name: "Apples",
       description: "This is another product description",
-      price: 200,
+      price: 1200,
       farmName: "Farm 2",
       location: "Location 2",
       imageUrl: "https://via.placeholder.com/150",
@@ -98,9 +98,9 @@ const ProductsStatic = () => {
     },
     {
       id: 8,
-      name: "Product 2",
+      name: "Machines",
       description: "This is another product description",
-      price: 200,
+      price: 2000,
       farmName: "Farm 2",
       location: "Location 2",
       imageUrl: "https://via.placeholder.com/150",
@@ -108,7 +108,6 @@ const ProductsStatic = () => {
       category: "Category 2",
       productType: "Type 2",
     },
-    // Add more static products here...
   ]);
 
   const filteredProducts = useMemo(() => {
