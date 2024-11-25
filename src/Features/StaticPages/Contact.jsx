@@ -1,7 +1,7 @@
 import React from 'react';
 import { MapPin, Phone, Mail, Clock, Tractor, Wheat } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
+import Footer from '../LandingPage/Subcomponents/Footer';
 const Card = ({ children, className = "" }) => (
   <div className={`bg-white rounded-lg ${className}`}>
     {children}
@@ -16,6 +16,7 @@ const CardContent = ({ children, className = "" }) => (
 
 const ContactPage = () => {
   return (
+    <>
     <div className="min-h-screen bg-gray-50 font-poppins">
       <div className="relative h-48 sm:h-64 bg-green-600 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-green-600/90 to-green-500/70" />
@@ -164,6 +165,8 @@ const ContactPage = () => {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 
