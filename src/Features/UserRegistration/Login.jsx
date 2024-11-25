@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Tomato from "../../Assets/Images/Tomato.png";
+import Tomato from "../LandingPage/Subcomponents/tomato.jpg";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
