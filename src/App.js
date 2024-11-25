@@ -12,6 +12,7 @@ import MarketplaceSection from './Features/LandingPage/Subcomponents/MarketPlace
 import FirstPage from './Features/LandingPage/FirstPageCOM';
 import UserProfileContainer from './Features/MyProfile/UserProfileContainer';
 import ContactPage from './Features/StaticPages/Contact';
+import PostProductForm from './Features/StaticPages/Howitworks';
 import ProductPostingGuide from './Features/StaticPages/Howtopost';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path= "/MyProfile" element={<ProfileManagement/>}/>
         <Route path= "/contact" element={<ContactPage/>}/>
         <Route path= "/marketplace" element={<ProductListing/>}/>
+        <Route path= "/how-it-works" element={<PostProductForm/>}/>
         <Route path= "/how-to-post" element={<ProductPostingGuide/>}/>
       </Routes>
     </div>
