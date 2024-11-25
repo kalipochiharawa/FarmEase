@@ -33,6 +33,7 @@ function App() {
         <Route path= "/signup" element={<Registering/>} />
         <Route path= "/MyProfile" element={<ProfileManagement/>}/>
         <Route path= "/contact" element={<ContactPage/>}/>
+        <Route path= "/contact us" element={<ContactPage/>}/>
         <Route path= "/marketplace" element={<ProductListing/>}/>
         <Route path= "/how-it-works" element={<PostProductForm/>}/>
         <Route path= "/how-to-post" element={<ProductPostingGuide/>}/>
