@@ -144,7 +144,7 @@ const ContactPage = () => {
             <div className="bg-gray-100 rounded-lg p-4 sm:p-6">
               <h4 className="font-semibold text-gray-900 mb-3 sm:mb-4 text-sm sm:text-base">Headquarters</h4>
               <div className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-600">
-                <p>M1 Zomba, Mangochi Road</p>
+                <p>Zomba</p>
                 <p>Zomba M1 Road</p>
                 <p>Malawi</p>
                 <div className="pt-2 sm:pt-3">
