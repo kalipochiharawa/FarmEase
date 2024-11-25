@@ -142,46 +142,32 @@ function FirstPageNavBar() {
             )}
           </div>
           <ul className="space-y-4 text-sm px-4 mt-4">
-            <li>
-              <Link to="/about" className="block hover:text-gray-700">
+          <li>
+              <Link to="/about" className="hover:text-gray-700">
                 About us
               </Link>
             </li>
             <li>
-              <Link to="/news" className="block hover:text-gray-700">
-                News
+              <Link to="/Login" className="hover:text-gray-700">
+                MarketPlace
               </Link>
             </li>
             <li>
-              <Link to="/plans" className="block hover:text-gray-700">
-                Plans
-              </Link>
-            </li>
-            <li>
-              <Link to="/industry" className="block hover:text-gray-700">
-                Industry
-              </Link>
-            </li>
-            <li>
-              <Link to="/how-to-post" className="block hover:text-gray-700">
+              <Link to="/how-to-post" className="hover:text-gray-700">
                 How to post
               </Link>
             </li>
             <li>
-              <Link to="/how-it-works" className="block hover:text-gray-700">
+              <Link to="/how-it-works" className="hover:text-gray-700">
                 How it works
               </Link>
             </li>
             <li>
-              <Link to="/contact" className="block hover:text-gray-700">
+              <Link to="/contact" className="hover:text-gray-700">
                 Contact us
               </Link>
             </li>
-            <li>
-              <Link to="/faqs" className="block hover:text-gray-700">
-                FAQs
-              </Link>
-            </li>
+            
           </ul>
         </div>
       </nav>
