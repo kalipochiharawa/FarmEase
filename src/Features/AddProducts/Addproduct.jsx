@@ -5,7 +5,7 @@ import { Bell, User } from "lucide-react";
 
 // Header Component
 const Header = () => (
-  <div className="flex justify-between items-center mb-6">
+  <div className="flex justify-between items-center mb-6 font-poppins">
     <h1 className="text-lg sm:text-xl font-bold">Add New Product</h1>
     <div className="flex items-center space-x-4">
       <button className="flex items-center text-xs sm:text-sm hover:text-gray-600">

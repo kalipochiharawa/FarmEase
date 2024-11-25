@@ -35,7 +35,7 @@ const ContactPage = () => {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-8 sm:py-12">
+      <div className="max-w-7xl mx-auto px-4 py-8 sm:py-12 font-poppins">
         {/* Info Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 -mt-12 sm:-mt-16 mb-8 sm:mb-12">
           <Card className="shadow-lg transform transition-transform duration-300 hover:-translate-y-1">
