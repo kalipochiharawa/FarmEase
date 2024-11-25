@@ -1,45 +1,46 @@
 import React from 'react';
 import { UserPlus, ShoppingCart, CreditCard, ShieldCheck } from 'lucide-react';
+import {Link} from 'react-router-dom';
 
 const WebsiteGuide = () => {
   const guideSteps = [
     {
       Icon: UserPlus,
       title: "Create Your Account",
-      description: "Sign up easily with your email. Complete your profile and verify your email address to start trading."
+      description: "Sign up easily with your email. Complete your profile and verify to start trading."
     },
     {
       Icon: ShoppingCart,
       title: "Explore Marketplace",
-      description: "Browse products or list items for sale. Upload clear images and write detailed descriptions to attract buyers."
+      description: "Browse products or list items. Upload images and write descriptions to attract buyers."
     },
     {
       Icon: CreditCard,
       title: "Secure Transactions",
-      description: "Use our integrated payment system. We offer multiple payment methods and transaction protection for both buyers and sellers."
+      description: "Use our payment system. We offer multiple methods and transaction protection."
     },
     {
       Icon: ShieldCheck,
       title: "Account Security",
-      description: "We prioritize your safety with advanced security measures, including two-factor authentication and fraud prevention."
+      description: "We prioritize your safety with advanced measures, including two-factor authentication."
     }
   ];
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-8">
+    <div className="container mx-auto px-4 py-8 bg-white">
+      <h1 className="text-3xl font-bold text-center mb-8 text-green-700">
         How Our Marketplace Works
       </h1>
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {guideSteps.map((step, index) => (
           <div 
             key={index} 
-            className="border rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow"
+            className="bg-white border rounded-lg p-6 shadow-md hover:shadow-lg transition-colors"
           >
             <div className="flex justify-center mb-4">
-              <step.Icon size={48} className="text-blue-600" />
+              <step.Icon size={48} className="text-green-500" />
             </div>
-            <h2 className="text-xl font-semibold text-center mb-3">
+            <h2 className="text-xl font-medium text-center mb-3 text-green-700">
               {step.title}
             </h2>
             <p className="text-center text-gray-600">
@@ -47,6 +48,13 @@ const WebsiteGuide = () => {
             </p>
           </div>
         ))}
+      </div>
+      <div className="text-center">
+        <Link to='/Register'>
+        <button className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors">
+          Get Started
+        </button>
+        </Link>
       </div>
     </div>
   );
