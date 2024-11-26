@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const RegisterSection = () => {
   return (
-    <div className="flex justify-center font-poppins items-center bg-gray-100 p-6 rounded-lg ">
+    <div className="flex justify-center font-poppins items-center bg-white p-6 rounded-lg ">
       <div className="flex flex-col lg:flex-row h-80 gap-4 items-center max-w-6xl">
         <div className="flex-1 flex flex-col justify-center">
           <h2 className="text-lg md:text-3xl font-bold text-gray-900 mb-3">Looking for where to sell?</h2>
