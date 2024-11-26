@@ -9,7 +9,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen font-poppins bg-gray-100">
       {/* Left section (Image Background) */}
       <div
         className="hidden md:block w-1/2 bg-cover bg-center"
