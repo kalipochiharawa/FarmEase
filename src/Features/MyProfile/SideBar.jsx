@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 function SideBar() {
   return (
-    <div className="w-64 bg-white h-screen border-r p-6 space-y-6">
+    <div className="w-64 bg-white font-poppins  h-screen border-r p-6 space-y-6">
       {/* Logo */}
       <h1 className="text-green-600 text-2xl font-bold mb-8">Farmease.</h1>
 
