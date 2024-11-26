@@ -126,7 +126,7 @@ const ProductListing = () => {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="font-semibold">
-                    Price: K{product.price} per Kg
+                    Price: K{product.price} 
                   </span>
                   <button
                     onClick={() => handleBuyNow(product)}
