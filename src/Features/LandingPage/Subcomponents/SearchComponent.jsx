@@ -10,7 +10,7 @@ import axios from 'axios';
 
 // API Configuration
 const API_CONFIG = {
-  BASE_URL: 'https://your-backend-domain.com/api', // Replace with your actual backend URL
+  BASE_URL: 'www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita', // Replace with your actual backend URL
   ENDPOINTS: {
     SEARCH_PRODUCTS: '/products/search',
     GET_CATEGORIES: '/categories',
