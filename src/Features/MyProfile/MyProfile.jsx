@@ -6,7 +6,7 @@ function UserProfile({ profile, onEdit }) {
   }
 
   return (
-    <div className="flex flex-col items-start bg-white shadow-lg p-6 rounded-lg w-full">
+    <div className="flex flex-col font-poppins items-start bg-white shadow-lg p-6 rounded-lg w-full">
       <h2 className="text-2xl font-bold text-gray-800 mb-6">My Profile</h2>
 
       <div className="flex items-center mb-4">
