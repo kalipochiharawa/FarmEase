@@ -40,7 +40,7 @@ const Registering = () => {
         role: activeRole,
       };
 
-      const response = await axios.post("http://localhost:5000/auth/register", payload);
+      const response = await axios.post("https://mlimiaguleonline.onrender.com/auth/register", payload);
 
       if (response.status === 201) {
         setSuccessMessage("Registration successful!");
