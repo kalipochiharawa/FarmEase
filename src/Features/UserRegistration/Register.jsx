@@ -17,25 +17,33 @@ const Registering = () => {
   const [successMessage, setSuccessMessage] = useState("");
 
   // Get the API URL from environment variable
-  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://mlimiaguleonline.onrender.com"; // Default to Render URL
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://mlimiaguleonline.onrender.com";
 
   // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
   };
 
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Clear previous messages
+    setErrorMessage("");
+    setSuccessMessage("");
+
     // Validate password confirmation
     if (formData.password !== formData.confirmPassword) {
-      setErrorMessage("Passwords do not match");
+      setErrorMessage("Passwords do not match.");
       return;
     }
 
     try {
+      // Prepare payload for API call
       const payload = {
         full_name: formData.full_name,
         farm_name: formData.farm_name,
@@ -45,20 +53,16 @@ const Registering = () => {
         password: formData.password,
       };
 
-      // API call to backend
-      const response = await axios.post(
-        `https://corsproxy.io/?${API_BASE_URL}/auth/register`, // Use the updated API URL
-        payload,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      // Make API call to register the user
+      const response = await axios.post(`${API_BASE_URL}/auth/register`, payload, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
+      // Check if registration is successful
       if (response.status === 201) {
-        setSuccessMessage("Registration successful!");
-        setErrorMessage("");
+        setSuccessMessage("Registration successful! You can now log in.");
         setFormData({
           full_name: "",
           farm_name: "",
@@ -68,12 +72,12 @@ const Registering = () => {
           password: "",
           confirmPassword: "",
         });
+        setErrorMessage("");
       }
     } catch (error) {
-      console.error("Error during registration:", error); // Logs for debugging
+      console.error("Registration error:", error);
       setErrorMessage(
-        error.response?.data?.message ||
-          "An error occurred during registration. Please try again."
+        error.response?.data?.message || "An error occurred during registration. Please try again."
       );
     }
   };
@@ -100,9 +104,11 @@ const Registering = () => {
       <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 lg:px-16 py-12">
         <h2 className="text-3xl font-bold mb-6 text-gray-800">Create Account</h2>
 
+        {/* Display Messages */}
         {errorMessage && <p className="text-red-500 mb-4">{errorMessage}</p>}
         {successMessage && <p className="text-green-500 mb-4">{successMessage}</p>}
 
+        {/* Registration Form */}
         <form onSubmit={handleSubmit}>
           <div className="space-y-4">
             <input

@@ -11,8 +11,9 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // Base API URL from environment variables for flexibility
-  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://mlimiaguleonline.onrender.com";
+  // Base API URL from environment variables
+  const API_BASE_URL =
+    process.env.REACT_APP_API_BASE_URL || "https://mlimiaguleonline.onrender.com";
 
   // Handle input changes
   const handleChange = (e) => {
@@ -27,7 +28,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(`https://corsproxy.io/?${API_BASE_URL}/auth/login`, {
+      const response = await fetch(`${API_BASE_URL}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -35,13 +36,14 @@ const Login = () => {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
-
       if (!response.ok) {
-        throw new Error(data.message || "Failed to authenticate. Please try again.");
+        const errorData = await response.json(); // Attempt to parse JSON error
+        throw new Error(errorData.message || "Failed to authenticate. Please try again.");
       }
 
-      // Save token to localStorage or a secure cookie
+      const data = await response.json();
+
+      // Save token to localStorage or another secure location
       localStorage.setItem("authToken", data.accessToken);
 
       // Redirect to dashboard or authenticated route
