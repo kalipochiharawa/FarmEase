@@ -79,7 +79,7 @@ const ProductListing = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 md:p-6 lg:p-8">
+    <div className="min-h-screen bg-white p-4 md:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header with View All button aligned to the right */}
         <div className="flex justify-between items-center mb-8">
