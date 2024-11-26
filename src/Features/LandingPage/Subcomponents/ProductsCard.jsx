@@ -16,7 +16,9 @@ const ProductListing = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/products");
+        const response = await axios.get(
+          "https://mlimiaguleonline.onrender.com/products"
+        ); // Updated backend URL
         const sortedProducts = response.data.sort(
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
         );
@@ -51,7 +53,7 @@ const ProductListing = () => {
   const handleBuyNow = async (product) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/payments/initialize",
+        "https://mlimiaguleonline.onrender.com/payments/initialize",
         {
           amount: product.price,
           currency: "MWK",
@@ -71,9 +73,9 @@ const ProductListing = () => {
       alert("An error occurred. Please try again later.");
     }
   };
-  
+
   const handleViewAll = () => {
-    navigate('/');  
+    navigate("/");
   };
 
   return (
@@ -83,7 +85,7 @@ const ProductListing = () => {
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-2xl font-bold">Recent Products</h1>
           <Link to="/ShoppingCatalog">
-            <button 
+            <button
               onClick={handleViewAll}
               className="flex items-center gap-1 text-green-600 hover:text-green-700 font-medium"
             >
@@ -108,7 +110,7 @@ const ProductListing = () => {
                 <div className="flex justify-between items-start mb-2">
                   <h3 className="text-lg font-semibold">{product.name}</h3>
                   <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">
-                    Available Now
+                    {product.available ? "Available Now" : "Out of Stock"}
                   </span>
                 </div>
                 <p className="text-gray-600 text-sm mb-2">

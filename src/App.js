@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPageLayout from './LandingpageLayout';
 import Registering from './Features/UserRegistration/Register';
 import SignUp from './Features/UserRegistration/Login';
@@ -19,6 +19,7 @@ function App() {
   return (
     <div className="App">
       {/* Only one Router at the root level */}
+      <Router>
       <Routes>
         <Route path="/" element={<FirstPage />} />
         <Route path="/Register" element={<Registering />} />
@@ -38,6 +39,7 @@ function App() {
         <Route path= "/how-it-works" element={<PostProductForm/>}/>
         <Route path= "/how-to-post" element={<ProductPostingGuide/>}/>
       </Routes>
+      </Router>
     </div>
   );
 }
