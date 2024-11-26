@@ -40,7 +40,7 @@ const ImageUpload = ({ image, setImage }) => {
 
     try {
       // Sending the image to the backend to upload it
-      const response = await axios.post("http://localhost:5000/upload-image", formData);
+      const response = await axios.post("https://mlimiaguleonline.onrender.com/upload-image", formData);
       setImage(response.data.imageUrl); // Update the productData with the imageUrl returned by the backend
       setError(null); // Clear any previous error messages
     } catch (error) {
@@ -110,7 +110,7 @@ const AddProductForm = () => {
   const handleSubmit = async () => {
     try {
       // Send the product data to the backend, including the image URL
-      await axios.post("http://localhost:5000/products", productData); // Replace with your backend endpoint
+      await axios.post("https://mlimiaguleonline.onrender.com/products", productData); // Replaced with the online server URL
       setMessage({ type: "success", text: "Product added successfully!" });
       
       // Reset the form after submission
