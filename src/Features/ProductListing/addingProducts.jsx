@@ -28,7 +28,7 @@ const AddProductForm = ({ onProductAdded }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4 font-poppins ">
       <input
         type="text"
         name="name"
