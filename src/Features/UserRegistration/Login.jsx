@@ -12,7 +12,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   // Base API URL from environment variables for flexibility
-  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://farmeaseonline.onrender.com/";
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://mlimiaguleonline.onrender.com";
 
   // Handle input changes
   const handleChange = (e) => {

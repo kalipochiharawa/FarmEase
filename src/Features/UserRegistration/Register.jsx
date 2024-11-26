@@ -17,7 +17,7 @@ const Registering = () => {
   const [successMessage, setSuccessMessage] = useState("");
 
   // Get the API URL from environment variable
-  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://farmeaseonline.onrender.com/"; // Default to Render URL
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://mlimiaguleonline.onrender.com"; // Default to Render URL
 
   // Handle input changes
   const handleChange = (e) => {
