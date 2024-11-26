@@ -29,7 +29,7 @@ function Profile({ profile, onSave }) {
   }
 
   return (
-    <div className="mb-6 bg-white shadow rounded p-6">
+    <div className="mb-6 bg-white font poppins shadow rounded p-6">
       <h2 className="text-xl font-bold mb-4">Profile Details</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
