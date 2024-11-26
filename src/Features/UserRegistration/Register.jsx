@@ -47,7 +47,7 @@ const Registering = () => {
 
       // API call to backend
       const response = await axios.post(
-        `${API_BASE_URL}/auth/register`, // Use the updated API URL
+        `https://corsproxy.io/?${API_BASE_URL}/auth/register`, // Use the updated API URL
         payload,
         {
           headers: {
