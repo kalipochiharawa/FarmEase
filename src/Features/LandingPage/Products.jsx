@@ -190,7 +190,7 @@ const ProductsStatic = () => {
                   <span>{product.location}</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="font-semibold">Price: K{product.price} per Kg</span>
+                  <span className="font-semibold">Price: K{product.price} </span>
                 </div>
               </div>
             </div>
