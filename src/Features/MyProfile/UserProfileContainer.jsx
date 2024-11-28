@@ -20,7 +20,7 @@ function UserProfileContainer() {
 
       try {
         const response = await axios.get(
-          `https://mlimiaguleonline.onrender.com/users/${userId}`
+          `https://mlimiaguleonline.onrender.com/user/${userId}`
         );
         setProfile(response.data); // Set the profile data
       } catch (error) {
@@ -37,7 +37,7 @@ function UserProfileContainer() {
   const handleSave = async (updatedProfile) => {
     try {
       const response = await axios.put(
-        `https://mlimiaguleonline.onrender.com/users/${userId}`,
+        `https://mlimiaguleonline.onrender.com/user/${userId}`,
         updatedProfile
       );
       setProfile(response.data);
