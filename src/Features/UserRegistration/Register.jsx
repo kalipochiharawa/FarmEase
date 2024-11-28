@@ -83,7 +83,7 @@ const Registering = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen bg-white">
+    <div className="flex flex-col font-poppins lg:flex-row min-h-screen bg-white">
       {/* Left Section with Image */}
       <div className="w-full lg:w-1/2 bg-cover bg-center relative">
         <img

@@ -8,7 +8,7 @@ export const Button = ({
   onClick,
   ...props 
 }) => {
-  const baseStyles = 'px-4 py-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
+  const baseStyles = 'px-4 py-2 font-poppins rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
   
   const variants = {
     default: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',

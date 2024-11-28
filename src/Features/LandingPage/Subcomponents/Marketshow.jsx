@@ -55,7 +55,7 @@ const ProductCard = ({ product }) => {
         </div>
         <div className="flex justify-between items-center">
           <div className="text-sm">
-            Price: <span className="font-medium">K{product.price} per Kg</span>
+            Price: <span className="font-medium">K{product.price} </span>
           </div>
           <button 
             onClick={() => handleBuyNow(product)}

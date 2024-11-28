@@ -41,7 +41,7 @@ const CatalogFilter = ({ onFilterChange }) => {
   };
 
   return (
-    <div className="p-4 border rounded-md">
+    <div className="p-4 border font-poppins rounded-md">
       <h4 className="font-bold">Filter</h4>
       
       <div className="my-4">

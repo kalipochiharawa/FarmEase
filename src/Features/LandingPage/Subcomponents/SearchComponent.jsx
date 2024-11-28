@@ -10,7 +10,7 @@ import axios from 'axios';
 
 // API Configuration
 const API_CONFIG = {
-  BASE_URL: 'https://your-backend-domain.com/api', // Replace with your actual backend URL
+  BASE_URL: 'https://mlimiaguleonline.onrender.com', 
   ENDPOINTS: {
     SEARCH_PRODUCTS: '/products/search',
     GET_CATEGORIES: '/categories',
