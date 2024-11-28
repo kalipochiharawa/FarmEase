@@ -38,10 +38,6 @@ function SideBar() {
           Profile Info
         </a>
         <a href="#" className="flex items-center text-gray-700 hover:text-green-600">
-          <RiLogoutCircleRLine className="h-6 w-6 mr-3" />
-          Logout
-        </a>
-        <a href="#" className="flex items-center text-gray-700 hover:text-green-600">
           <PiTrashLight className="h-6 w-6 mr-3" />
           Delete Account
         </a>
