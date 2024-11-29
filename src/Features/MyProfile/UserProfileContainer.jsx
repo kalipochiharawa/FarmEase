@@ -7,7 +7,7 @@ function UserProfileContainer() {
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Fetch the user ID dynamically. This could be from authentication context or local storage.
+  
   const userId = localStorage.getItem("userId"); // Replace this with the actual logic to retrieve logged-in user's ID.
 
   useEffect(() => {
@@ -22,7 +22,7 @@ function UserProfileContainer() {
         const response = await axios.get(
           `https://mlimiaguleonline.onrender.com/user/${userId}`
         );
-        setProfile(response.data); // Set the profile data
+        setProfile(response.data); 
       } catch (error) {
         console.error("Error fetching profile data:", error);
         alert("Failed to load profile. Please try again later.");

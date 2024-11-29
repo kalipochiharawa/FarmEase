@@ -4,7 +4,7 @@ function Profile({ profile, onSave }) {
   const [editableProfile, setEditableProfile] = useState(profile);
   const [isEditing, setIsEditing] = useState(false);
 
-  // Update the editable profile when the profile prop changes
+ 
   useEffect(() => {
     setEditableProfile(profile);
   }, [profile]);
