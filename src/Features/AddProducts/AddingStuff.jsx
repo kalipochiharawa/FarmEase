@@ -5,7 +5,7 @@ import { Bell, User } from "lucide-react";
 
 // Header Component
 const Header = () => (
-  <div className="flex justify-between items-center mb-6">
+  <div className="flex justify-between items-center font-poppins mb-6">
     <h1 className="text-lg sm:text-xl font-bold">Add New Product</h1>
     <div className="flex items-center space-x-4">
       <button className="flex items-center text-xs sm:text-sm hover:text-gray-600">
@@ -50,7 +50,7 @@ const ImageUpload = ({ image, setImage }) => {
   };
 
   return (
-    <div className="bg-gray-50 p-4 rounded-lg">
+    <div className="bg-gray-50 p-4 font-poppins rounded-lg">
       <h2 className="text-lg font-medium mb-4">Upload Image</h2>
       <div className="border border-gray-200 bg-white rounded-lg h-[240px] flex items-center justify-center">
         {image || imagePreview ? (
@@ -88,7 +88,7 @@ const ImageUpload = ({ image, setImage }) => {
 };
 
 // Main Form Component
-const AddProductForm = () => {
+const AddProduct = () => {
   const [productData, setProductData] = useState({
     name: "",
     description: "",
@@ -132,7 +132,7 @@ const AddProductForm = () => {
   };
 
   return (
-    <div className="p-6 w-full max-w-4xl mx-auto bg-white">
+    <div className="p-6 w-full max-w-4xl font-poppins  mx-auto bg-white">
       <Header />
       {message.text && (
         <div
@@ -223,4 +223,4 @@ const AddProductForm = () => {
   );
 };
 
-export default AddProductForm;
+export default AddProduct;

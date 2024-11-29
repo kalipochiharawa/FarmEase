@@ -2,7 +2,7 @@ import React from 'react';
 
 const CatalogItem = ({ item }) => {
     return (
-        <div className="border border-gray-300 p-4 rounded-lg shadow-lg">
+        <div className="border border-gray-300 p-4 font-poppins rounded-lg shadow-lg">
             <img src="https://via.placeholder.com/150" alt={item.name} className="w-full h-48 object-cover rounded-lg mb-2" />
             <h3 className="text-lg font-bold mb-2">{item.name}</h3>
             <p className="text-sm text-gray-600">Price: {item.price} MWK</p>

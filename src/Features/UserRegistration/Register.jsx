@@ -1,131 +1,198 @@
-import React from "react";
-import { Link } from "react-router-dom";
-function Register() {
+import React, { useState } from "react";
+import axios from "axios";
+import Tomato from "../../Assets/Images/Tomato.png";
+
+const Registering = () => {
+  const [formData, setFormData] = useState({
+    full_name: "",
+    farm_name: "",
+    location: "",
+    email: "",
+    contact_details: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
+  // Get the API URL from environment variable
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://mlimiaguleonline.onrender.com";
+
+  // Handle input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Clear previous messages
+    setErrorMessage("");
+    setSuccessMessage("");
+
+    // Validate password confirmation
+    if (formData.password !== formData.confirmPassword) {
+      setErrorMessage("Passwords do not match.");
+      return;
+    }
+
+    try {
+      // Prepare payload for API call
+      const payload = {
+        full_name: formData.full_name,
+        farm_name: formData.farm_name,
+        location: formData.location,
+        email: formData.email,
+        contact_details: formData.contact_details,
+        password: formData.password,
+      };
+
+      // Make API call to register the user
+      const response = await axios.post(`${API_BASE_URL}/auth/register`, payload, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      // Check if registration is successful
+      if (response.status === 201) {
+        setSuccessMessage("Registration successful! You can now log in.");
+        setFormData({
+          full_name: "",
+          farm_name: "",
+          location: "",
+          email: "",
+          contact_details: "",
+          password: "",
+          confirmPassword: "",
+        });
+        setErrorMessage("");
+      }
+    } catch (error) {
+      console.error("Registration error:", error);
+      setErrorMessage(
+        error.response?.data?.message || "An error occurred during registration. Please try again."
+      );
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-cover font-poppins bg-center flex items-center justify-center" style={{ backgroundImage: "url('/Algriculture-background2.jpg')" }}>
-      {/* Container to keep both sections aligned */}
-      <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-screen-xl">
-        
-        {/* Left side - Register With Farm Ease text */}
-        <div className="lg:w-1/2 w-full flex items-center justify-center lg:justify-start px-6 lg:px-16">
-          <div className="text-white p-6 lg:p-10">
-            <h1 className="text-4xl lg:text-5xl font-bold mb-4">Register With Farm Ease</h1>
-            <p className="text-lg lg:text-xl">
-              Your journey starts here! Whether you're buying or selling, Farm Ease is here to support you.
-              Simple. Transparent. Together, let's connect the agriculture industry and make a difference.
-              Join us today!
-            </p>
-          </div>
+    <div className="flex flex-col font-poppins lg:flex-row min-h-screen bg-white">
+      {/* Left Section with Image */}
+      <div className="w-full lg:w-1/2 bg-cover bg-center relative">
+        <img
+          src={Tomato}
+          alt="Sell your products"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white px-6">
+          <h1 className="text-4xl font-bold">Sell your Products</h1>
+          <p className="text-lg mt-2">at your desired cost</p>
+          <button className="mt-4 px-6 py-2 bg-green-500 rounded-lg shadow-lg text-lg font-semibold hover:bg-green-600">
+            Register Now !!
+          </button>
         </div>
+      </div>
 
-        {/* Right side - Registration form */}
-        <div className="lg:w-1/2 w-full flex items-center justify-center lg:justify-end px-6 lg:px-16">
-          <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
-            <h2 className="text-3xl font-bold mb-4 text-center">Register</h2>
-            <p className="text-center text-gray-600 mb-6">
-              Do you have an account?{" "}
-              <a href="#" className="text-blue-500 hover:underline">
-              <Link to="/Login" className="text-blue-500 hover:underline">
-              Login Now
-            </Link>
-              
-              </a>
-            </p>
-            <p className="text-center text-gray-600 mb-4">
-              or register as a{" "}
-              <a href="#" className="text-blue-500 hover:underline">
-                Supplier
-              </a>
-            </p>
+      {/* Right Section with Form */}
+      <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 lg:px-16 py-12">
+        <h2 className="text-3xl font-bold mb-6 text-gray-800">Create Account</h2>
 
-            <form>
-              <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="first-name">
-                  First Name*
-                </label>
-                <input
-                  id="first-name"
-                  type="text"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  placeholder="E.g. John"
-                />
-              </div>
+        {/* Display Messages */}
+        {errorMessage && <p className="text-red-500 mb-4">{errorMessage}</p>}
+        {successMessage && <p className="text-green-500 mb-4">{successMessage}</p>}
 
-              <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="last-name">
-                  Last Name*
-                </label>
-                <input
-                  id="last-name"
-                  type="text"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  placeholder="E.g. Doe"
-                />
-              </div>
-
-              <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-                  Email*
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  placeholder="Enter your email"
-                />
-              </div>
-
-              <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-                  Password*
-                </label>
-                <input
-                  id="password"
-                  type="password"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  placeholder="Enter your password"
-                />
-              </div>
-
-              <div className="mb-6">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="confirm-password">
-                  Confirm Password*
-                </label>
-                <input
-                  id="confirm-password"
-                  type="password"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  placeholder="Confirm your password"
-                />
-              </div>
-
-              <div className="mb-6">
-                <label className="flex items-center">
-                  <input type="checkbox" className="mr-2 leading-tight" />
-                  <span className="text-sm text-gray-700">I agree to the Terms and Conditions.</span>
-                </label>
-              </div>
-
-              <button
-                type="submit"
-                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
-              >
-                Register
-              </button>
-
-              <p className="mt-4 text-center">
-                <span className="text-gray-600">or register with</span> <br />
-                <button className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">
-                  Google
-                </button>
-              </p>
-            </form>
+        {/* Registration Form */}
+        <form onSubmit={handleSubmit}>
+          <div className="space-y-4">
+            <input
+              type="text"
+              name="full_name"
+              value={formData.full_name}
+              onChange={handleChange}
+              placeholder="Your Full Name"
+              className="w-full p-4 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none"
+              required
+            />
+            <input
+              type="text"
+              name="farm_name"
+              value={formData.farm_name}
+              onChange={handleChange}
+              placeholder="Farm Name"
+              className="w-full p-4 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none"
+              required
+            />
+            <input
+              type="text"
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+              placeholder="Location"
+              className="w-full p-4 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Your Email"
+              className="w-full p-4 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none"
+              required
+            />
+            <input
+              type="text"
+              name="contact_details"
+              value={formData.contact_details}
+              onChange={handleChange}
+              placeholder="Contact Number"
+              className="w-full p-4 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none"
+              required
+            />
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Enter Password"
+              className="w-full p-4 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none"
+              required
+            />
+            <input
+              type="password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              placeholder="Confirm Password"
+              className="w-full p-4 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none"
+              required
+            />
           </div>
-        </div>
+
+          <button
+            type="submit"
+            className="w-full mt-6 py-3 bg-green-500 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-green-600 transition"
+          >
+            Create an Account
+          </button>
+        </form>
+
+        <p className="text-center mt-4 text-gray-600">
+          Already have an account?{" "}
+          <a href="/login" className="text-green-500 font-semibold">
+            Log in
+          </a>
+        </p>
       </div>
     </div>
   );
-}
+};
 
-export default Register;
-
+export default Registering;

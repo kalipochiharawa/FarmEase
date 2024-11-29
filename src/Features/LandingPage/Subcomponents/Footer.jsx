@@ -13,7 +13,9 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
           <div>
+            <Link to='/'>
             <h4 className="text-3xl font-bold text-black mb-2">Farmease.</h4>
+            </Link>
             <p className="text-sm md:text-base">Allowing farmers and buyers to get their needs at pocket-friendly fees.</p>
             <div className="flex justify-center md:justify-start space-x-4 mt-4">
               <SocialIcon href="https://www.instagram.com/farmease" ariaLabel="Instagram">
@@ -41,20 +43,20 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-xl text-black mb-2">Explore</h4>
             <ul className="space-y-2">
-              <li><Link to="/about" className="hover:text-black text-sm md:text-base">About Us</Link></li>
-              <li><Link to="/events" className="hover:text-black text-sm md:text-base">How to post</Link></li>
-              <li><Link to="/news" className="hover:text-black text-sm md:text-base">How it works</Link></li>
-              <li><Link to="/news" className="hover:text-black text-sm md:text-base">Contact Us</Link></li>
-              <li><Link to="/news" className="hover:text-black text-sm md:text-base">Faqs</Link></li>
+              <li><Link to="/About" className="hover:text-black text-sm md:text-base">About Us</Link></li>
+              <li><Link to="/how-to-post" className="hover:text-black text-sm md:text-base">How to post</Link></li>
+              <li><Link to="/how-it-works" className="hover:text-black text-sm md:text-base">How it works</Link></li>
+              <li><Link to="/contact us" className="hover:text-black text-sm md:text-base">Contact Us</Link></li>
+
             </ul>
           </div>
           <div>
             <h4 className="font-bold text-xl text-black mb-2">Quick Links</h4>
             <ul className="space-y-2">
-              <li><Link to="/contact" className="hover:text-black text-sm md:text-base">Home</Link></li>
-              <li><Link to="/solutions" className="hover:text-black text-sm md:text-base">Categories</Link></li>
+              <li><Link to="/" className="hover:text-black text-sm md:text-base">Home</Link></li>
+
               <li><Link to="/login" className="hover:text-black text-sm md:text-base">Login</Link></li>
-              <li><Link to="/signup" className="hover:text-black text-sm md:text-base">Create Account</Link></li>
+              <li><Link to="/Register" className="hover:text-black text-sm md:text-base">Create Account</Link></li>
             </ul>
           </div>
           <div>

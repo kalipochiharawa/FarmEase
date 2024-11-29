@@ -3,7 +3,7 @@ import { FaUser, FaBars, FaUserCircle } from "react-icons/fa";
 import { X } from "lucide-react";
 import { Link } from "react-router-dom";
 
-function NavbarAndHead() {
+function FirstPageNavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [user, setUser] = useState(null); // Simulating auth state (null = not logged in)
 
@@ -20,7 +20,7 @@ function NavbarAndHead() {
               </Link>
             </li>
             <li>
-              <Link to="/marketplace" className="hover:text-gray-700">
+              <Link to="/Login" className="hover:text-gray-700">
                 MarketPlace
               </Link>
             </li>
@@ -39,7 +39,8 @@ function NavbarAndHead() {
                 Contact us
               </Link>
             </li>
-           
+
+
           </ul>
         </div>
       </nav>
@@ -51,7 +52,7 @@ function NavbarAndHead() {
             Farmease
           </a>
           <div className="flex items-center space-x-6">
-            <Link to="/AddProduct">
+            <Link to="/Login">
               <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-2 sm:px-4 rounded text-sm sm:text-base">
                 + Post a Product
               </button>
@@ -71,14 +72,20 @@ function NavbarAndHead() {
                 </div>
               ) : (
                 <div className="flex flex-col text-gray-600">
-                  <span className="text-sm">Welcome user</span>
+                  <span className="text-sm">Welcome, Guest</span>
                   <div className="flex space-x-2">
-                    
                     <Link
-                      to="/MyProfile"
+                      to="/Login"
                       className="text-sm font-bold underline-animation"
                     >
-                      Account
+                      Login
+                    </Link>
+                    <span>or</span>
+                    <Link
+                      to="/Register"
+                      className="text-sm font-bold underline-animation"
+                    >
+                      Register
                     </Link>
                   </div>
                 </div>
@@ -135,36 +142,32 @@ function NavbarAndHead() {
             )}
           </div>
           <ul className="space-y-4 text-sm px-4 mt-4">
-            <li>
-              <Link to="/about" className="block hover:text-gray-700">
+          <li>
+              <Link to="/about" className="hover:text-gray-700">
                 About us
               </Link>
             </li>
             <li>
-              <Link to="/marketplace" className="block hover:text-gray-700">
+              <Link to="/Login" className="hover:text-gray-700">
                 MarketPlace
               </Link>
             </li>
             <li>
-              <Link to="/how-to-post" className="block hover:text-gray-700">
+              <Link to="/how-to-post" className="hover:text-gray-700">
                 How to post
               </Link>
             </li>
             <li>
-              <Link to="/how-it-works" className="block hover:text-gray-700">
+              <Link to="/how-it-works" className="hover:text-gray-700">
                 How it works
               </Link>
             </li>
             <li>
-              <Link to="/contact" className="block hover:text-gray-700">
+              <Link to="/contact" className="hover:text-gray-700">
                 Contact us
               </Link>
             </li>
-            <li>
-              <Link to="/faqs" className="block hover:text-gray-700">
-                FAQs
-              </Link>
-            </li>
+            
           </ul>
         </div>
       </nav>
@@ -172,4 +175,4 @@ function NavbarAndHead() {
   );
 }
 
-export default NavbarAndHead;
+export default FirstPageNavBar;

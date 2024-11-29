@@ -1,96 +1,130 @@
-import React from "react";
-import { Link } from "react-router-dom";
-function App() {
+import React, { useState } from "react";
+import Tomato from "../LandingPage/Subcomponents/tomato.jpg";
+import { useNavigate } from "react-router-dom";
+
+const Login = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  // Base API URL from environment variables
+  const API_BASE_URL =
+    process.env.REACT_APP_API_BASE_URL || "https://mlimiaguleonline.onrender.com";
+
+  // Handle input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/auth/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json(); // Attempt to parse JSON error
+        throw new Error(errorData.message || "Failed to authenticate. Please try again.");
+      }
+
+      const data = await response.json();
+
+      // Save token to localStorage or another secure location
+      localStorage.setItem("authToken", data.accessToken);
+
+      // Redirect to dashboard or authenticated route
+      navigate("/dashboard");
+    } catch (err) {
+      setError(err.message || "An unexpected error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-cover font-poppins bg-center flex items-center justify-center" style={{ backgroundImage: "url('/Algricuture-background.jpg')" }}>
-     
-      <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-screen-xl">
+    <div className="flex flex-col font-poppins lg:flex-row min-h-screen bg-white">
+      {/* Left Section with Image */}
+      <div className="w-full lg:w-1/2 bg-cover bg-center relative">
+        <img
+          src={Tomato}
+          alt="Tomatoes"
+          className="w-full h-full object-cover"
+        />
+      </div>
 
-      <div className="lg:w-1/2 w-full flex items-center justify-center lg:justify-start px-6 lg:px-16">
-          <div className="text-white p-6 lg:p-10">
-            <h1 className="text-4xl lg:text-5xl font-bold mb-4">Welcome Back</h1>
-            <p className="text-lg lg:text-xl">
-            Access your account and continue your journey with Farm Ease! Whether you're buying or selling, we're here to support you. Simple. Transparent. Together, let's connect the agriculture industry and make a difference. Sign in now!
-            </p>
-          </div>
-        </div>
+      {/* Right Section with Form */}
+      <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 lg:px-16 py-12">
+        <h2 className="text-3xl font-bold mb-6 text-gray-800">Login</h2>
 
-        <div className="lg:w-1/2 w-full flex items-center justify-center lg:justify-end px-6 lg:px-16">
+        {/* Error Message */}
+        {error && (
+          <p className="text-red-500 bg-red-100 p-3 rounded mb-4">{error}</p>
+        )}
 
-
-
-      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md" >
-        <h2 className="text-3xl font-bold mb-4 text-center"
-        >Login</h2>
-        <p className="text-gray-600 mb-8 text-center">Sign in to your Farm Ease account</p>
-
-        <form>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-              Email
-            </label>
+        {/* Login Form */}
+        <form onSubmit={handleSubmit}>
+          <div className="space-y-4">
             <input
-              id="email"
               type="email"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              placeholder="Enter your email"
+              name="email"
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="w-full p-4 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none"
             />
-          </div>
-
-          <div className="mb-6">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-              Password
-            </label>
             <input
-              id="password"
               type="password"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-              placeholder="Enter your password"
+              name="password"
+              placeholder="Enter Password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              className="w-full p-4 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none"
             />
           </div>
 
-          <div className="flex items-center justify-between mb-6">
-            <label className="block text-gray-700 text-sm">
-              <input type="checkbox" className="mr-2 leading-tight" />
-              Remember Me
-            </label>
-
-            <a href="#" className="text-sm text-blue-600 hover:underline">
+          <div className="flex items-center justify-between mt-4">
+            <button
+              type="submit"
+              disabled={loading}
+              className="py-3 px-6 bg-green-500 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-green-600 transition disabled:opacity-50"
+            >
+              {loading ? "Logging in..." : "Login"}
+            </button>
+            <a
+              href="/forgot-password"
+              className="text-green-500 hover:underline font-semibold"
+            >
               Forgot Password?
             </a>
-            
           </div>
-
-          <button
-            type="submit"
-            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
-          >
-            Login
-          </button>
-
-          <p className="mt-4 text-center">
-            <span className="text-gray-600">Or login with</span> <br />
-            <button className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">
-              Google
-            </button>
-          </p>
         </form>
 
-        <p className="mt-8 text-center">
+        {/* Redirect to Register */}
+        <p className="text-center mt-4 text-gray-600">
           Don't have an account?{" "}
-          <a href="#" className="text-blue-500 hover:underline">
-
-          <Link to="/register" className="text-blue-500 hover:underline">
-              Register Now
-            </Link>
-            
+          <a href="/register" className="text-green-500 font-semibold">
+            Register here
           </a>
-         </p>
-        </div>
+        </p>
       </div>
     </div>
-   </div>
   );
-}
+};
 
-export default App;
+export default Login;

@@ -1,3 +1,4 @@
+// File: ./Features/LandingPage/HomePage.jsx
 import React from 'react';
 import Navbar from "./MainHead.jsx";
 import CategorySlider from "./Subcomponents/CategoriesCards.jsx";
@@ -10,7 +11,7 @@ import MarketplaceSection from "./Subcomponents/MarketPlace.jsx";
 import BenefitsProcess from "./Subcomponents/Benefits.jsx";
 import Footer from "./Subcomponents/Footer.jsx";
 
-function LandingPageLayout() {
+const HomePage = () => {
   return (
     <div>
       <Navbar />
@@ -25,6 +26,6 @@ function LandingPageLayout() {
       <Footer />
     </div>
   );
-}
+};
 
-export default LandingPageLayout;
+export default HomePage;
