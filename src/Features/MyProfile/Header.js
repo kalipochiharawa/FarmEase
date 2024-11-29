@@ -1,4 +1,4 @@
-// components/Header.js
+
 import React from 'react';
 import { IoPersonOutline } from "react-icons/io5";
 import { FaBell } from "react-icons/fa";

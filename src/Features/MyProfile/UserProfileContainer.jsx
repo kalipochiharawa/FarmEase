@@ -8,7 +8,7 @@ function UserProfileContainer() {
   const [loading, setLoading] = useState(true);
 
   
-  const userId = localStorage.getItem("userId"); // Replace this with the actual logic to retrieve logged-in user's ID.
+  const userId = localStorage.getItem("userId"); 
 
   useEffect(() => {
     const fetchProfile = async () => {

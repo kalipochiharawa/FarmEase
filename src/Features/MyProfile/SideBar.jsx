@@ -1,4 +1,4 @@
-// components/SideBar.js
+
 import React from 'react';
 import { FaHouse } from "react-icons/fa6";
 import { CiCirclePlus } from "react-icons/ci";
