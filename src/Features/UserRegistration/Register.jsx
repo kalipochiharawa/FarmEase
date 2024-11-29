@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function Register() {
+function Registering() {
   return (
-    <div className="min-h-screen bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url('/Algriculture-background2.jpg')" }}>
+    <div className="min-h-screen bg-cover font-poppins bg-center flex items-center justify-center" style={{ backgroundImage: "url('/Algriculture-background2.jpg')" }}>
       {/* Container to keep both sections aligned */}
       <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-screen-xl">
         
@@ -24,18 +24,18 @@ function Register() {
             <h2 className="text-3xl font-bold mb-4 text-center">Register</h2>
             <p className="text-center text-gray-600 mb-6">
               Do you have an account?{" "}
-              <a href="#" className="text-blue-500 hover:underline">
+              <Link to="/#" className="text-blue-500 hover:underline">
               <Link to="/Login" className="text-blue-500 hover:underline">
               Login Now
             </Link>
               
-              </a>
+              </Link>
             </p>
             <p className="text-center text-gray-600 mb-4">
               or register as a{" "}
-              <a href="#" className="text-blue-500 hover:underline">
+              <Link to="/supplier" className="text-blue-500 hover:underline">
                 Supplier
-              </a>
+              </Link>
             </p>
 
             <form>
@@ -127,5 +127,5 @@ function Register() {
   );
 }
 
-export default Register;
+export default Registering;
 

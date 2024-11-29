@@ -1,0 +1,217 @@
+[33mcommit 05542dd0de1c9052bb3f1e2524a4ef99be708b89[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mkidlocChikapa_Bed-com-48-22[m[33m)[m
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Mon Nov 11 22:53:24 2024 +0200
+
+    customised tailwind
+
+[33mcommit a3866c27e671f668dad9991b883b0f6be5753eb1[m
+Merge: 5953c7b 7dffed8
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Mon Nov 11 22:52:38 2024 +0200
+
+    Merge branch 'bsc-com-01-21-MCHIHANA' of https://github.com/kalipochiharawa/FarmEase into kidlocChikapa_Bed-com-48-22
+
+[33mcommit 5953c7bb18cb50afbf08b72193cfd3faae8d6438[m
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Mon Nov 11 22:33:38 2024 +0200
+
+    resolving conflicts in package.json
+
+[33mcommit 3d8c01f49f75a7153e5f7653f6ff4a56abd376a9[m
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Mon Nov 11 22:28:34 2024 +0200
+
+    updated package.json with errors resolved
+
+[33mcommit c6c1c47de85dda9697520df5152517caf9efc090[m
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Mon Nov 11 22:16:05 2024 +0200
+
+    Resolve merge conflicts in package.json
+
+[33mcommit 52a6ec9dbc14d85eb944658cb83aa251ccc39cac[m[33m ([m[1;31morigin/kidlocChikapa_Bed-com-48-22[m[33m)[m
+Merge: e7781f8 d5472a3
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Mon Nov 11 21:35:19 2024 +0200
+
+    Merge branch 'kidlocChikapa_Bed-com-48-22' of https://github.com/kalipochiharawa/FarmEase into kidlocChikapa_Bed-com-48-22
+
+[33mcommit d5472a337a9182aac2e6fe28dc50600488fdfe7b[m
+Merge: d3346ef 49316bb
+Author: kidlocchikapa <167176222+kidlocchikapa@users.noreply.github.com>
+Date:   Mon Nov 11 20:26:57 2024 +0200
+
+    Merge pull request #6 from kalipochiharawa/Testing1
+    
+    Testing1
+
+[33mcommit e7781f857909f938699a90894011455f5b9f3a88[m
+Merge: 23dd92f fd2aaa8
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Mon Nov 11 20:15:59 2024 +0200
+
+    Merge branch 'testing1', remote-tracking branch 'origin' into kidlocChikapa_Bed-com-48-22
+
+[33mcommit fd2aaa82de566c6e184ee3c27d8402c9a35e45c4[m
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Mon Nov 11 20:14:51 2024 +0200
+
+    Commit after changes in layout for clean rendering app
+
+[33mcommit 4b228216d2ce10dbf1f4b220dea624fc200e65fe[m
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Mon Nov 11 20:01:57 2024 +0200
+
+    Save changes before switching branches
+
+[33mcommit 49316bbb6160395dd39c8cb7867bba215d261d44[m[33m ([m[1;31morigin/Testing1[m[33m)[m
+Merge: e3195f9 79bcffd
+Author: BSC-INF-12-20 <bsc-inf-12-20@unima.ac.mw>
+Date:   Mon Nov 11 18:54:19 2024 +0200
+
+    merging version002
+
+[33mcommit e3195f9a047eb8414172d7f40ebfcfa6cf081223[m
+Author: BSC-INF-12-20 <bsc-inf-12-20@unima.ac.mw>
+Date:   Mon Nov 11 18:31:39 2024 +0200
+
+    Changes to addproducts
+
+[33mcommit 7dffed82e7a3bb0eccb656783f215dc24ea601e4[m[33m ([m[1;31morigin/bsc-com-01-21-MCHIHANA[m[33m)[m
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Mon Nov 11 13:01:00 2024 +0200
+
+    color modifications
+
+[33mcommit 184efd2fc56df75ceec4673586bfd696cf34e542[m[33m ([m[1;31morigin/stephanokachingwe_bsc-inf-12-20[m[33m)[m
+Author: BSC-INF-12-20 <bsc-inf-12-20@unima.ac.mw>
+Date:   Sun Nov 10 20:45:31 2024 +0200
+
+    ADD PRODUCT
+
+[33mcommit 79bcffdb0961fef507794cfe83020ad00b6163da[m
+Merge: d3346ef 7db5da7
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Sun Nov 10 20:37:55 2024 +0200
+
+    Merge branch 'Testing1' of https://github.com/kalipochiharawa/FarmEase into Testing1
+
+[33mcommit 23dd92f7e31515c8bbc4c0eb5f0051d4255522a8[m
+Merge: 17332a1 d3346ef
+Author: kidlocchikapa <167176222+kidlocchikapa@users.noreply.github.com>
+Date:   Sun Nov 10 20:19:05 2024 +0200
+
+    Merge pull request #2 from kalipochiharawa/kidlocChikapa_Bed-com-48-22
+    
+    Merging to the testing branch
+
+[33mcommit d3346effc550ad6101408d367049e9c30fdbdabb[m
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Sun Nov 10 20:04:35 2024 +0200
+
+    An action before merging to testing
+
+[33mcommit bc153cdaa707e5041fd3d966eec3df2e5e79928b[m[33m ([m[1;32mTesting[m[33m)[m
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Sun Nov 10 20:00:38 2024 +0200
+
+    Updated a benefit page
+
+[33mcommit 70c730e3a923471fb28c8b3a769661955bf8c9ba[m
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Sun Nov 10 19:59:52 2024 +0200
+
+    Added a search component separated from the landing page
+
+[33mcommit 28717b1ab6f05400306d642168338249703b9960[m
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Sun Nov 10 19:58:36 2024 +0200
+
+    Updated a separated landimg page
+
+[33mcommit 7db5da7793e402f4338ab922e5d78884cf22e0af[m[33m ([m[1;31morigin/Testing[m[33m)[m
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Sat Nov 2 16:30:30 2024 +0200
+
+    finishing the UI of payment and Catalog features phase1
+
+[33mcommit 556c477a017fbaa96b0d665485eac52c51fa5e6a[m
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Fri Nov 1 15:48:49 2024 +0200
+
+    updating the main shopping catalog, product listing page
+
+[33mcommit 70b249de552583f873b33445b711f4798496f389[m
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Fri Nov 1 15:47:41 2024 +0200
+
+    updating a catalog list of items
+
+[33mcommit 068846d5cec2dd4f6019f04ed1834a0a7ffdf80a[m
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Fri Nov 1 15:46:49 2024 +0200
+
+    udating the catalogItem sub-component
+
+[33mcommit 0510777202b8382c2a2bd5ca4fcb98813a52868b[m
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Fri Nov 1 15:44:28 2024 +0200
+
+    updating the product listing filter option
+
+[33mcommit 93ae9c1bd1d907973bb73461c6635e9e68f48338[m
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Fri Nov 1 13:26:36 2024 +0200
+
+    adding new images to assets for UI in payments and catalog
+
+[33mcommit c09910ef4b897c27b77f87f4d1b063c59a794a12[m
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Fri Nov 1 13:22:49 2024 +0200
+
+    Modifying app.js and deleting some components
+
+[33mcommit 07d31de97eabc954207219318d4e2b038a1a4f76[m
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Thu Oct 31 23:07:17 2024 +0200
+
+    modifying and writing js codes to payment componet
+
+[33mcommit 643d2382d06e918c671aafdf2f0826e6a8ab4cb1[m
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Thu Oct 31 23:06:06 2024 +0200
+
+    modifying and writing js codes to payment componet
+
+[33mcommit 318da3b030a6b8c4c0c9ef88f27cdbfbc9df9ee4[m
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Thu Oct 31 23:01:13 2024 +0200
+
+    adding a payment page UI and updating a APP.js
+
+[33mcommit 58a0c45f33c143832be25d4afe72114e4018292a[m
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Thu Oct 31 22:33:30 2024 +0200
+
+    updating the 3features code
+
+[33mcommit f6742d693960a818856f717979ce76f8f77436fc[m
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Thu Oct 31 22:30:03 2024 +0200
+
+    Two components to finish the Payment UI
+
+[33mcommit 5e4146454cf7901ec683eacfeaad32818ae7c42b[m
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Thu Oct 31 22:26:32 2024 +0200
+
+    implementing paymentGateway button sub-component
+
+[33mcommit 2d0503b1ab81a9f2935ff150935298d51392e279[m
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Thu Oct 31 22:19:14 2024 +0200
+
+     creation of components inside payment and Product listing
+
+[33mcommit 3d7db9644c54b2b98bdfeb5251c3cd61c7f19661[m
+Author
