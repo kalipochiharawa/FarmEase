@@ -39,10 +39,10 @@ const ImageUpload = ({ image, setImage }) => {
     formData.append("image", file);
 
     try {
-      // Sending the image to the backend to upload it
       const response = await axios.post("https://mlimiaguleonline.onrender.com/upload-image", formData);
-      setImage(response.data.imageUrl); // Update the productData with the imageUrl returned by the backend
-      setError(null); // Clear any previous error messages
+      setImage(response.data.imageUrl);
+      setError(null);
+      
     } catch (error) {
       console.error("Error uploading image:", error);
       setError("Failed to upload image. Please try again.");
@@ -61,7 +61,7 @@ const ImageUpload = ({ image, setImage }) => {
               className="w-full h-full object-cover rounded-lg"
             />
             <button
-              onClick={() => { setImage(null); setImagePreview(null); }} // Reset the image when clicking "Delete Image"
+              onClick={() => { setImage(null); setImagePreview(null); }}
               className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-md"
             >
               Delete Image

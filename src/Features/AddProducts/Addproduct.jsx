@@ -39,10 +39,9 @@ const ImageUpload = ({ image, setImage }) => {
     formData.append("image", file);
 
     try {
-      // Sending the image to the backend to upload it
       const response = await axios.post("https://mlimiaguleonline.onrender.com/upload-image", formData);
-      setImage(response.data.imageUrl); // Update the productData with the imageUrl returned by the backend
-      setError(null); // Clear any previous error messages
+      setImage(response.data.imageUrl); 
+      setError(null); 
     } catch (error) {
       console.error("Error uploading image:", error);
       setError("Failed to upload image. Please try again.");
