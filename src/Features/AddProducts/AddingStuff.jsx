@@ -5,7 +5,7 @@ import { Bell, User } from "lucide-react";
 
 // Header Component
 const Header = () => (
-  <div className="flex justify-between items-center mb-6">
+  <div className="flex justify-between items-center font-poppins mb-6">
     <h1 className="text-lg sm:text-xl font-bold">Add New Product</h1>
     <div className="flex items-center space-x-4">
       <button className="flex items-center text-xs sm:text-sm hover:text-gray-600">
@@ -24,15 +24,23 @@ const Header = () => (
 // Image Upload Component
 const ImageUpload = ({ image, setImage }) => {
   const [error, setError] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
 
   const handleImageUpload = async (event) => {
     const file = event.target.files[0];
+    
+    if (!file) return;
+    
+    // Preview the image before uploading
+    const previewUrl = URL.createObjectURL(file);
+    setImagePreview(previewUrl);
+
     const formData = new FormData();
     formData.append("image", file);
 
     try {
       // Sending the image to the backend to upload it
-      const response = await axios.post("http://localhost:5000/upload-image", formData);
+      const response = await axios.post("https://mlimiaguleonline.onrender.com/upload-image", formData);
       setImage(response.data.imageUrl); // Update the productData with the imageUrl returned by the backend
       setError(null); // Clear any previous error messages
     } catch (error) {
@@ -42,19 +50,19 @@ const ImageUpload = ({ image, setImage }) => {
   };
 
   return (
-    <div className="bg-gray-50 p-4 rounded-lg">
+    <div className="bg-gray-50 p-4 font-poppins rounded-lg">
       <h2 className="text-lg font-medium mb-4">Upload Image</h2>
-      <div className="border border-gray-200 bg-white rounded-lg h-[140px] flex items-center justify-center">
-        {image ? (
-          <div>
+      <div className="border border-gray-200 bg-white rounded-lg h-[240px] flex items-center justify-center">
+        {image || imagePreview ? (
+          <div className="relative">
             <img
-              src={image}
+              src={imagePreview || image}
               alt="Product"
               className="w-full h-full object-cover rounded-lg"
             />
             <button
-              onClick={() => setImage(null)} // Reset the image when clicking "Delete Image"
-              className="bg-red-500 text-white px-2 py-1 rounded-md mt-2"
+              onClick={() => { setImage(null); setImagePreview(null); }} // Reset the image when clicking "Delete Image"
+              className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-md"
             >
               Delete Image
             </button>
@@ -102,7 +110,7 @@ const AddProduct = () => {
   const handleSubmit = async () => {
     try {
       // Send the product data to the backend, including the image URL
-      await axios.post("http://localhost:5000/products", productData); // Replace with your backend endpoint
+      await axios.post("https://mlimiaguleonline.onrender.com/products", productData); // Replaced with the online server URL
       setMessage({ type: "success", text: "Product added successfully!" });
       
       // Reset the form after submission
@@ -124,7 +132,7 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="p-6 w-full max-w-4xl mx-auto bg-white">
+    <div className="p-6 w-full max-w-4xl font-poppins  mx-auto bg-white">
       <Header />
       {message.text && (
         <div

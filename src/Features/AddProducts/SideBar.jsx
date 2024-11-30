@@ -13,7 +13,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="w-48 min-h-screen bg-white">
+    <div className="w-48 min-h-screen font-poppins  bg-white">
       {/* Logo */}
       <div className="px-4 py-6">
         <h1 className="text-lg font-semibold text-green-500">Farmease.</h1>

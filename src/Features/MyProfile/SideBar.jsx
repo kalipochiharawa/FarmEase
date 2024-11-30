@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 function SideBar() {
   return (
-    <div className="w-64 bg-white h-screen border-r p-6 space-y-6">
+    <div className="w-64 bg-white font-poppins  h-screen border-r p-6 space-y-6">
       {/* Logo */}
       <h1 className="text-green-600 text-2xl font-bold mb-8">Farmease.</h1>
 
@@ -37,10 +37,6 @@ function SideBar() {
           <IoIosInformation className="h-6 w-6 mr-3" />
           Profile Info
         </a>
-        <Link to= "/" className="flex items-center text-gray-700 hover:text-green-600">
-          <IoPersonOutline  className="h-6 w-6 mr-3" />
-         Log Out
-        </Link>
       </nav>
     </div>
   );

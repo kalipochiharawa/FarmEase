@@ -1,0 +1,228 @@
+[33mcommit 3c656b87cdad69b603a73cf7cd232b7dc1209d23[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mkidlocChikapa_Bed-com-48-22[m[33m)[m
+Merge: 9921f61 6a4e2ba
+Author: kidloc chikapa <bed-com-48-22@unima.ac.mw>
+Date:   Sat Nov 23 06:00:49 2024 +0500
+
+    Merge branch 'Testing1' into kidlocChikapa_Bed-com-48-22
+
+[33mcommit 9921f618934e819ce8abde9758002b4dd669db5f[m[33m ([m[1;31morigin/kidlocChikapa_Bed-com-48-22[m[33m)[m
+Author: kidloc chikapa <bed-com-48-22@unima.ac.mw>
+Date:   Sat Nov 23 05:52:14 2024 +0500
+
+    updated newly files
+
+[33mcommit 4a8b8be77c959bd3c460d880afff49b59beb307a[m
+Author: kidloc chikapa <bed-com-48-22@unima.ac.mw>
+Date:   Sat Nov 23 03:13:35 2024 +0500
+
+    merged with kalis branch
+
+[33mcommit f3203a63a5fe7e64c2f154399b477db5faaf8c98[m
+Merge: 200dd9d 50b4ced
+Author: YOTAM GIDION <BED/COM/28/23@COMLAB.COM>
+Date:   Sat Nov 23 03:08:03 2024 +0500
+
+    merged branch kali
+
+[33mcommit 6a4e2bab3f2138cd213da5f6ca0b5e5d8b7b59ea[m[33m ([m[1;32mTesting1[m[33m)[m
+Author: YOTAM GIDION <BED/COM/28/23@COMLAB.COM>
+Date:   Sat Nov 23 03:00:34 2024 +0500
+
+    commit before swith at 1217
+
+[33mcommit 9878d97637a1a82b9ee1843ce280a0f3d49759ab[m[33m ([m[1;31morigin/bsc-com-01-21-MCHIHANA[m[33m)[m
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Sat Nov 23 00:05:07 2024 +0200
+
+    commiting files togithub
+
+[33mcommit 200dd9d00ab18006ab6f3e64aefb32f97a4b0000[m
+Author: YOTAM GIDION <BED/COM/28/23@COMLAB.COM>
+Date:   Sat Nov 23 02:42:46 2024 +0500
+
+    switch to testing1
+
+[33mcommit 397a8786d0e4c43c0b9f4ec8262c7228bed1e6ae[m
+Merge: c7857b6 8b5a144
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Fri Nov 22 23:39:20 2024 +0200
+
+    Merge remote-tracking branch 'origin' into bsc-com-01-21-MCHIHANA
+
+[33mcommit c7857b63ae8d72dffb3ba4cc31d6158d69d90e9d[m
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Fri Nov 22 23:36:17 2024 +0200
+
+    changes phase14.0
+
+[33mcommit 50b4cedfe47d4917fa1b9d818b82ea833903f8b3[m[33m ([m[1;31morigin/Linux-kali_Bed-com-01-21[m[33m)[m
+Author: Kalipochi <bed-com-01-21@unima.ac.mw>
+Date:   Fri Nov 22 23:05:54 2024 +0200
+
+    Updated password visibility
+
+[33mcommit e8bbab192f835bde46461345eb65d188e3ad60ce[m
+Author: Kalipochi <bed-com-01-21@unima.ac.mw>
+Date:   Fri Nov 22 22:58:38 2024 +0200
+
+    added email box on seller form
+
+[33mcommit e6fa2b251ec7c0dfb7f6a2e9b3b22b9cca6ae733[m
+Author: Kalipochi <bed-com-01-21@unima.ac.mw>
+Date:   Fri Nov 22 22:41:52 2024 +0200
+
+    making the left section pictures to slide
+
+[33mcommit e29fe291fbfa67aaa1da898600324770a2e8487f[m
+Author: Kalipochi <bed-com-01-21@unima.ac.mw>
+Date:   Fri Nov 22 21:44:50 2024 +0200
+
+    making the progress bar dynamic
+
+[33mcommit 86c8870dd3305a4f73596ecd68864a3439c1bbe0[m
+Author: Kalipochi <bed-com-01-21@unima.ac.mw>
+Date:   Fri Nov 22 19:51:12 2024 +0200
+
+    Updated version
+
+[33mcommit 91aca5b49ebac1f3d35e1608572ebb5b6b5de61f[m
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Fri Nov 22 14:29:47 2024 +0200
+
+    changing products ids
+
+[33mcommit 4773972f3a76b84169f342332ff19faeff943097[m
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Fri Nov 22 13:54:42 2024 +0200
+
+    added a how to post page
+
+[33mcommit 416144d7d240a6c9c5ffefc8d63dd17cfcbd1589[m
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Fri Nov 22 13:28:00 2024 +0200
+
+    added a contact us page and a about us
+
+[33mcommit 55fec2a71e5d58350a58366b34aea0578743f4b9[m
+Merge: 7af2620 dbefbfa
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Fri Nov 22 05:31:03 2024 +0200
+
+    Merge branch 'Testing1' into kidlocChikapa_Bed-com-48-22
+
+[33mcommit dbefbfa54070542a0d2a8518a19750e5d0b292d6[m
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Fri Nov 22 05:30:13 2024 +0200
+
+    remove a wrongly updated image path
+
+[33mcommit 7af26209897c5efb4f2238269626df0fc667efc5[m
+Merge: 02b748e c844aa1
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Fri Nov 22 04:53:56 2024 +0200
+
+    Merge remote-tracking branch 'origin/bsc-com-01-21' into kidlocChikapa_Bed-com-48-22
+
+[33mcommit 1e2c8adb95671dc7361792f51a3cf13c37baaddf[m
+Merge: e3d9fb9 8b5a144
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Fri Nov 22 02:13:14 2024 +0200
+
+    Merge remote-tracking branch 'origin' into Testing1
+
+[33mcommit e3d9fb9ebf11fd33351c5661018ddcf337d72941[m
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Fri Nov 22 02:12:59 2024 +0200
+
+    a commit before re-merge
+
+[33mcommit 02b748efb7bd5b655164fce068ddab32ddb0f265[m
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Fri Nov 22 00:53:04 2024 +0200
+
+    checkout to main before a revised merge
+
+[33mcommit aca1562354aceae9c576c5029fd9a1df06d5832e[m
+Merge: 79c8bb6 8b5a144 a1ad389
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Fri Nov 22 00:34:52 2024 +0200
+
+    merging with latest chages
+
+[33mcommit a1ad389f1e36e4d8d33163912919686aede8e9ff[m
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Fri Nov 22 00:30:48 2024 +0200
+
+    updated files after a merge
+
+[33mcommit cb2f93dbd13c93f506fbfb2ca177a286749c96b2[m
+Merge: 0382731 9141bb9
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Thu Nov 21 23:55:03 2024 +0200
+
+    merged contents from mischeck
+
+[33mcommit 79c8bb61b62449b5c43b139945d6be974bda1c62[m
+Merge: b52046f 0382731
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Thu Nov 21 23:39:13 2024 +0200
+
+    Merge branch 'Testing1' of https://github.com/kalipochiharawa/FarmEase into kidlocChikapa_Bed-com-48-22
+
+[33mcommit b52046fc0690caa8e20021f8dd917de6559d12c7[m
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Thu Nov 21 23:39:03 2024 +0200
+
+    adding files before a commit
+
+[33mcommit b6178560057a237c92ff3d1d4067e52992bd03bc[m
+Merge: 0382731 9141bb9
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Thu Nov 21 23:37:09 2024 +0200
+
+    commiting files after merging on thursday night 11:35pm
+
+[33mcommit 9141bb97cd93895588d7dce73af75febc75361db[m
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Thu Nov 21 23:27:42 2024 +0200
+
+    updates4.0
+
+[33mcommit 93bf7c82c8cb7d5937a1d05d34540eab83cce587[m
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Thu Nov 21 22:40:55 2024 +0200
+
+    commiting files togithub1.0
+
+[33mcommit a2fe72a53b5f5406af9253679a2365716df567e6[m
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Thu Nov 21 20:30:44 2024 +0200
+
+    commiting files togithub
+
+[33mcommit 0382731ae3da952aba53dc46855e979c607da5f1[m[33m ([m[1;31morigin/Testing1[m[33m)[m
+Merge: 5dd193a f427dfa
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Wed Nov 20 23:07:27 2024 +0200
+
+    Merge branch 'Testing1' of https://github.com/kalipochiharawa/FarmEase into Testing1
+
+[33mcommit 5dd193ad88bdf157eaf02fac63c5b34183066ff6[m
+Author: “kidlocchikapagit config --global user.name “kidlocchikapa <“bed-com-48-44@unima.ac.mw”>
+Date:   Wed Nov 20 23:03:40 2024 +0200
+
+    update ahead before getting files from testing1
+
+[33mcommit a62c0ed97f40b50e12df9da3bc3c4a7d97722c4b[m
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Wed Nov 20 17:17:48 2024 +0200
+
+    Updating the subcomponents and product listing feature
+
+[33mcommit e817b056ec042e8ba56d4bf991b99319972dbf4f[m
+Author: MCHIHANA <bsc-com-01-21@unima.ac.mw>
+Date:   Wed Nov 20 11:18:19 2024 +0200
+
+    product card
+
+[33mcommit 87d8fb20bae2e03a25d18b7be1e8e6f6148b26fd

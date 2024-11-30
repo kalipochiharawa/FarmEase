@@ -5,7 +5,7 @@ import { FaBell } from "react-icons/fa";
 
 function Header() {
   return (
-    <header className="flex justify-end items-right p-4 ">
+    <header className="flex font-poppins  justify-end items-right p-4 ">
       <div className="flex items-right space-x-4">
         {/* Contact Icon */}
         <button className="text-gray-600 hover:text-gray-800">

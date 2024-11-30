@@ -7,15 +7,25 @@ function UserProfileContainer() {
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const userId = 4; // Replace with logic to dynamically fetch the logged-in user's ID.
+  // Fetch the user ID dynamically. This could be from authentication context or local storage.
+  const userId = localStorage.getItem("userId"); // Replace this with the actual logic to retrieve logged-in user's ID.
 
   useEffect(() => {
     const fetchProfile = async () => {
+      if (!userId) {
+        console.error("No user ID found.");
+        setLoading(false);
+        return;
+      }
+
       try {
-        const response = await axios.get(`http://localhost:5000/users/${userId}`);
+        const response = await axios.get(
+          `https://mlimiaguleonline.onrender.com/user/${userId}`
+        );
         setProfile(response.data); // Set the profile data
       } catch (error) {
         console.error("Error fetching profile data:", error);
+        alert("Failed to load profile. Please try again later.");
       } finally {
         setLoading(false);
       }
@@ -27,27 +37,35 @@ function UserProfileContainer() {
   const handleSave = async (updatedProfile) => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/users/${userId}`,
+        `https://mlimiaguleonline.onrender.com/user/${userId}`,
         updatedProfile
       );
-      setProfile(response.data); // Update the local profile state with the server's response
+      setProfile(response.data);
       alert("Profile updated successfully!");
     } catch (error) {
       console.error("Error updating profile:", error);
-      throw error;
+      alert("Failed to update profile. Please try again.");
     }
   };
 
   if (loading) {
-    return <Layout>
-      <div>Loading...</div>
-    </Layout>;
+    return (
+      <Layout>
+        <div className="flex items-center justify-center h-full">
+          <p>Loading...</p>
+        </div>
+      </Layout>
+    );
   }
 
   if (!profile) {
-    return <Layout>
-      <div>No profile data found.</div>
-    </Layout>;
+    return (
+      <Layout>
+        <div className="flex items-center justify-center h-full">
+          <p>No profile data found.</p>
+        </div>
+      </Layout>
+    );
   }
 
   return (

@@ -1,14 +1,12 @@
 import React from "react";
 import { Wallet } from "lucide-react";
-import { Link } from "react-router-dom";
 import mpambaLogo from "../../Assets/Images/TNM-Mpamba-Logo.png";
 import airtelMoneyLogo from "../../Assets/Images/airtel-money.png";
-import Footer from "../LandingPage/Subcomponents/Footer";
+import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   return (
-    <>
-    <div className="min-h-screen bg-gray-50 py-10 font-poppins" >
+    <div className="min-h-screen bg-gray-50 py-10 font-poppins">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
@@ -39,7 +37,7 @@ const AboutUs = () => {
           {/* Right Section - Image */}
           <div>
             <img
-              src={"https://source.unsplash.com/800x600/?farm,market"}
+              src="https://source.unsplash.com/800x600/?farm,market"
               alt="Agriculture Market"
               className="w-full h-auto rounded-lg shadow-lg"
             />
@@ -103,7 +101,7 @@ const AboutUs = () => {
           <p className="text-gray-600 mb-6">
             Discover the future of agriculture commerce with FarmEase.
           </p>
-          <Link to="/signup">
+          <Link to="/Register">
           <button className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition">
             Get Started
           </button>
@@ -111,8 +109,6 @@ const AboutUs = () => {
         </div>
       </div>
     </div>
-    <Footer/>
-    </>
   );
 };
 

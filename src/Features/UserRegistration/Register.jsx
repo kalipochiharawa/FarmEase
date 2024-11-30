@@ -4,65 +4,86 @@ import Tomato from "../../Assets/Images/Tomato.png";
 
 const Registering = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    companyName: "",
-    email: "",
-    phoneNumber: "",
-    productType: "",
+    full_name: "",
+    farm_name: "",
     location: "",
+    email: "",
+    contact_details: "",
     password: "",
     confirmPassword: "",
   });
 
-  const [activeRole, setActiveRole] = useState("Seller");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
+  // Get the API URL from environment variable
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://mlimiaguleonline.onrender.com";
+
+  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Clear previous messages
+    setErrorMessage("");
+    setSuccessMessage("");
+
+    // Validate password confirmation
     if (formData.password !== formData.confirmPassword) {
-      setErrorMessage("Passwords do not match");
+      setErrorMessage("Passwords do not match.");
       return;
     }
 
     try {
+      // Prepare payload for API call
       const payload = {
-        name: formData.name,
+        full_name: formData.full_name,
+        farm_name: formData.farm_name,
+        location: formData.location,
         email: formData.email,
-        phoneNumber: formData.phoneNumber,
+        contact_details: formData.contact_details,
         password: formData.password,
-        role: activeRole,
       };
 
-      const response = await axios.post("http://localhost:5000/auth/register", payload);
+      // Make API call to register the user
+      const response = await axios.post(`${API_BASE_URL}/auth/register`, payload, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
+      // Check if registration is successful
       if (response.status === 201) {
-        setSuccessMessage("Registration successful!");
-        setErrorMessage("");
+        setSuccessMessage("Registration successful! You can now log in.");
         setFormData({
-          name: "",
-          companyName: "",
-          email: "",
-          phoneNumber: "",
-          productType: "",
+          full_name: "",
+          farm_name: "",
           location: "",
+          email: "",
+          contact_details: "",
           password: "",
           confirmPassword: "",
         });
+        setErrorMessage("");
       }
     } catch (error) {
-      setErrorMessage(error.response?.data?.message || "An error occurred during registration");
+      console.error("Registration error:", error);
+      setErrorMessage(
+        error.response?.data?.message || "An error occurred during registration. Please try again."
+      );
     }
   };
 
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen bg-white">
+    <div className="flex flex-col font-poppins lg:flex-row min-h-screen bg-white">
       {/* Left Section with Image */}
       <div className="w-full lg:w-1/2 bg-cover bg-center relative">
         <img
@@ -82,50 +103,40 @@ const Registering = () => {
       {/* Right Section with Form */}
       <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 lg:px-16 py-12">
         <h2 className="text-3xl font-bold mb-6 text-gray-800">Create Account</h2>
-        <div className="flex mb-6">
-          <button
-            onClick={() => setActiveRole("Seller")}
-            className={`w-1/2 py-2 text-lg font-semibold rounded-tl-lg ${
-              activeRole === "Seller"
-                ? "bg-green-500 text-white"
-                : "bg-gray-200 text-gray-700"
-            }`}
-          >
-            Seller
-          </button>
-          <button
-            onClick={() => setActiveRole("Buyer")}
-            className={`w-1/2 py-2 text-lg font-semibold rounded-tr-lg ${
-              activeRole === "Buyer"
-                ? "bg-orange-500 text-white"
-                : "bg-gray-200 text-gray-700"
-            }`}
-          >
-            Buyer
-          </button>
-        </div>
 
+        {/* Display Messages */}
         {errorMessage && <p className="text-red-500 mb-4">{errorMessage}</p>}
         {successMessage && <p className="text-green-500 mb-4">{successMessage}</p>}
 
+        {/* Registration Form */}
         <form onSubmit={handleSubmit}>
           <div className="space-y-4">
             <input
               type="text"
-              name="name"
-              value={formData.name}
+              name="full_name"
+              value={formData.full_name}
               onChange={handleChange}
-              placeholder="Your Name"
+              placeholder="Your Full Name"
               className="w-full p-4 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none"
               required
             />
             <input
               type="text"
-              name="companyName"
-              value={formData.companyName}
+              name="farm_name"
+              value={formData.farm_name}
               onChange={handleChange}
-              placeholder="Your Company/Farm name"
+              placeholder="Farm Name"
               className="w-full p-4 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none"
+              required
+            />
+            <input
+              type="text"
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+              placeholder="Location"
+              className="w-full p-4 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none"
+              required
             />
             <input
               type="email"
@@ -138,39 +149,13 @@ const Registering = () => {
             />
             <input
               type="text"
-              name="phoneNumber"
-              value={formData.phoneNumber}
+              name="contact_details"
+              value={formData.contact_details}
               onChange={handleChange}
               placeholder="Contact Number"
               className="w-full p-4 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none"
               required
             />
-            <select
-              name="productType"
-              value={formData.productType}
-              onChange={handleChange}
-              className="w-full p-4 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none text-gray-500"
-            >
-              <option disabled value="">
-                Type of product
-              </option>
-              <option>Vegetables</option>
-              <option>Fruits</option>
-              <option>Dairy</option>
-              <option>Grains</option>
-            </select>
-            <select
-              name="location"
-              value={formData.location}
-              onChange={handleChange}
-              className="w-full p-4 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none text-gray-500"
-            >
-              <option disabled value="">
-                Where are you located
-              </option>
-              <option>Urban Area</option>
-              <option>Rural Area</option>
-            </select>
             <input
               type="password"
               name="password"
@@ -189,17 +174,6 @@ const Registering = () => {
               className="w-full p-4 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none"
               required
             />
-          </div>
-
-          <div className="flex items-center mt-4">
-            <input
-              type="checkbox"
-              id="remember"
-              className="mr-2 focus:ring-green-500"
-            />
-            <label htmlFor="remember" className="text-gray-700">
-              Remember me
-            </label>
           </div>
 
           <button

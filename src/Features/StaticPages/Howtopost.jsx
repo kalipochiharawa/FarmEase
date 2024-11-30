@@ -16,7 +16,7 @@ const Step = ({ number, title, children }) => (
 
 const ProductPostingGuide = () => {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white  font-poppins min-h-screen">
       <div className="max-w-3xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12 pb-6 border-b border-green-200">

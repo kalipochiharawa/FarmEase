@@ -1,7 +1,7 @@
 import React from 'react';
 import { MapPin, Phone, Mail, Clock, Tractor, Wheat } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
+import Footer from '../LandingPage/Subcomponents/Footer';
 const Card = ({ children, className = "" }) => (
   <div className={`bg-white rounded-lg ${className}`}>
     {children}
@@ -16,6 +16,7 @@ const CardContent = ({ children, className = "" }) => (
 
 const ContactPage = () => {
   return (
+    <>
     <div className="min-h-screen bg-gray-50 font-poppins">
       <div className="relative h-48 sm:h-64 bg-green-600 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-green-600/90 to-green-500/70" />
@@ -34,7 +35,7 @@ const ContactPage = () => {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-8 sm:py-12">
+      <div className="max-w-7xl mx-auto px-4 py-8 sm:py-12 font-poppins">
         {/* Info Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 -mt-12 sm:-mt-16 mb-8 sm:mb-12">
           <Card className="shadow-lg transform transition-transform duration-300 hover:-translate-y-1">
@@ -45,8 +46,8 @@ const ContactPage = () => {
                 </div>
                 <div className="min-w-0">
                   <h3 className="font-semibold text-gray-900 text-sm sm:text-base">Visit Us</h3>
-                  <p className="text-gray-600 text-sm">123 Harvest Road</p>
-                  <p className="text-gray-600 text-sm">Farmington, ST 12345</p>
+                  <p className="text-gray-600 text-sm">M1 Zomba, Mangochi Road</p>
+                  <p className="text-gray-600 text-sm">Pacific, 104</p>
                 </div>
               </div>
             </CardContent>
@@ -60,8 +61,8 @@ const ContactPage = () => {
                 </div>
                 <div className="min-w-0">
                   <h3 className="font-semibold text-gray-900 text-sm sm:text-base">Call Us</h3>
-                  <p className="text-gray-600 text-sm">(555) 123-4567</p>
-                  <p className="text-gray-600 text-sm">Toll Free: (800) 123-4567</p>
+                  <p className="text-gray-600 text-sm">(265) 990155300</p>
+                  <p className="text-gray-600 text-sm">Toll Free: (111) 888777332</p>
                 </div>
               </div>
             </CardContent>
@@ -111,7 +112,7 @@ const ContactPage = () => {
               <ul className="space-y-2 text-sm sm:text-base text-gray-600">
                 <li className="flex items-center">
                   <span className="mr-2">•</span>
-                  Agricultural Consulting
+                  Agricultural Products Marketing
                 </li>
                 <li className="flex items-center">
                   <span className="mr-2">•</span>
@@ -137,19 +138,19 @@ const ContactPage = () => {
             <div className="text-center mb-6 sm:mb-8">
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Visit Our Office</h3>
               <p className="text-gray-600 mt-2 text-sm sm:text-base">
-                Come see us at our main location in Farmington
+                Come see us at our main location in Zomba
               </p>
             </div>
             
             <div className="bg-gray-100 rounded-lg p-4 sm:p-6">
               <h4 className="font-semibold text-gray-900 mb-3 sm:mb-4 text-sm sm:text-base">Headquarters</h4>
               <div className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-600">
-                <p>123 Harvest Road</p>
-                <p>Farmington, ST 12345</p>
-                <p>United States</p>
+                <p>Zomba</p>
+                <p>Zomba M1 Road</p>
+                <p>Malawi</p>
                 <div className="pt-2 sm:pt-3">
                   <p className="font-semibold">General Inquiries:</p>
-                  <p>Phone: (555) 123-4567</p>
+                  <p>Phone: (265) 990155300</p>
                   <p>Email: info@farmease.com</p>
                 </div>
               </div>
@@ -158,12 +159,14 @@ const ContactPage = () => {
             <div className="mt-6 sm:mt-8 text-center text-gray-600">
               <p className="text-sm sm:text-base">For immediate assistance, please call our</p>
               <p className="font-semibold text-sm sm:text-base">24/7 Support Hotline:</p>
-              <p className="text-green-700 text-lg sm:text-xl font-bold">(800) 123-4567</p>
+              <p className="text-green-700 text-lg sm:text-xl font-bold">(265) 888777332</p>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 

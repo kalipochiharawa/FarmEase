@@ -2,7 +2,7 @@ import React from 'react';
 
 const CatalogList = ({ items }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 font-poppins lg:grid-cols-4 gap-6">
       {items.length > 0 ? (
         items.map(item => (
           <div key={item.id} className="border p-4 rounded-lg shadow-lg">

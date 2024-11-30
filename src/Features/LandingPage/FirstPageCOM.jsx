@@ -46,7 +46,7 @@ const FirstPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen font-poppins bg-white">
     <FirstPageNavBar/>
       <LandingPage/>
       <CategorySlider/>
