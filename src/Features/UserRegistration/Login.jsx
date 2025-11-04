@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function App() {
+function SignUp() {
   return (
-    <div className="min-h-screen bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url('/Algricuture-background.jpg')" }}>
+    <div className="min-h-screen bg-cover font-poppins bg-center flex items-center justify-center" style={{ backgroundImage: "url('/Algricuture-background.jpg')" }}>
      
       <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-screen-xl">
 
@@ -55,9 +55,9 @@ function App() {
               Remember Me
             </label>
 
-            <a href="#" className="text-sm text-blue-600 hover:underline">
+            <Link to="/passwordrecovery" className="text-sm text-blue-600 hover:underline">
               Forgot Password?
-            </a>
+           </Link>
             
           </div>
 
@@ -78,13 +78,13 @@ function App() {
 
         <p className="mt-8 text-center">
           Don't have an account?{" "}
-          <a href="#" className="text-blue-500 hover:underline">
+          <Link to="/#" className="text-blue-500 hover:underline">
 
           <Link to="/register" className="text-blue-500 hover:underline">
               Register Now
             </Link>
             
-          </a>
+            </Link>
          </p>
         </div>
       </div>
@@ -93,4 +93,4 @@ function App() {
   );
 }
 
-export default App;
+export default SignUp;
